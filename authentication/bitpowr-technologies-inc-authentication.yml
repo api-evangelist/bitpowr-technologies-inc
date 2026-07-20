@@ -1,0 +1,37 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/bitpowr-technologies-inc-openapi.yml
+docs: https://docs.bitpowr.com/docs/authentication
+summary:
+  types:
+  - http
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows: []
+  notes: >-
+    Every request requires an Authorization header over HTTPS; unauthenticated
+    requests are rejected. Bitpowr documents two credential styles. Keys are
+    environment-scoped: test keys carry a `test_` prefix.
+schemes:
+- name: bearer
+  type: http
+  scheme: bearer
+  description: >-
+    Bearer token formed by base64-encoding the concatenation
+    `{public_key}:{secret_key}` and sending it as `Authorization: Bearer <token>`.
+    This grants admin access to all accounts. (The older raw encoded-token form is
+    documented as deprecated.)
+  sources:
+  - openapi/bitpowr-technologies-inc-openapi.yml
+  docs: https://docs.bitpowr.com/docs/authentication
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter_name: Authorization
+  scheme: Basic
+  description: >-
+    Dashboard-created API key with configurable restrictions, sent as
+    `Authorization: Basic <API_KEY>`. Preferred over full public/secret access for
+    scoped/least-privilege usage.
+  docs: https://docs.bitpowr.com/docs/get-your-api-key
