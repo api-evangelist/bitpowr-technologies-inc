@@ -1,0 +1,193 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Swap API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Swap
+paths:
+  /integration/swap/exchange:
+    post:
+      tags:
+      - Swap
+      summary: Initiate swap request
+      description: This endpoint swaps from one crypto currency to another
+      operationId: createswap
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - sourceCurrency
+              - sourceAmount
+              - destinationCurrency
+              - destinationAddress
+              type: object
+              properties:
+                sourceCurrency:
+                  type: string
+                  description: The currency you want to swap from
+                  example: BTC
+                sourceAmount:
+                  type: number
+                  description: The amount you want to swap
+                  example: '200'
+                destinationCurrency:
+                  type: string
+                  description: The currency you want to swap to
+                  example: TRON
+                destinationAddress:
+                  type: string
+                  description: The address you want to swap the asset to
+                  example: Tv...
+                refundAddress:
+                  type: string
+                  description: The address to refund the initial assets
+                  example: bc1....
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: createstake
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                example:
+                  status: success
+                  data: {}
+              example:
+                status: success
+                data: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /integration/swap/rates:
+    post:
+      tags:
+      - Swap
+      summary: Get swap rates
+      description: This endpoint returns swap rates
+      operationId: getswaprates
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - sourceCurrency
+              - sourceAmount
+              - destinationCurrency
+              type: object
+              properties:
+                sourceCurrency:
+                  type: string
+                  description: The currency you want to swap from
+                  example: BTC
+                sourceAmount:
+                  type: number
+                  description: The amount you want to swap
+                  example: '200'
+                destinationCurrency:
+                  type: string
+                  description: The currency you want to swap to
+                  example: TRON
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: createstake
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                example:
+                  status: success
+                  data: {}
+              example:
+                status: success
+                data: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /integration/swap/mininum_exchange_amount:
+    post:
+      tags:
+      - Swap
+      summary: Get minimum exchange amount
+      description: This endpoint retrieves the minimum exchange amount required for swapping operations.
+      operationId: minimumexchangeamount
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - sourceCurrency
+              - destinationCurrency
+              type: object
+              properties:
+                sourceCurrency:
+                  type: string
+                  description: The currency you want to swap from
+                  example: LTC
+                destinationCurrency:
+                  type: string
+                  description: The currency you want to swap to
+                  example: BTC
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: minimumexchangeamount
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                example:
+                  status: success
+                  data:
+                    min_amount: '0.34207888'
+                  message: Successfully fetch minimum exchange amount
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

@@ -1,0 +1,1207 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Transaction API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Transaction
+paths:
+  /transactions/estimate:
+    post:
+      tags:
+      - Transaction
+      summary: Create estimate
+      description: This endpoint returns transaction estimates
+      operationId: Createestimate
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - chain
+              - tos
+              type: object
+              properties:
+                accountId:
+                  description: The uid of the account you are trying to estimate transaction from
+                  type: string
+                  example: 0xhjds89s89d
+                subAccountId:
+                  description: The uid of the sub account you are trying to estimate transaction from
+                  type: string
+                  example: 0xhjds89s89d
+                assetId:
+                  description: The uid of the asset you want to create transaction for
+                  type: string
+                  example: 0xajhfgsufis
+                chain:
+                  description: The chain you want to estimate (BITCOIN,BITCOINCASH, LITECOIN, POLYGON, BSC, ETHEREUM)
+                  type: string
+                  example: BSC
+                token:
+                  description: The crypto token you want to estimate (USDC, USDT, USDC_MATIC, USDT_MATIC, USDC_BSC)
+                  type: string
+                  example: shib
+                operation:
+                  description: The custom operation for sending transactions. Default is transfer for all transactions except Stellar which is payment for existing account and create_account for new account. We current support transfer, transferFrom, approve, change_trust, payment, create_account
+                  type: string
+                  example: '0xF845f557b16F2399b9807129f40773F5c804fcf8'
+                from:
+                  description: The crypto address you're sending from
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - 0xaTYU9876hgjhku76tyujhj9
+                fromUtxo:
+                  description: The utxo to spend from when sending transactions
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      txHash:
+                        description: The hash of the utxo
+                        type: string
+                        example: bc13p3ijh4iu5r5u
+                      address:
+                        description: The address of the utxo
+                        type: string
+                        example: bc13p3ijh4iu5r5u
+                      index:
+                        description: The index of the utxo
+                        type: number
+                        example: 2
+                  example:
+                  - address: bc13p3ijh4iu5r5u
+                    index: 1
+                    txHash: '12444'
+                tos:
+                  description: The crypto address you're sending to and the value
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      address:
+                        description: The address you are sending to
+                        type: string
+                        example: 0xaTYU9876hgjhku76tyujhj9
+                      value:
+                        description: The amount you are sending to the address
+                        type: string
+                        example: '0.001'
+                  example:
+                  - address: 0xaTYU9876hgjhku76tyujhj9
+                    value: '0.001'
+                feeAddress:
+                  description: Address to use for paying transactions. Available only on EVM/TVM transactions after approve transaction must have been created. It supported natively by Solana and Stellar (Fee Bump Transactions).
+                  type: string
+                  example: bc1eieieiee
+                spenderAddress:
+                  description: Address that will be allowed to spend your tokens.
+                  type: string
+                  example: bc1eieieiee
+                changeAddress:
+                  description: Address to use for change.
+                  type: string
+                  example: bc1eieieiee
+                minUtxoValue:
+                  description: The minimum value of a UTXO (for BTC, LTC, BCH and DOGE).
+                  type: string
+                  example: '0.0001'
+                maxUtxoValue:
+                  description: The maximum value of a UTXO (for BTC, LTC, BCH and DOGE).
+                  type: string
+                  example: '0.0001'
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Createestimate
+                required:
+                - status
+                - fee
+                type: object
+                properties:
+                  status:
+                    type: string
+                  fee:
+                    title: Fee
+                    required:
+                    - gasLimit
+                    - gasPrice
+                    type: object
+                    properties:
+                      gasLimit:
+                        type: integer
+                        format: int32
+                      gasPrice:
+                        type: number
+                    example:
+                      gasLimit: 21000
+                      gasPrice: 46.373333333
+                example:
+                  status: success
+                  fee:
+                    gasLimit: 21000
+                    gasPrice: 46.373333333
+              example:
+                status: success
+                fee:
+                  gasLimit: 21000
+                  gasPrice: 46.373333333
+      deprecated: false
+      security:
+      - bearer: []
+  /transactions:
+    post:
+      tags:
+      - Transaction
+      summary: Create transactions
+      description: This endpoint creates transactions
+      operationId: Createtransactions
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - walletId
+              - assetType
+              - cryptoAmount
+              - address
+              type: object
+              properties:
+                walletId:
+                  description: The uid of the account/wallet you want to create transaction for.
+                  type: string
+                  example: 8be77454-cf2d-48d3-8703-a144de90bc58
+                assetType:
+                  description: The assetType you want to send (BTC,USDT,LTC,BCH)
+                  type: string
+                  example: BTC
+                cryptoAmount:
+                  format: double
+                  description: The amount of asset to be sent. Deprecated for `tos`
+                  type: number
+                  example: 2.0e-06
+                  deprecated: true
+                address:
+                  description: The receiving address. Deprecated for `tos`
+                  type: string
+                  example: '0xF845f557b16F2399b9807129f40773F5c804fcf8'
+                  deprecated: true
+                fee:
+                  description: The transaction fee.
+                  type: string
+                  example: '50'
+                fromAddress:
+                  description: The address from which amount will be sent from. Deprecated for `from`
+                  type: string
+                  example: '0xF845f557b16F2399b9807129f40773F5c804fcf8'
+                from:
+                  description: The crypto addresses you're sending from
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - 0xaTYU9876hgjhku76tyujhj9
+                fromUtxo:
+                  description: The utxo to spend from when sending transactions
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      txHash:
+                        description: The hash of the utxo
+                        type: string
+                        example: bc13p3ijh4iu5r5u
+                      address:
+                        description: The address of the utxo
+                        type: string
+                        example: bc13p3ijh4iu5r5u
+                      index:
+                        description: The index of the utxo
+                        type: number
+                        example: 2
+                  example:
+                  - address: bc13p3ijh4iu5r5u
+                    index: 1
+                    txHash: '12444'
+                tos:
+                  description: The crypto addresses you're sending to and the value
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      address:
+                        description: The address you are sending to
+                        type: string
+                        example: 0xaTYU9876hgjhku76tyujhj9
+                      value:
+                        description: The amount you are sending to the address
+                        type: string
+                        example: '0.001'
+                  example:
+                  - address: 0xaTYU9876hgjhku76tyujhj9
+                    value: '0.001'
+                satsPerByte:
+                  description: Number of sats per byte to pay for the transaction (for BTC, LTC, BCH and DOGE)
+                  type: number
+                  example: 4
+                minUtxoValue:
+                  description: The minimum value of a UTXO (for BTC, LTC, BCH and DOGE).
+                  type: string
+                  example: '0.0001'
+                maxUtxoValue:
+                  description: The maximum value of a UTXO (for BTC, LTC, BCH and DOGE).
+                  type: string
+                  example: '0.0001'
+                doubleSpend:
+                  description: Transaction should override previous transaction (for BTC, LTC, BCH and DOGE).
+                  type: boolean
+                  example: false
+                gasLimit:
+                  description: The maximum price a user is willing to pay when sending a transaction (for ETH,POLYGON and BSC).
+                  type: string
+                  example: ''
+                gasPrice:
+                  description: The cost necessary to perform a transaction on the network (for ETH,POLYGON and BSC).
+                  type: string
+                  example: ''
+                feeLimit:
+                  description: Fee limit for submitting transactions on TRON and Stellar
+                  type: number
+                  example: 100
+                description:
+                  description: The details of the transaction..
+                  type: string
+                  example: ''
+                idempotencyKey:
+                  description: Idempotency key for the transaction. Ensure this is a unique reference for each transaction. Dont use the same idempotency key for multiple transactions. You should use uuid or ulid
+                  type: string
+                  example: ''
+                memo:
+                  description: The memo string for chains like Stellar, Bantu
+                  type: string
+                  example: The quick brown fox jumps over a lazy dog
+                operation:
+                  description: The custom operation for sending transactions. Default is transfer for all transactions except Stellar which is payment for existing account and create_account for new account. We current support transfer, transferFrom, approve, change_trust, payment, create_account
+                  type: string
+                  example: '0xF845f557b16F2399b9807129f40773F5c804fcf8'
+                queued:
+                  description: Submit transactions to the transaction relayer (A queue system). To submit directly to the blockchain, should be false. Hash only comes with the response when its submitted directly.
+                  type: boolean
+                  example: false
+                feeAddress:
+                  description: Address to use for paying transactions. Available only on EVM/TVM transactions after approve transaction must have been created. It supported natively by Solana and Stellar (Fee Bump Transactions).
+                  type: string
+                  example: bc1eieieiee
+                spenderAddress:
+                  description: Address you want to approve to spend from the address you specify in the fromAddress.
+                  type: string
+                  example: bc1eieieiee
+                changeAddress:
+                  description: Address to use as change address instead of generating a new one. Must be an address generated on Bitpowr in the same wallet id
+                  type: string
+                  example: bc1eieieiee
+                changeAddressType:
+                  description: the type of address to generate for change address. e.g segwit, wrappedsegwit, legacy
+                  type: string
+                  example: segwit
+                subAccountId:
+                  description: The sub account id you want to send the transaction from
+                  type: string
+                  example: 1922-j223
+                customerId:
+                  description: The customer id making this transaction
+                  type: string
+                  example: 1922-j223
+        required: false
+      responses:
+        '201':
+          description: Created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Createtransactions
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data2
+                    required:
+                    - hash
+                    - status
+                    - amount
+                    - uid
+                    - assetType
+                    - chain
+                    - fee
+                    - ref
+                    type: object
+                    properties:
+                      hash:
+                        type: string
+                      status:
+                        type: string
+                      amount:
+                        type: string
+                      uid:
+                        type: string
+                      assetType:
+                        type: string
+                      chain:
+                        type: string
+                      fee:
+                        type: string
+                      ref:
+                        type: string
+                    example:
+                      hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                      status: PENDING
+                      amount: '0.00012741'
+                      uid: 6680c116-c803-4e46-aa99-2f261cd216ac
+                      assetType: BTC
+                      chain: BITCOIN
+                      fee: '0.00003034'
+                      ref: BTP-Up5Ubzb0ot#H4LtW2VbdrxoxMt7Wy1
+                example:
+                  status: success
+                  data:
+                    hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                    status: PENDING
+                    amount: '0.00012741'
+                    uid: 6680c116-c803-4e46-aa99-2f261cd216ac
+                    assetType: BTC
+                    chain: BITCOIN
+                    fee: '0.00003034'
+                    ref: BTP-Up5Ubzb0ot#H4LtW2VbdrxoxMt7Wy1
+              example:
+                status: success
+                data:
+                  status: PENDING
+                  amount: '0.000002'
+                  uid: cab694fd-91d1-403a-bf2b-2d71c1ab64da
+                  assetType: ETH
+                  chain: ETHEREUM
+                  network: TESTNET
+                  fee: '0.00001051124865'
+                  gasLimit: '21000'
+                  gasPrice: '500535650'
+                  description: null
+                  ref: BTP-SdNDmm6yPkbI3wPst0GZD#FWaqMHVG
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Transaction
+      summary: List transactions
+      description: This endpoint returns and filters transactions in your account by `accountId`,`assetId`, `address`, `hash`, `asset`.
+      operationId: Listtransactions
+      parameters:
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: perPage
+        in: query
+        description: The number of transactions per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 4
+      - name: orderBy
+        in: query
+        description: Sort transactions by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: desc
+      - name: accountId
+        in: query
+        description: Filter transactions by accountId.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: gjhsj-nbsjbhsk-kjbhgshjs
+      - name: subAccountId
+        in: query
+        description: Filter transactions by sub account Id.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: e412-4e30-aa7eb222...
+      - name: assetId
+        in: query
+        description: Filter transactions by assetId.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: a2888c03-e412-4e30-aa7eb222-dfd3c6a6
+      - name: address
+        in: query
+        description: Filter transactions by address.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: n3TdwXSTaBuVrun8hcpubjAKoJusPt4sq4
+      - name: hash
+        in: query
+        description: Filter transactions by hash.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: 00000000b7a97b9b783bafa7df0854a3d006e8647d8473256509c5d7040b59be
+      - name: asset
+        in: query
+        description: Filter transactions by asset.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: ''
+      - name: type
+        in: query
+        description: Filter transactions by type.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: DEPOSIT
+      - name: assetType
+        in: query
+        description: Filter transactions by assetType.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: BTC
+      - name: chain
+        in: query
+        description: Filter transactions by chain.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: BITCOIN
+      - name: status
+        in: query
+        description: Filter transactions by status.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: SUCCESS
+      - name: subStatus
+        in: query
+        description: Filter transactions by subStatus.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: SUCCESS
+      - name: category
+        in: query
+        description: Filter transactions by category.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: ''
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Listtransactions
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      title: Data1
+                      required:
+                      - uid
+                      - status
+                      - type
+                      - walletId
+                      - depositId
+                      - transferId
+                      - address
+                      - hash
+                      - confirmation
+                      - transactionRef
+                      - description
+                      - amount
+                      - dollarRate
+                      - dollarAmount
+                      - assetId
+                      - accountId
+                      - createdAt
+                      - completedAt
+                      - cancelledAt
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        status:
+                          type: string
+                        type:
+                          type: string
+                        walletId:
+                          type: string
+                        depositId:
+                          type: string
+                        transferId:
+                          type: string
+                          nullable: true
+                        address:
+                          type: string
+                        hash:
+                          type: string
+                        confirmation:
+                          type: integer
+                          format: int32
+                        transactionRef:
+                          type: string
+                        description:
+                          type: string
+                          nullable: true
+                        amount:
+                          type: string
+                        dollarRate:
+                          type: string
+                        dollarAmount:
+                          type: string
+                        assetId:
+                          type: string
+                        accountId:
+                          type: string
+                        createdAt:
+                          type: string
+                        completedAt:
+                          type: string
+                          nullable: true
+                        cancelledAt:
+                          type: string
+                          nullable: true
+                      example:
+                        uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                        status: PENDING
+                        type: DEPOSIT
+                        walletId: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                        depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                        transferId: null
+                        address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                        hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                        confirmation: 0
+                        transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                        description: null
+                        amount: '0.45'
+                        dollarRate: '33715.32'
+                        dollarAmount: '15171.894'
+                        assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                        accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                        createdAt: '2021-06-23T21:17:08.761Z'
+                        completedAt: null
+                        cancelledAt: null
+                    description: ''
+                example:
+                  status: success
+                  data:
+                  - uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                    status: PENDING
+                    type: DEPOSIT
+                    walletId: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                    depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                    transferId: null
+                    address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                    hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                    confirmation: 0
+                    transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                    description: null
+                    amount: '0.45'
+                    dollarRate: '33715.32'
+                    dollarAmount: '15171.894'
+                    assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                    accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                    createdAt: '2021-06-23T21:17:08.761Z'
+                    completedAt: null
+                    cancelledAt: null
+              example:
+                status: success
+                page: '1'
+                totalPages: 86
+                data:
+                - uid: 4b567837-7bed-4e1a-bdde-035100aa0e6e
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: a834591c77de0e65826f5409a4520bccad0c1a55a18ec98f3d1fe0d394f8270e
+                  confirmation: 1
+                  depositId: null
+                  transferId: 14e97ad1-ae15-4aa5-8aa0-aa17ce79961a
+                  address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                  fromAddress: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                  transactionRef: BTP-9852n1C6b3MVbju9D0gIDXEy1irBen
+                  description: Operation withdrawFrozenAsset for ENERGY. Amount (1)
+                  amount: 0
+                  dollarRate: 0.1205
+                  dollarAmount: 0
+                  assetId: d7ccdc3f-9660-4ef7-8307-1ec7eef689b1
+                  assetType: TRON
+                  chain: TRON
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2024-04-12T15:36:54.565Z'
+                  updatedAt: '2024-04-12T15:39:15.380Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 7956d820-0b65-45ea-98d7-aa9e96befe34
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: '0xac18e904677098f5e1fe08f33058326cbafdb658ca7cad99c36479d83f355acd'
+                  confirmation: 1
+                  depositId: null
+                  transferId: c1c0394b-43a6-404d-989c-57e454d850c0
+                  address: '0x71aa91309607050952b085f252209f2e1f18eda2'
+                  fromAddress: '0xed29be90b97ffcf89bfbe2a1321dd0a8c7413549'
+                  transactionRef: BTP-Ldbm5YgcVjKILjKdfQFxNLg6iaCY68
+                  description: null
+                  amount: 0.02999761
+                  dollarRate: 3333.265
+                  dollarAmount: 99.99
+                  assetId: b4949eed-d19d-46c5-9153-8f5e3d3c39c4
+                  assetType: ETH
+                  chain: ETHEREUM
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2024-04-04T10:19:13.945Z'
+                  updatedAt: '2024-04-04T10:22:45.799Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 79f5d3f9-0973-418b-b6ee-1147b385c2f3
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: 7eceb4485e94c1c3ca573780385fad2a41c254eb78876f7a8d075b2048efdd98
+                  confirmation: 1
+                  depositId: null
+                  transferId: ee7fe3ef-4178-42d7-895b-99b3c6a5226a
+                  address: 2N35FKTBaEAJ8TJA98B4h7tfmLoVUfp2qNY
+                  fromAddress: null
+                  transactionRef: BTP-lBGKGJEqOwr7gRXTqFTSiepSiyQVYW
+                  description: null
+                  amount: 0.00030145
+                  dollarRate: 66246.295
+                  dollarAmount: 19.97
+                  assetId: 8a22109a-d1a4-4819-89fb-6449e4739292
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2024-04-04T10:12:47.314Z'
+                  updatedAt: '2024-04-04T11:48:07.668Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 58486c89-127a-4713-a958-2c93300c3e97
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: 2N35FKTBaEAJ8TJA98B4h7tfmLoVUfp2qNY
+                  fromAddress: null
+                  transactionRef: BTP-4zKvJtHRD9DzYTxeXJviIVb9CFYIdj
+                  description: null
+                  amount: 0.00030175
+                  dollarRate: 66246.295
+                  dollarAmount: 19.99
+                  assetId: 794b7c46-b9ea-4467-bf13-e4b985c294c1
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: '"Invalid Wallet Authorization"'
+                  errorMessage: '"Invalid Wallet Authorization"'
+                  createdAt: '2024-04-04T10:10:19.784Z'
+                  updatedAt: '2024-04-04T10:10:21.669Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: d3fdee60-2a2d-48bc-a39b-6906628064df
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: 2N35FKTBaEAJ8TJA98B4h7tfmLoVUfp2qNY
+                  fromAddress: null
+                  transactionRef: BTP-Er4boNc6SpjVoMJMPxngRJSegvCpiB
+                  description: null
+                  amount: 0.00030175
+                  dollarRate: 66246.295
+                  dollarAmount: 19.99
+                  assetId: 794b7c46-b9ea-4467-bf13-e4b985c294c1
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: '"Invalid Wallet Authorization"'
+                  errorMessage: '"Invalid Wallet Authorization"'
+                  createdAt: '2024-04-04T10:06:47.135Z'
+                  updatedAt: '2024-04-04T10:06:51.408Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: f84d7b1a-30d1-4e8d-bf56-2a0f0bafcebc
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: e834a5a7d9a1baedde2c692f3f2f12a2acc82f4affd845aaefc522d61b70a249
+                  confirmation: 1
+                  depositId: null
+                  transferId: 7b31f83d-cb89-47c6-aeb7-c82432d2b63b
+                  address: TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF
+                  fromAddress: TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF
+                  transactionRef: BTP-LLE3Bxzk7ghLhftN90UufQTmax5Vqu
+                  description: Operation freezeTron for BANDWIDTH. Amount (1)
+                  amount: 1
+                  dollarRate: 0.1179
+                  dollarAmount: 0.12
+                  assetId: d7ccdc3f-9660-4ef7-8307-1ec7eef689b1
+                  assetType: TRON
+                  chain: TRON
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2024-04-03T11:48:43.635Z'
+                  updatedAt: '2024-04-03T11:51:00.508Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: c28fd6ac-cba0-4eee-b447-8be3ad2a4cd6
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: d2ae3e6f43ae2bc317a938a9345399343cca56bf9ee25d5d31ec3b62a266c838
+                  confirmation: 1630570
+                  depositId: 7da48753-eedd-45b3-b061-31da215f4427
+                  transferId: null
+                  address: TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF
+                  fromAddress: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                  transactionRef: TRX-eXDiJ7tKE1GgOZ3S99H1OTSLGJ2Q87
+                  description: null
+                  amount: 2.430846
+                  dollarRate: 0.1164
+                  dollarAmount: 0.2829504744
+                  assetId: d7ccdc3f-9660-4ef7-8307-1ec7eef689b1
+                  assetType: TRON
+                  chain: TRON
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2024-04-02T15:47:54.639Z'
+                  updatedAt: '2024-04-02T15:48:02.667Z'
+                  completedAt: '2024-04-02T15:48:02.667Z'
+                  cancelledAt: null
+                - uid: c07ebb3b-cd59-45a0-b3c4-630b20aaf1fc
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: GBMXMO5BLWI6WLMQXVNNNDGBLASPX2RRBI4RT2EFHHPLRYQMDPACXTRM
+                  fromAddress: GB2MJWWKL24RXUGSS6TWNGSD42PLPHDAM46EPR56HETQSZUVXQS4KITY
+                  transactionRef: BTP-n59bAft2UPcQGRFr953F7HYhtqFtdp
+                  description: null
+                  amount: 39.03866314
+                  dollarRate: 0.127822
+                  dollarAmount: 4.99
+                  assetId: f7893ba3-b92d-4cf4-9cca-f2062406de34
+                  assetType: XLM
+                  chain: STELLAR
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: '"Invalid Wallet Authorization"'
+                  errorMessage: '"Invalid Wallet Authorization"'
+                  createdAt: '2024-04-02T14:04:07.296Z'
+                  updatedAt: '2024-04-02T14:04:09.012Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 5aa166a6-0dff-40ec-abc2-370c8dbbaa56
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: GBMXMO5BLWI6WLMQXVNNNDGBLASPX2RRBI4RT2EFHHPLRYQMDPACXTRM
+                  fromAddress: GB2MJWWKL24RXUGSS6TWNGSD42PLPHDAM46EPR56HETQSZUVXQS4KITY
+                  transactionRef: BTP-U99QnKhMpgy8c13jXdGgxw8lEBdzNm
+                  description: null
+                  amount: 39.03866314
+                  dollarRate: 0.127822
+                  dollarAmount: 4.99
+                  assetId: f7893ba3-b92d-4cf4-9cca-f2062406de34
+                  assetType: XLM
+                  chain: STELLAR
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: '"Invalid Wallet Authorization"'
+                  errorMessage: '"Invalid Wallet Authorization"'
+                  createdAt: '2024-04-02T14:00:41.478Z'
+                  updatedAt: '2024-04-02T14:00:45.661Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: d7027bc4-b3ea-48d7-8df5-2446b4b96ad3
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: GBMXMO5BLWI6WLMQXVNNNDGBLASPX2RRBI4RT2EFHHPLRYQMDPACXTRM
+                  fromAddress: GB2MJWWKL24RXUGSS6TWNGSD42PLPHDAM46EPR56HETQSZUVXQS4KITY
+                  transactionRef: BTP-EVsT30QHxBTscJ2pOapSP5z1TXqbf1
+                  description: null
+                  amount: 93.88055264
+                  dollarRate: 0.127822
+                  dollarAmount: 12
+                  assetId: f7893ba3-b92d-4cf4-9cca-f2062406de34
+                  assetType: XLM
+                  chain: STELLAR
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: '"Invalid Wallet Authorization"'
+                  errorMessage: '"Invalid Wallet Authorization"'
+                  createdAt: '2024-04-02T13:58:56.745Z'
+                  updatedAt: '2024-04-02T13:59:00.839Z'
+                  completedAt: null
+                  cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+  /transactions/utxos:
+    post:
+      tags:
+      - Transaction
+      summary: Fetch Unspent Transactions for UTXO chains
+      description: This endpoint fetches available UTXO
+      operationId: fetchutxos
+      parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - chain
+              - accountId
+              type: object
+              properties:
+                accountId:
+                  description: The uid of the account you want to fetch UTXO from
+                  type: string
+                  example: 2333-33
+                subAccountId:
+                  description: The uid of the sub account you are trying to fetch UTXO from
+                  type: string
+                  example: 2233-33
+                chain:
+                  description: The chain you want to fetch UTXO from
+                  type: string
+                  example: BITCOIN
+                fromAddresses:
+                  description: The addresses you want to fetch UTXO from
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - bc1....
+                amount:
+                  description: The minimum amount you want to fetch UTXO for
+                  type: string
+                  example: '0.0001'
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: fetchutxos
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        address:
+                          description: The address you are sending to
+                          type: string
+                          example: bc1
+                        index:
+                          description: The address you are sending to
+                          type: number
+                          example: 1
+                        hash:
+                          description: The address you are sending to
+                          type: string
+                          example: a1...
+                        txHash:
+                          description: The address you are sending to
+                          type: string
+                          example: a1...
+                        amount:
+                          description: The amount you are sending to the address
+                          type: string
+                          example: '0.001'
+                    example:
+                    - txHash: 74f144bb044fedbce22c70387a9715e44fc340aa3577d1ff9fc245c69e08ecab
+                      hash: 74f144bb044fedbce22c70387a9715e44fc340aa3577d1ff9fc245c69e08ecab
+                      index: 1
+                      address: tb1qk2yn40dar8ms3ymqn86gt7y3nxqy835yn32j4c
+                      amount: 0.00023014
+                example:
+                  status: success
+                  fee:
+                    gasLimit: 21000
+                    gasPrice: 46.373333333
+              example:
+                status: success
+                data:
+                - txHash: 9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1
+                  hash: 9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1
+                  index: 1
+                  address: tb1qe92jn2a75zkkvmxj5ynp2sy6zapuj4hcpvyww8
+                  amount: 0.00033825
+                - txHash: 5d3c0e049cd9d43c136b479f4c26f49582df74b34894ed2b88313232b7fdfe18
+                  hash: 5d3c0e049cd9d43c136b479f4c26f49582df74b34894ed2b88313232b7fdfe18
+                  index: 0
+                  address: tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv
+                  amount: 1.0e-05
+                - txHash: ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66
+                  hash: ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66
+                  index: 0
+                  address: tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv
+                  amount: 0.0002
+      deprecated: false
+      security:
+      - bearer: []
+  /transactions/{transaction_id}:
+    get:
+      tags:
+      - Transaction
+      summary: Get transaction
+      description: This endpoint retrieves transactions by `id`
+      operationId: Gettransaction
+      parameters:
+      - name: transaction_id
+        in: path
+        description: The transaction Id of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 1234567890njbj
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Gettransaction
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data3
+                    required:
+                    - uid
+                    - status
+                    - type
+                    - depositId
+                    - transferId
+                    - address
+                    - hash
+                    - confirmation
+                    - transactionRef
+                    - description
+                    - amount
+                    - dollarRate
+                    - dollarAmount
+                    - assetId
+                    - accountId
+                    - createdAt
+                    - completedAt
+                    - cancelledAt
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      status:
+                        type: string
+                      type:
+                        type: string
+                      depositId:
+                        type: string
+                      transferId:
+                        type: string
+                        nullable: true
+                      address:
+                        type: string
+                      hash:
+                        type: string
+                      confirmation:
+                        type: integer
+                        format: int32
+                      transactionRef:
+                        type: string
+                      description:
+                        type: string
+                        nullable: true
+                      amount:
+                        type: string
+                      dollarRate:
+                        type: string
+                      dollarAmount:
+                        type: string
+                      assetId:
+                        type: string
+                      accountId:
+                        type: string
+                      createdAt:
+                        type: string
+                      completedAt:
+                        type: string
+                        nullable: true
+                      cancelledAt:
+                        type: string
+                        nullable: true
+                    example:
+                      uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                      status: PENDING
+                      type: DEPOSIT
+                      depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                      transferId: null
+                      address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                      hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                      confirmation: 0
+                      transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                      description: null
+                      amount: '0.45'
+                      dollarRate: '33715.32'
+                      dollarAmount: '15171.894'
+                      assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                      accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                      createdAt: '2021-06-23T21:17:08.761Z'
+                      completedAt: null
+                      cancelledAt: null
+                example:
+                  status: success
+                  data:
+                    uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                    status: PENDING
+                    type: DEPOSIT
+                    depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                    transferId: null
+                    address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                    hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                    confirmation: 0
+                    transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                    description: null
+                    amount: '0.45'
+                    dollarRate: '33715.32'
+                    dollarAmount: '15171.894'
+                    assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                    accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                    createdAt: '2021-06-23T21:17:08.761Z'
+                    completedAt: null
+                    cancelledAt: null
+              example:
+                status: success
+                data:
+                - uid: 4b567837-7bed-4e1a-bdde-035100aa0e6e
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: a834591c77de0e65826f5409a4520bccad0c1a55a18ec98f3d1fe0d394f8270e
+                  confirmation: 1
+                  depositId: null
+                  transferId: 14e97ad1-ae15-4aa5-8aa0-aa17ce79961a
+                  address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                  fromAddress: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                  transactionRef: BTP-9852n1C6b3MVbju9D0gIDXEy1irBen
+                  description: Operation withdrawFrozenAsset for ENERGY. Amount (1)
+                  amount: 0
+                  dollarRate: 0.1205
+                  dollarAmount: 0
+                  assetId: d7ccdc3f-9660-4ef7-8307-1ec7eef689b1
+                  assetType: TRON
+                  chain: TRON
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2024-04-12T15:36:54.565Z'
+                  updatedAt: '2024-04-12T15:39:15.380Z'
+                  completedAt: null
+                  cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

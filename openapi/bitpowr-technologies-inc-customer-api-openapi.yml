@@ -1,0 +1,728 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Customer API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Customer
+paths:
+  /customers:
+    post:
+      tags:
+      - Customer
+      summary: Create customer
+      description: This endpoint creates a new customer
+      operationId: createcustomer
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - name
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the customer
+                  example: Samuel
+                email:
+                  type: string
+                  description: The email of the customer
+                  example: name@domain.com
+                phone:
+                  type: string
+                  description: The phone number of the customer
+                  example: '+243912345678'
+                address:
+                  type: object
+                  description: The customers address
+                  properties:
+                    city:
+                      type: string
+                      description: The customer's  city
+                    country:
+                      type: string
+                      description: The customer's  country
+                    state:
+                      type: string
+                      description: The customer's state
+                    street:
+                      type: string
+                      description: The customer's address street
+                    zipcode:
+                      type: number
+                      description: The customer's address zipcode
+                  example:
+                    city: Wilmington
+                    country: US
+                    state: Delaware
+                    street: 1a swew
+                    zipcode: 19221
+                description:
+                  type: string
+                  description: Description about the customer
+                  example: Customer signed up via Twitter
+                emailUnique:
+                  type: boolean
+                  description: Check if email is unique. To avoid duplicates customer with the same email
+                  example: false
+                metaData:
+                  type: object
+                  description: Extra customers data
+                  example:
+                    product: wimy
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: createcustomer
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                example:
+                  status: success
+                  data:
+                    uid: 5ad3c372-1370-473c-b37f-c08c4dbd06d3
+                    name: FName LName
+                    email: fnamelname@gmail.com
+                    customerRef: null
+                    externalId: 3d5638c6-37e6-4b56-8632-8cf9acb1f8b0
+                    description: null
+                    metaData:
+                      product: wimy
+                    address:
+                      city: Wilmington
+                      country: US
+                      state: Delaware
+                      street: 1a swew
+                      zipcode: 19221
+                    phone: null
+                    createdAt: '2023-02-15T13:59:37.299Z'
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    mode: TEST
+              example:
+                status: success
+                data:
+                  id: 41
+                  uid: e310fd55-4ebd-4cd1-b42a-a3ed096de10e
+                  guid: c5d82d84-6f77-49f9-9023-f1fc9eb6d263
+                  name: Samuale
+                  email: null
+                  customerRef: null
+                  externalId: c321de14-be49-47a5-a92c-32fc4c4bf18c
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: null
+                  deletedAt: null
+                  createdAt: '2024-04-16T19:26:39.684Z'
+                  updatedAt: '2024-04-16T19:26:39.685Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Customer
+      summary: Get customers
+      description: This endpoint returns customers
+      operationId: getcustomers
+      parameters:
+      - name: perPage
+        in: query
+        description: The number of customers per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort customers by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: getcustomers
+                required:
+                - page
+                - totalPages
+                - data
+                type: object
+                properties:
+                  page:
+                    type: number
+                  totalPages:
+                    type: number
+                  data:
+                    type: object
+                example:
+                  status: success
+                  page: 1
+                  totalPages: 2
+                  data:
+                  - uid: 5ad3c372-1370-473c-b37f-c08c4dbd06d3
+                    name: FName LName
+                    email: fnamelname@gmail.com
+                    customerRef: null
+                    externalId: 3d5638c6-37e6-4b56-8632-8cf9acb1f8b0
+                    description: null
+                    metaData:
+                      product: wimy
+                    address:
+                      city: Wilmington
+                      country: US
+                      state: Delaware
+                      street: 1a swew
+                      zipcode: 19221
+                    phone: null
+                    createdAt: '2023-02-15T13:59:37.299Z'
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    mode: TEST
+              example:
+                status: success
+                page: 1
+                totalPages: 1
+                data:
+                - id: 16
+                  uid: af9b347c-ca39-4bf1-a581-6f07fbfb7afc
+                  guid: f77b6d9a-a0e2-44d2-a2d1-d928a95936b9
+                  name: Peter Olawuyi
+                  email: olawuyipeter19@gmail.com
+                  customerRef: null
+                  externalId: 3da69e34-08fd-47ff-9173-fe17872bc3cb
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 07037228579
+                  deletedAt: null
+                  createdAt: '2023-01-18T12:24:53.257Z'
+                  updatedAt: '2023-01-18T12:24:53.257Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+                - id: 17
+                  uid: 034066b7-b98e-41ff-9453-c65221ddaa5c
+                  guid: 24279076-97fa-490f-865f-e45edb41fc2b
+                  name: Temi
+                  email: olawuyipeter900@gmail.com
+                  customerRef: null
+                  externalId: 13bd25d8-980e-40af-82a8-740bd7446da0
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 0814014086034
+                  deletedAt: null
+                  createdAt: '2023-01-18T12:28:18.306Z'
+                  updatedAt: '2023-01-18T12:28:18.307Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+                - id: 37
+                  uid: 39cd5806-7b04-45c3-811d-6f9ff9d5b8c4
+                  guid: a5010920-1d72-4dcc-ab46-c35b3172bf58
+                  name: Features
+                  email: willow@mailinator.com
+                  customerRef: null
+                  externalId: 21d3f0ee-f3c8-4a11-af96-8d92400a9bed
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 08140140860
+                  deletedAt: null
+                  createdAt: '2024-03-22T10:26:25.847Z'
+                  updatedAt: '2024-03-22T10:26:25.848Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+                - id: 38
+                  uid: a830fcbe-6c00-470e-8e27-7875ed285434
+                  guid: b4a315fc-968a-428e-9854-ca3ebb65166e
+                  name: Peter Olawuyi
+                  email: olawuyipeter18@gmail.com
+                  customerRef: null
+                  externalId: 90bce4b4-a7a6-4f4b-8111-de263b2c927d
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 07037228579
+                  deletedAt: null
+                  createdAt: '2024-03-22T16:59:38.434Z'
+                  updatedAt: '2024-03-22T16:59:38.434Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+                - id: 39
+                  uid: 15ab6492-290b-4eb2-bd02-f02ed86be671
+                  guid: 731fe40d-b84c-4230-8835-b6a038b915ff
+                  name: Address BTC
+                  email: teju@mailinator.com
+                  customerRef: null
+                  externalId: 6f9843a0-e532-4c97-8900-311a7a5ee9bf
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 08140140860
+                  deletedAt: null
+                  createdAt: '2024-03-25T10:32:24.739Z'
+                  updatedAt: '2024-03-25T10:32:24.740Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+                - id: 40
+                  uid: 62e78fff-9c21-46e4-b1f6-66a09bf2012f
+                  guid: 31464213-068c-43f1-bf4c-8517f49fcf2c
+                  name: Features
+                  email: dami@mailinator.com
+                  customerRef: null
+                  externalId: a8e3c92d-08ae-45a9-81b0-1a38eb026f14
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 08140140860
+                  deletedAt: null
+                  createdAt: '2024-04-03T18:10:43.857Z'
+                  updatedAt: '2024-04-03T18:10:43.857Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+                - id: 41
+                  uid: e310fd55-4ebd-4cd1-b42a-a3ed096de10e
+                  guid: c5d82d84-6f77-49f9-9023-f1fc9eb6d263
+                  name: Samuale
+                  email: null
+                  customerRef: null
+                  externalId: c321de14-be49-47a5-a92c-32fc4c4bf18c
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: null
+                  deletedAt: null
+                  createdAt: '2024-04-16T19:26:39.684Z'
+                  updatedAt: '2024-04-16T19:26:39.685Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+      deprecated: false
+      security:
+      - bearer: []
+  /customers/{customerId}:
+    get:
+      tags:
+      - Customer
+      summary: Get customer by id
+      description: This endpoint fetches a customer by it `uid`
+      operationId: Getcustomer
+      parameters:
+      - name: customerId
+        in: path
+        description: The uid of the customer you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 6928a43f-a042-4905-bde8-8523d7da886912345
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: createcustomer
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                example:
+                  status: success
+                  data:
+                    uid: 5ad3c372-1370-473c-b37f-c08c4dbd06d3
+                    name: FName LName
+                    email: fnamelname@gmail.com
+                    customerRef: null
+                    externalId: 3d5638c6-37e6-4b56-8632-8cf9acb1f8b0
+                    description: null
+                    metaData:
+                      product: wimy
+                    address:
+                      city: Wilmington
+                      country: US
+                      state: Delaware
+                      street: 1a swew
+                      zipcode: 19221
+                    phone: null
+                    createdAt: '2023-02-15T13:59:37.299Z'
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    mode: TEST
+              example:
+                status: success
+                data:
+                  id: 17
+                  uid: 034066b7-b98e-41ff-9453-c65221ddaa5c
+                  guid: 24279076-97fa-490f-865f-e45edb41fc2b
+                  name: Temi
+                  email: olawuyipeter900@gmail.com
+                  customerRef: null
+                  externalId: 13bd25d8-980e-40af-82a8-740bd7446da0
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 0814014086034
+                  deletedAt: null
+                  createdAt: '2023-01-18T12:28:18.306Z'
+                  updatedAt: '2024-04-16T19:32:10.290Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+      deprecated: false
+      security:
+      - bearer: []
+    post:
+      tags:
+      - Customer
+      summary: Update Customer info.
+      description: This endpoint updates a customer's information.
+      operationId: Updatecustomer
+      parameters:
+      - name: customerId
+        in: path
+        description: The uid of the customer you want to work with.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 6928a43f-a042-4905-bde8-8523d7d...
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - name
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the customer
+                  example: Samuel
+                email:
+                  type: string
+                  description: The email of the customer
+                  example: name@domain.com
+                phone:
+                  type: string
+                  description: The phone number of the customer
+                  example: '+243912345678'
+                address:
+                  type: object
+                  description: The customers address
+                  properties:
+                    city:
+                      type: string
+                      description: The customer's  city
+                    country:
+                      type: string
+                      description: The customer's  country
+                    state:
+                      type: string
+                      description: The customer's state
+                    street:
+                      type: string
+                      description: The customer's address street
+                    zipcode:
+                      type: number
+                      description: The customer's address zipcode
+                  example:
+                    city: Wilmington
+                    country: US
+                    state: Delaware
+                    street: 1a swew
+                    zipcode: 19221
+                description:
+                  type: string
+                  description: Description about the customer
+                  example: Customer signed up via Twitter
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: createcustomer
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                example:
+                  status: success
+                  data:
+                    uid: 5ad3c372-1370-473c-b37f-c08c4dbd06d3
+                    name: FName LName
+                    email: fnamelname@gmail.com
+                    customerRef: null
+                    externalId: 3d5638c6-37e6-4b56-8632-8cf9acb1f8b0
+                    description: null
+                    metaData:
+                      product: wimy
+                    address:
+                      city: Wilmington
+                      country: US
+                      state: Delaware
+                      street: 1a swew
+                      zipcode: 19221
+                    phone: null
+                    createdAt: '2023-02-15T13:59:37.299Z'
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    mode: TEST
+              example:
+                status: success
+                data:
+                  id: 17
+                  uid: 034066b7-b98e-41ff-9453-c65221ddaa5c
+                  guid: 24279076-97fa-490f-865f-e45edb41fc2b
+                  name: Temi
+                  email: olawuyipeter900@gmail.com
+                  customerRef: null
+                  externalId: 13bd25d8-980e-40af-82a8-740bd7446da0
+                  description: null
+                  metaData: null
+                  address: null
+                  phone: 0814014086034
+                  deletedAt: null
+                  createdAt: '2023-01-18T12:28:18.306Z'
+                  updatedAt: '2024-04-16T19:32:10.290Z'
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+      deprecated: false
+      security:
+      - bearer: []
+  /customers/{customerId}/transactions:
+    get:
+      tags:
+      - Customer
+      summary: Get customer's transactions
+      description: This endpoint returns a customer's transactions.
+      operationId: getcustomerstransactions
+      parameters:
+      - name: customerId
+        in: path
+        description: The uid of the customer you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 6928a43f-a042-4905-bde8-8523d7da886912345
+      - name: perPage
+        in: query
+        description: The number of customers per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort customers by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Listtransactions
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      title: Data1
+                      required:
+                      - uid
+                      - status
+                      - type
+                      - walletId
+                      - depositId
+                      - transferId
+                      - address
+                      - hash
+                      - confirmation
+                      - transactionRef
+                      - description
+                      - amount
+                      - dollarRate
+                      - dollarAmount
+                      - assetId
+                      - accountId
+                      - createdAt
+                      - completedAt
+                      - cancelledAt
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        status:
+                          type: string
+                        type:
+                          type: string
+                        walletId:
+                          type: string
+                        depositId:
+                          type: string
+                        transferId:
+                          type: string
+                          nullable: true
+                        address:
+                          type: string
+                        hash:
+                          type: string
+                        confirmation:
+                          type: integer
+                          format: int32
+                        transactionRef:
+                          type: string
+                        description:
+                          type: string
+                          nullable: true
+                        amount:
+                          type: string
+                        dollarRate:
+                          type: string
+                        dollarAmount:
+                          type: string
+                        assetId:
+                          type: string
+                        accountId:
+                          type: string
+                        createdAt:
+                          type: string
+                        completedAt:
+                          type: string
+                          nullable: true
+                        cancelledAt:
+                          type: string
+                          nullable: true
+                      example:
+                        uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                        status: PENDING
+                        type: DEPOSIT
+                        walletId: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                        depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                        transferId: null
+                        address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                        hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                        confirmation: 0
+                        transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                        description: null
+                        amount: '0.45'
+                        dollarRate: '33715.32'
+                        dollarAmount: '15171.894'
+                        assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                        accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                        createdAt: '2021-06-23T21:17:08.761Z'
+                        completedAt: null
+                        cancelledAt: null
+                    description: ''
+                example:
+                  status: success
+                  data:
+                  - uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                    status: PENDING
+                    type: DEPOSIT
+                    walletId: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                    depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                    transferId: null
+                    address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                    hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                    confirmation: 0
+                    transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                    description: null
+                    amount: '0.45'
+                    dollarRate: '33715.32'
+                    dollarAmount: '15171.894'
+                    assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                    accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                    createdAt: '2021-06-23T21:17:08.761Z'
+                    completedAt: null
+                    cancelledAt: null
+              example:
+                status: success
+                page: 1
+                totalPages: 1
+                data:
+                - uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                  status: PENDING
+                  type: DEPOSIT
+                  walletId: ae866891-9629-4bbf-85c0-9753ebbf57c9
+                  depositId: a445054b-c3ea-42d2-8127-42c417b84c4a
+                  transferId: null
+                  address: mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN
+                  hash: 1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297
+                  confirmation: 0
+                  transactionRef: TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#
+                  description: null
+                  amount: '0.45'
+                  dollarRate: '33715.32'
+                  dollarAmount: '15171.894'
+                  assetId: 7bc33e73-5fd8-4647-aaef-75ca793cc35d
+                  accountId: 326b47a1-da25-45e9-af9f-ae3e440ea7f4
+                  createdAt: '2021-06-23T21:17:08.761Z'
+                  completedAt: null
+                  cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

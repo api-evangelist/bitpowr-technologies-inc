@@ -1,0 +1,295 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Utils API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Utils
+paths:
+  /utils/generateToken:
+    post:
+      tags:
+      - Utils
+      summary: Generate Token
+      description: This endpoint generates a token for authentication purposes.
+      operationId: generateToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - public_key
+              - secret_key
+              type: object
+              properties:
+                public_key:
+                  type: string
+                  description: The public key
+                  example: pk_test_gAArHE6Z1LAljAIgAXi1zbsNQvlCcNryFMWH4LYUBW1tlkY4bx
+                secret_key:
+                  type: string
+                  description: The secret key
+                  example: sk_test_pIdvBw7l8qIKMAQG4VhfFh44Lsp5PAETieRJM9cIiQ7vN0aak0.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: GenerateTokenResponse
+                type: object
+                properties:
+                  token:
+                    type: string
+                example:
+                  token: cGtfdGVzdF9ngAXilCcN1zbsQUFyHE6W1LAljAINQvryFMWH4LYUBW1tlkY4bx
+      deprecated: false
+      security:
+      - bearer: []
+  /utils/raw-internal-tx:
+    get:
+      tags:
+      - Utils
+      summary: Get raw internal transaction
+      description: This endpoint retrieves raw internal transaction details based on the provided transaction ID and hash.
+      operationId: getRawInternalTx
+      parameters:
+      - name: txId
+        in: query
+        description: The transaction ID
+        required: true
+        schema:
+          type: string
+      - name: hash
+        in: query
+        description: The transaction hash
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: RawInternalTx
+                required:
+                - status
+                - event
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  event:
+                    type: string
+                  data:
+                    type: object
+                example:
+                  status: success
+                  event: transaction.success
+                  data:
+                    amount: '0'
+                    fee: '0'
+                    hash: a834591c77de0e65826f5409a4520bccad0c1a55a18ec98f3d1fe0d394f8270e
+                    block_height: '43147540'
+                    block_hash: dbd179d2b1089579
+                    network: testnet
+                    to:
+                    - value: '0'
+                      address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                    from:
+                    - id: db46d148-73d8-46e0-8b91-927cbe69db24
+                      chain: TRON
+                      index: 0
+                      value: '0'
+                      address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                      context:
+                        address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                        asset_id: adc69483-1ae6-4157-816c-ebcda87401c5
+                        address_id: db46d148-73d8-46e0-8b91-927cbe69db24
+                        address_index: 0
+                      asset_id: adc69483-1ae6-4157-816c-ebcda87401c5
+                      currency: TRON
+                      account_id: 9746586c-25f2-4c39-b3fd-e12836f731e0
+                      charge_type: transfer
+                    - id: db46d148-73d8-46e0-8b91-927cbe69db24
+                      chain: TRON
+                      index: 0
+                      value: '0'
+                      address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                      context:
+                        address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                        asset_id: adc69483-1ae6-4157-816c-ebcda87401c5
+                        address_id: db46d148-73d8-46e0-8b91-927cbe69db24
+                        address_index: 0
+                      asset_id: adc69483-1ae6-4157-816c-ebcda87401c5
+                      currency: TRON
+                      account_id: 9746586c-25f2-4c39-b3fd-e12836f731e0
+                      charge_type: fee
+                    fromUTXO: null
+                    currency: TRON
+                    chain: TRON
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    confirmations: '1'
+                    confirmation: '1'
+                    gas_price: null
+                    raw_fee:
+                      fee: 0
+                      netUsage: 253
+                      energyFee: 0
+                      energyUsage: 0
+                      energyUsageTotal: 0
+                    broadcastedAt: '2024-04-12T15:37:09.855Z'
+                    gas_limit: null
+                    cause: null
+                    errorReason: null
+                    trxRef: 186db262-2290-40ab-96e4-6c9452962b6d
+                    nonce: null
+                    txRef: 186db262-2290-40ab-96e4-6c9452962b6d
+                    operation: withdrawFrozenAsset
+                    flush: null
+                    fee_address:
+                      fee_address: TH3Svsj96ktiARDEE4mPybypoFaugXbjLG
+                      fee_address_id: db46d148-73d8-46e0-8b91-927cbe69db24
+                      fee_asset_id: adc69483-1ae6-4157-816c-ebcda87401c5
+                      fee_address_index: '0'
+                      fee_currency: TRON
+      deprecated: false
+      security:
+      - bearer: []
+  /utils/validate-address:
+    post:
+      tags:
+      - Utils
+      summary: Validate address
+      description: This endpoint validates the given address for a specific network and asset.
+      operationId: validateAddress
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - address
+              - network
+              - asset
+              type: object
+              properties:
+                address:
+                  type: string
+                  description: The address to be validated
+                  example: '0x71aa91309607050952b085f252209f2e1f18eda2'
+                network:
+                  type: string
+                  description: The network on which the address exists
+                  example: mainnet
+                asset:
+                  type: string
+                  description: The asset associated with the address
+                  example: ETH
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: validateAddress
+                required:
+                - status
+                - message
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                example:
+                  status: success
+                  message: '''0x71aa91309607050952b085f252209f2e1f18eda2'' is valid ETHEREUM address'
+      deprecated: false
+      security:
+      - bearer: []
+  /utils/validate-transaction:
+    post:
+      tags:
+      - Utils
+      summary: Validate transaction
+      description: This endpoint validates a transaction by providing essential details such as hash, address, etc.
+      operationId: validateTransaction
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - address
+              - network
+              - hash
+              - chain
+              - amount
+              type: object
+              properties:
+                hash:
+                  type: string
+                  description: The hash of the transaction
+                  example: 0x123abc...
+                address:
+                  type: string
+                  description: The address associated with the transaction
+                  example: '0x71aa91309607050952b085f252209f2e1f18eda2'
+                chain:
+                  type: string
+                  description: The blockchain chain
+                  example: ethereum
+                currency:
+                  type: string
+                  description: The currency used in the transaction
+                  example: USD
+                contractAddress:
+                  type: string
+                  description: The contract address
+                  example: 0x456def...
+                amount:
+                  type: string
+                  description: The amount transacted
+                  example: '1.5'
+                transactionIndex:
+                  type: string
+                  description: The index of the transaction
+                  example: '123'
+                network:
+                  type: string
+                  description: The network on which the transaction occurred
+                  example: mainnet
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: validateTransaction
+                required:
+                - status
+                - message
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                example: {}
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

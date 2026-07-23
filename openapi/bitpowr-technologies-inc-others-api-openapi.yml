@@ -1,0 +1,407 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Others API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Others
+paths:
+  /auth:
+    get:
+      tags:
+      - Others
+      summary: Get authentication info
+      description: This endpoint returns information about your authentication status.
+      operationId: auth
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json; charset=utf-8:
+              example:
+                status: success
+                mode: TEST
+                data:
+                  orgId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  mode: TEST
+      deprecated: false
+      security:
+      - bearer: []
+  /supported-assets:
+    get:
+      tags:
+      - Others
+      summary: Get supported assets
+      description: This endpoint provides information about various supported cryptocurrencies and tokens.
+      operationId: supportedassets
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json; charset=utf-8:
+              example:
+                status: success
+                currency: USD
+                data:
+                - name: Arbitrum - ARB
+                  symbol: ETH_ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/arbitrum.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Arb (ARB)
+                  symbol: ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/arbitrum.svg
+                  network:
+                  - mainnet
+                - name: Avalanche
+                  symbol: AVAX
+                  chain: AVALANCHE
+                  image: /static/img/crypto/avalanche.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Base
+                  symbol: BASE
+                  chain: BASE
+                  image: /static/img/crypto/base.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Bitcoin
+                  symbol: BTC
+                  chain: BITCOIN
+                  image: /static/img/crypto/bitcoin.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Bitcoin Cash
+                  symbol: BCH
+                  chain: BITCOINCASH
+                  image: /static/img/crypto/bitcoin-cash.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: BNB (BSC)
+                  symbol: BSC
+                  chain: BSC
+                  image: /static/img/crypto/bsc.svg
+                  network:
+                  - mainnet
+                  - testnet
+                  contractNetwork:
+                  - testnet
+                  hasContract: true
+                - name: Bantu
+                  symbol: XBN
+                  chain: BANTU
+                  image: /static/img/crypto/xbn.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: BUSD
+                  symbol: BUSD
+                  chain: ETHEREUM
+                  image: /static/img/crypto/busd-ethereum.svg
+                  network:
+                  - mainnet
+                - name: BUSD (BSC)
+                  symbol: BUSD_BSC
+                  chain: BSC
+                  image: /static/img/crypto/busd-bsc.svg
+                  network:
+                  - mainnet
+                - name: Celo
+                  symbol: CELO
+                  chain: CELO
+                  image: /static/img/crypto/celo.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: cUSD
+                  symbol: CUSD
+                  chain: CELO
+                  image: /static/img/crypto/cusd.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: cEUR
+                  symbol: CEUR
+                  chain: CELO
+                  image: /static/img/crypto/ceur.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: CLDX (ARB)
+                  symbol: CLDX_ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/arbitrum.svg
+                  network:
+                  - mainnet
+                - name: CLDX Test (ARB)
+                  symbol: CLDXT_ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/arbitrum.svg
+                  network:
+                  - mainnet
+                - name: Ethereum
+                  symbol: ETH
+                  chain: ETHEREUM
+                  image: /static/img/crypto/eth.svg
+                  network:
+                  - mainnet
+                  - testnet
+                  contractNetwork:
+                  - testnet
+                  hasContract: true
+                - name: EUROC
+                  symbol: EUROC
+                  chain: ETHEREUM
+                  image: /static/img/crypto/euroc.svg
+                  network:
+                  - mainnet
+                - name: Litecoin
+                  symbol: LTC
+                  chain: LITECOIN
+                  image: /static/img/crypto/litecoin.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Matic
+                  symbol: MATIC
+                  chain: POLYGON
+                  image: /static/img/crypto/polygon.svg
+                  network:
+                  - mainnet
+                  - testnet
+                  contractNetwork:
+                  - testnet
+                  hasContract: true
+                - name: Optimisim - ETH
+                  symbol: ETH_OP
+                  chain: OPTIMISM
+                  image: /static/img/crypto/optimism.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Op (OP)
+                  symbol: OP
+                  chain: OPTIMISM
+                  image: /static/img/crypto/optimism.svg
+                  network:
+                  - mainnet
+                - name: Solana
+                  symbol: SOL
+                  chain: SOLANA
+                  image: /static/img/crypto/solana.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Stellar
+                  symbol: XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/xlm.svg
+                  network:
+                  - mainnet
+                  - testnet
+                - name: Tron (TRX)
+                  symbol: TRON
+                  chain: TRON
+                  image: /static/img/crypto/tron.svg
+                  network:
+                  - mainnet
+                  - testnet
+                  contractNetwork:
+                  - testnet
+                  hasContract: true
+                - name: TUSDC (MATIC)
+                  symbol: TUSDC_MATIC
+                  chain: POLYGON
+                  image: /static/img/crypto/usdc-matic.svg
+                  network:
+                  - testnet
+                  contractNetwork:
+                  - testnet
+                  hasContract: true
+                - name: TUSDC (ETH)
+                  symbol: TUSDC_ETH
+                  chain: ETHEREUM
+                  image: /static/img/crypto/usdc-ethereum.svg
+                  network:
+                  - testnet
+                  contractNetwork:
+                  - testnet
+                  hasContract: true
+                - name: USDT
+                  symbol: USDT
+                  chain: ETHEREUM
+                  image: /static/img/crypto/usdt.svg
+                  network:
+                  - mainnet
+                - name: USDT (TRX)
+                  symbol: USDT_TRON
+                  chain: TRON
+                  image: /static/img/crypto/usdt-tron.svg
+                  network:
+                  - mainnet
+                - name: USDT (MATIC)
+                  symbol: USDT_MATIC
+                  chain: POLYGON
+                  image: /static/img/crypto/usdt-matic.svg
+                  network:
+                  - mainnet
+                - name: USDC
+                  symbol: USDC
+                  chain: ETHEREUM
+                  image: /static/img/crypto/usdc.svg
+                  network:
+                  - mainnet
+                - name: USDC (ARB)
+                  symbol: USDC_ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/usdc.svg
+                  network:
+                  - mainnet
+                - name: USDC (ARBe)
+                  symbol: USDCe_ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/usdc.svg
+                  network:
+                  - mainnet
+                - name: USDC (MATIC)
+                  symbol: USDC_MATIC
+                  chain: POLYGON
+                  image: /static/img/crypto/usdc-matic.svg
+                  network:
+                  - mainnet
+                - name: NGNC (MATIC)
+                  symbol: NGNC_MATIC
+                  chain: POLYGON
+                  image: /static/img/crypto/ngnc.svg
+                  network:
+                  - mainnet
+                - name: USDC (TRX)
+                  symbol: USDC_TRON
+                  chain: TRON
+                  image: /static/img/crypto/usdc-tron.svg
+                  network:
+                  - mainnet
+                - name: TUSDC (TRX)
+                  symbol: TUSDC_TRON
+                  chain: TRON
+                  image: /static/img/crypto/usdc-tron.svg
+                  network:
+                  - testnet
+                - name: TUSDC (SOL)
+                  symbol: TUSDC_SOL
+                  chain: SOLANA
+                  image: /static/img/crypto/usdc-solana.svg
+                  network:
+                  - testnet
+                - name: USDC (SOL)
+                  symbol: USDC_SOL
+                  chain: SOLANA
+                  image: /static/img/crypto/usdc-solana.svg
+                  network:
+                  - mainnet
+                - name: CMEUR (SOL)
+                  symbol: CMEUR_SOL
+                  chain: SOLANA
+                  image: /static/img/crypto/cauri-money-logo+(2).svg
+                  network:
+                  - mainnet
+                - name: USDT (SOL)
+                  symbol: USDT_SOL
+                  chain: SOLANA
+                  image: /static/img/crypto/usdt-solana.svg
+                  network:
+                  - mainnet
+                - name: NGNC (SOL)
+                  symbol: NGNC_SOL
+                  chain: SOLANA
+                  image: /static/img/crypto/ngnc.svg
+                  network:
+                  - mainnet
+                - name: USDT (ARB)
+                  symbol: USDT_ARB
+                  chain: ARBITRUM
+                  image: /static/img/crypto/usdt.svg
+                  network:
+                  - mainnet
+                - name: USDT (BSC)
+                  symbol: USDT_BSC
+                  chain: BSC
+                  image: /static/img/crypto/usdt-bsc.svg
+                  network:
+                  - mainnet
+                - name: USDC (BSC)
+                  symbol: USDC_BSC
+                  chain: BSC
+                  image: /static/img/crypto/usdc-bsc.svg
+                  network:
+                  - mainnet
+                - name: USDC (XLM)
+                  symbol: USDC_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/usdc.svg
+                  network:
+                  - mainnet
+                - name: EURC (XLM)
+                  symbol: EURC_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/euroc.svg
+                  network:
+                  - mainnet
+                - name: NGNC (XLM)
+                  symbol: NGNC_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/ngnc.svg
+                  network:
+                  - mainnet
+                - name: TEURC (XLM)
+                  symbol: TEURC_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/euroc.svg
+                  network:
+                  - testnet
+                - name: TUSDC (XLM)
+                  symbol: TUSDC_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/usdc.svg
+                  network:
+                  - testnet
+                - name: USDC (BASE)
+                  symbol: USDC_BASE
+                  chain: BASE
+                  image: /static/img/crypto/usdc-base.svg
+                  network:
+                  - mainnet
+                - name: DBTK (XLM)
+                  symbol: DBTK_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/dbtk.svg
+                  network:
+                  - mainnet
+                - name: BUCK (XLM)
+                  symbol: BUCK_XLM
+                  chain: STELLAR
+                  image: /static/img/crypto/buck.svg
+                  network:
+                  - mainnet
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

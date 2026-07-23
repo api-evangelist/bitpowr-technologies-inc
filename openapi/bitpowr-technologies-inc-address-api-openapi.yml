@@ -1,0 +1,1145 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Address API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Address
+paths:
+  /addresses/add_trustline:
+    post:
+      tags:
+      - Address
+      summary: Add Trustline Assets
+      description: This endpoint enables trustline assets on Stellar blockchains
+      operationId: addtrustlineassets
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - address
+              - assetCode
+              type: object
+              properties:
+                address:
+                  type: string
+                  description: The address you want to enable trustline assets on
+                  example: GD....
+                feePayer:
+                  type: string
+                  description: Optional address to pay for the transaction fee
+                  example: GD......
+                assetCode:
+                  type: string
+                  description: The asset code of the trustline assets. E.g TUSDC_XLM, USDC_XLM, EURC_XLM
+                  example: USDC_XLM
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: addtrustlineassets
+                required:
+                - status
+                type: object
+                properties:
+                  status:
+                    type: string
+                example:
+                  status: success
+              example:
+                status: success
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses:
+    post:
+      tags:
+      - Address
+      summary: Create addresses
+      description: This endpoint generates new addresses
+      operationId: Createaddresses
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - label
+              - asset
+              - accountId
+              type: object
+              properties:
+                label:
+                  type: string
+                  description: The label of the address to generate
+                  example: My BTC
+                asset:
+                  type: string
+                  description: Tthe asset of the address to genertae
+                  example: BTC
+                accountId:
+                  type: string
+                  description: The uid of the account you want to generate an address for.
+                  example: eiie-12ijee-jedff-1eri
+                addressType:
+                  type: string
+                  description: The address type can be segwit, wrappedsegwit or legacy
+                  example: legacy
+                derivationIndex:
+                  type: number
+                  description: The derivation index of the address you want to generate. address derivation index - default(last derivationIndex + 1). For instance, it can be used to generate the same address across multiple EVM chains and ERC20 tokens. Can also be used to generate a different version of BTC and LTC address at the same index.
+                  example: 1
+                enableNativeToken:
+                  type: boolean
+                  description: Automatically generate native address for non native token address at the same index. E.g USDC
+                  example: false
+                isContract:
+                  type: boolean
+                  description: Generate a smart contract address for EVM chains. Ethereum, BSC, Polygon, Tron
+                  example: false
+                isChangeAddress:
+                  type: boolean
+                  description: 'Generate a change address. Change address transactions are partially monitored '
+                  example: false
+                customerId:
+                  type: string
+                  description: The customer id to attach to this address
+                  example: 102jdc-9we2j
+                deploymentParams:
+                  type: object
+                  description: Deployment paramaters to pass when generating the smart contract. autoDeploy, autoFlush, autoFlushErc20
+                  properties:
+                    autoDeploy:
+                      type: boolean
+                      description: Auto deploy the address once it receives a deposit
+                    autoFlush:
+                      type: boolean
+                      description: Auto flush native token on the address once it receives a deposit
+                    autoFlushErc20:
+                      type: boolean
+                      description: Auto flush erc20 token on the address once it receives a deposit
+                  example:
+                    autoDepoy: true
+                    autoFlush: true
+                    autoFlushErc20: true
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Createaddresses
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data9
+                    required:
+                    - uid
+                    - address
+                    - addressRef
+                    - autoForwardAddress
+                    - network
+                    - assetType
+                    - isChangeAddress
+                    - isContract
+                    - chain
+                    - assetId
+                    - organizationId
+                    - subAccountId
+                    - used
+                    - lastUsedAt
+                    - createdAt
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      address:
+                        type: string
+                      addressRef:
+                        type: string
+                      autoForwardAddress:
+                        type: string
+                        nullable: true
+                      network:
+                        type: string
+                      assetType:
+                        type: string
+                      isChangeAddress:
+                        type: boolean
+                      isContract:
+                        type: boolean
+                      chain:
+                        type: string
+                      assetId:
+                        type: string
+                      organizationId:
+                        type: string
+                      subAccountId:
+                        type: string
+                        nullable: true
+                      used:
+                        type: boolean
+                      lastUsedAt:
+                        type: string
+                        nullable: true
+                      createdAt:
+                        type: string
+                    example:
+                      uid: e912110f-2cba-4bf7-b063-e93ddf428722
+                      address: n3TdwXSubjAKoJTaBuVrun8hcpusPt4sq4
+                      addressRef: wccUkWHsK7
+                      autoForwardAddress: null
+                      network: TESTNET
+                      assetType: BTC
+                      isChangeAddress: false
+                      isContract: false
+                      chain: BITCOIN
+                      assetId: a2888c03-e412-4e30-aa22-dfd7eb23c6a6
+                      organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                      subAccountId: null
+                      used: false
+                      lastUsedAt: null
+                      createdAt: '2022-03-11T01:42:06.761Z'
+                example:
+                  status: success
+                  data:
+                    uid: e912110f-2cba-4bf7-b063-e93ddf428722
+                    address: n3TdwXSubjAKoJTaBuVrun8hcpusPt4sq4
+                    addressRef: wccUkWHsK7
+                    autoForwardAddress: null
+                    network: TESTNET
+                    assetType: BTC
+                    isChangeAddress: false
+                    isContract: false
+                    chain: BITCOIN
+                    assetId: a2888c03-e412-4e30-aa22-dfd7eb23c6a6
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    subAccountId: null
+                    used: false
+                    lastUsedAt: null
+                    createdAt: '2022-03-11T01:42:06.761Z'
+              example:
+                status: success
+                data:
+                  uid: ead79668-4fd3-4000-b40e-b18551c16fac
+                  guid: 6ba48fb6-3ec0-4740-953e-aef3f0b00fa4
+                  address: bchtest:qrjyhe8k8dvzgdug4tml36gxqvlf56w6wykdd6qf7x
+                  addressRef: uQUAoVJbEj
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BCH
+                  addressType: BCH
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 1
+                  label: My BCH
+                  chain: BITCOINCASH
+                  assetId: 3bf73934-1e21-4ed1-ab15-eb74fb4eab5f
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: e95836d1-f496-447a-bbc0-d975d85a1c13
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2024-04-16T18:36:18.292Z'
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Address
+      summary: Get addresses
+      description: This endpoint gets details of an address
+      operationId: Getaddresses
+      parameters:
+      - name: assetId
+        in: query
+        description: The assetId of the addresses you want to get.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: jkhsuy87879898
+      - name: accountId
+        in: query
+        description: The accountId of the addresses you want to get.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: uy87879jkhghs898
+      - name: subAccountId
+        in: query
+        description: The subAccountId of the addresses you want to get.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: jkh8787suy9898
+      - name: customerId
+        in: query
+        description: The customerId of the addresses you want to get.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: hsjkuy87898fhj987
+      - name: minBalance
+        in: query
+        description: Minimum balance of the addresses.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 0
+      - name: maxBalance
+        in: query
+        description: Maximum balance of the addresses.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1000
+      - name: address
+        in: query
+        description: Specific address you want to get details for.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: TU72q8M35TYbUm8uTPEVWZ1PizYZRiB8uF
+      - name: derivationIndex
+        in: query
+        description: The derivation index of the address you want query
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 0
+      - name: asset
+        in: query
+        description: Asset type of the addresses.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: BTC
+      - name: perPage
+        in: query
+        description: The number of addresses per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 20
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort addresses by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: GetaddressesbyassetId
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data9
+                    required:
+                    - uid
+                    - address
+                    - addressRef
+                    - autoForwardAddress
+                    - network
+                    - assetType
+                    - isChangeAddress
+                    - isContract
+                    - chain
+                    - assetId
+                    - organizationId
+                    - subAccountId
+                    - used
+                    - lastUsedAt
+                    - createdAt
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      address:
+                        type: string
+                      addressRef:
+                        type: string
+                      autoForwardAddress:
+                        type: string
+                        nullable: true
+                      network:
+                        type: string
+                      assetType:
+                        type: string
+                      isChangeAddress:
+                        type: boolean
+                      isContract:
+                        type: boolean
+                      chain:
+                        type: string
+                      assetId:
+                        type: string
+                      organizationId:
+                        type: string
+                      subAccountId:
+                        type: string
+                        nullable: true
+                      used:
+                        type: boolean
+                      lastUsedAt:
+                        type: string
+                        nullable: true
+                      createdAt:
+                        type: string
+                    example:
+                      uid: e912110f-2cba-4bf7-b063-e93ddf428722
+                      address: n3TdwXSubjAKoJTaBuVrun8hcpusPt4sq4
+                      addressRef: wccUkWHsK7
+                      autoForwardAddress: null
+                      network: TESTNET
+                      assetType: BTC
+                      isChangeAddress: false
+                      isContract: false
+                      chain: BITCOIN
+                      assetId: a2888c03-e412-4e30-aa22-dfd7eb23c6a6
+                      organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                      subAccountId: null
+                      used: false
+                      lastUsedAt: null
+                      createdAt: '2022-03-11T01:42:06.761Z'
+                example:
+                  status: success
+                  data:
+                    uid: e912110f-2cba-4bf7-b063-e93ddf428722
+                    address: n3TdwXSubjAKoJTaBuVrun8hcpusPt4sq4
+                    addressRef: wccUkWHsK7
+                    autoForwardAddress: null
+                    network: TESTNET
+                    assetType: BTC
+                    isChangeAddress: false
+                    isContract: false
+                    chain: BITCOIN
+                    assetId: a2888c03-e412-4e30-aa22-dfd7eb23c6a6
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    subAccountId: null
+                    used: false
+                    lastUsedAt: null
+                    createdAt: '2022-03-11T01:42:06.761Z'
+              example:
+                status: success
+                page: '1'
+                totalPages: 22
+                data:
+                - uid: 60c5a1ba-adb4-42bd-a7af-cc9a56962c1f
+                  guid: c461062e-1cb8-47be-958e-d7eeffe459bf
+                  address: Fp1XnA91fXkj538ZxcsNnJBpZJXNtVy1EJuwJu74nBXA
+                  addressRef: c461062e-1cb8-47be-958e-d7eeffe459bf
+                  mode: TEST
+                  network: TESTNET
+                  assetType: SOL
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: SOLANA
+                  assetId: 19e2c390-2867-4e79-a271-e2cafbabcd1c
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: null
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2023-08-17T16:36:51.359Z'
+                - uid: c7b20e0c-4790-42f2-bdda-9e4a8938d5cd
+                  guid: 23af6af1-bf1c-4d0e-963d-5fd5faef9d62
+                  address: bchtest:qpkjgtm8gdh64ghqew9hxddcywg508h7nqr077afc3
+                  addressRef: 23af6af1-bf1c-4d0e-963d-5fd5faef9d62
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BCH
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: BITCOINCASH
+                  assetId: 43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2021-12-14T07:07:27.153Z'
+                - uid: 5ddeb1d6-9e91-44fa-b9f4-dd016614a11b
+                  guid: 8e64b628-c018-44f7-be79-98bca1fe4c2b
+                  address: bchtest:qr7hws40nlfvgj7d5znx9ecllkf3c4a3rvuk6us4kz
+                  addressRef: 8e64b628-c018-44f7-be79-98bca1fe4c2b
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BCH
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: BITCOINCASH
+                  assetId: 3bf73934-1e21-4ed1-ab15-eb74fb4eab5f
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: e95836d1-f496-447a-bbc0-d975d85a1c13
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2021-12-15T13:42:19.246Z'
+                - uid: aed76504-a749-449b-8c09-9a3b83c1e4de
+                  guid: 53e3240b-5e09-4cb5-a4ba-7d3c23254cac
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  addressRef: 53e3240b-5e09-4cb5-a4ba-7d3c23254cac
+                  mode: TEST
+                  network: TESTNET
+                  assetType: LTC
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: LITECOIN
+                  assetId: 208423b4-ad4f-4146-84f0-e1982192b1c8
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2021-12-17T12:33:42.774Z'
+                - uid: 09005c44-dfe1-4fc5-ad86-298482c14309
+                  guid: c6b51c4e-841c-417d-9882-1034cc8e6e58
+                  address: '0xc9ae7379ecc90b4c2acbd5920bbb644078d1ea49'
+                  addressRef: dRYI1V7SW4
+                  mode: TEST
+                  network: TESTNET
+                  assetType: MATIC
+                  addressType: contract
+                  isContract: true
+                  isChangeAddress: false
+                  derivationIndex: 6
+                  label: mtLTWgqqul
+                  chain: POLYGON
+                  assetId: 45808193-fbc7-48eb-9379-66eb2953fecc
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: 35908ae4-9bdf-44df-877a-c2d14f30e28f
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: wal_Lvid48A8x1MDOQqfrsTc_EVM_6
+                  deploymentParams:
+                    autoFlush: false
+                    autoDeploy: false
+                    autoFlushErc20: true
+                  lastUsedAt: null
+                  createdAt: '2023-02-03T08:08:07.219Z'
+                - uid: 04695a5e-4b68-4e8c-ab2a-c486b9da15fd
+                  guid: 903ea2f7-f413-4709-87f8-c75fe1e6d99a
+                  address: miRjZpcf1975dXYGJsmS6gE9pQgqnaqPrx
+                  addressRef: GyvIiIp4WH
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BTC
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: true
+                  derivationIndex: 3
+                  label: Change Address - BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#
+                  chain: BITCOIN
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2022-02-16T18:31:08.458Z'
+                - uid: dd1e691d-49d4-4f8a-8f36-4514e1073660
+                  guid: 686c495d-5046-465a-831e-d15bc4f0144e
+                  address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                  addressRef: 686c495d-5046-465a-831e-d15bc4f0144e
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BTC
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: BITCOIN
+                  assetId: 8a22109a-d1a4-4819-89fb-6449e4739292
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: 6f830f92-32d9-4cd3-a564-28f2ab7e4709
+                  subAccountId: null
+                  used: true
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2021-12-22T10:42:27.061Z'
+                - uid: 43c25ac3-26bc-4cc7-8c5d-0c33b07cac5e
+                  guid: dce06195-1073-48b1-9f31-2de0aa442dba
+                  address: bchtest:qzjq29qjhrs8vtp06tecjc4v0u8n5jampg0rxelgs2
+                  addressRef: dce06195-1073-48b1-9f31-2de0aa442dba
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BCH
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: BITCOINCASH
+                  assetId: cff0e044-2b60-422f-95a9-8990b7b446a8
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: 6f830f92-32d9-4cd3-a564-28f2ab7e4709
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2021-12-22T10:42:48.442Z'
+                - uid: b9327466-be66-490a-98f1-2136580d16d7
+                  guid: 5ba602bb-4bf6-40a3-8699-4fb181be0742
+                  address: mmphTzHH4LkLEakcjY5XzckwDR2EUTLqWA
+                  addressRef: dXtFYjNNTl
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BTC
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: true
+                  derivationIndex: 4
+                  label: Change Address - BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO
+                  chain: BITCOIN
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2022-02-17T05:22:58.470Z'
+                - uid: 684c5130-44f8-459e-85f6-93ea81d005cc
+                  guid: ab3cefe8-7e56-47a4-8d0f-748118293908
+                  address: 7s2nPiQ1S5meSvaBgmMhX94Vo8J6UXn51dF9zVXJpfdC
+                  addressRef: ab3cefe8-7e56-47a4-8d0f-748118293908
+                  mode: TEST
+                  network: TESTNET
+                  assetType: SOL
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: SOLANA
+                  assetId: e7a327f3-e6f2-4b68-ab4b-52a236fb6fc9
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: 68ecb89f-5aae-4f10-a6af-800b0b5b3c28
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2022-09-23T15:01:08.586Z'
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/whitelist:
+    post:
+      tags:
+      - Address
+      summary: Create whitelist address
+      description: This endpoint creates a whitelist address
+      operationId: Createwhitelistaddress
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - accountId
+              type: object
+              properties:
+                accountId:
+                  type: string
+                  description: The accounId of the account/wallet.
+                  example: 50ec9b81-ad6c-4db2-98b8-e88025ceabf8
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/generate_xlm_auth:
+    post:
+      tags:
+      - Address
+      summary: Generate XLM Authentication
+      description: This endpoint generates XLM authentication information.
+      operationId: generateXlmAuth
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - address
+              - serverInfo
+              type: object
+              properties:
+                address:
+                  type: string
+                  description: The Stellar address for authentication
+                  example: GD....
+                testnet:
+                  type: string
+                  description: The testnet flag for using testnet (optional)
+                  example: 'true'
+                serverInfo:
+                  type: object
+                  description: Server information for authentication
+                  required:
+                  - homeDomain
+                  - signingKey
+                  - authEndpoint
+                  properties:
+                    homeDomain:
+                      type: string
+                      description: The home domain of the server
+                      example: example.com
+                    signingKey:
+                      type: string
+                      description: The signing key of the server
+                      example: abcdefg123456
+                    authEndpoint:
+                      type: string
+                      description: The authentication endpoint of the server
+                      example: https://example.com/auth
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: generateXlmAuth
+                required:
+                - status
+                - token
+                type: object
+                properties:
+                  status:
+                    type: string
+                  token:
+                    type: string
+                example: {}
+              example: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/{addressId}/balance:
+    get:
+      tags:
+      - Address
+      summary: Get addresses balance
+      description: This endpoint returns the balance of an address
+      operationId: Getaddressesbalance
+      parameters:
+      - name: addressId
+        in: path
+        description: The addressId of the balance you want to get.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 0xabhgjhshfjhsfsjhfsjhf
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Getaddressesbalance
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data6
+                    required:
+                    - received
+                    - sent
+                    - balance
+                    - pending
+                    - blocked
+                    type: object
+                    properties:
+                      received:
+                        type: string
+                      sent:
+                        type: string
+                      balance:
+                        type: string
+                      pending:
+                        type: string
+                      blocked:
+                        type: string
+                    example:
+                      received: '2087.82'
+                      sent: '0.00'
+                      balance: '2087.82'
+                      pending: '48.21'
+                      blocked: '0.00'
+                example:
+                  status: success
+                  data:
+                    received: '27.83'
+                    sent: '0.00'
+                    balance: '27.83'
+                    pending: '0.00'
+                    blocked: '0.00'
+              example:
+                status: success
+                data:
+                  received: '27.83'
+                  sent: '0.00'
+                  balance: '27.83'
+                  pending: '0.00'
+                  blocked: '0.00'
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/{addressId}:
+    get:
+      tags:
+      - Address
+      summary: Get addresses by addressId
+      description: This endpoint returns details of an address by using the `addressId`
+      operationId: GetaddressesbyaddressId
+      parameters:
+      - name: addressId
+        in: path
+        description: The uid of the address you want to get.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 0xabjiuisufiuiufsf
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: 5ddeb1d6-9e91-44fa-b9f4-dd016614a11b
+                  guid: 8e64b628-c018-44f7-be79-98bca1fe4c2b
+                  address: bchtest:qr7hws40nlfvgj7d5znx9ecllkf3c4a3rvuk6us4kz
+                  addressRef: 8e64b628-c018-44f7-be79-98bca1fe4c2b
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BCH
+                  addressType: legacy
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 0
+                  label: null
+                  chain: BITCOINCASH
+                  assetId: 3bf73934-1e21-4ed1-ab15-eb74fb4eab5f
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: e95836d1-f496-447a-bbc0-d975d85a1c13
+                  subAccountId: null
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2021-12-15T13:42:19.246Z'
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/{addressId}/transactions:
+    get:
+      tags:
+      - Address
+      summary: Get addresses transactions
+      description: This endpoint returns all transactions of an address
+      operationId: Getaddressestransactions
+      parameters:
+      - name: addressId
+        in: path
+        description: The addressId of the transaction you want to get.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 0xabhjhdjhfhdfhjdfhdjdh
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: perPage
+        in: query
+        description: The number of transactions per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 7
+      - name: orderBy
+        in: query
+        description: Sort transactions by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"uid\": \"ae866891-9629-4bbf-85c0-9753ebbf57c9\",\n            \"guid\": \"e109d264-77d3-4a9e-93c9-df287c6a5ad1\",\n            \"status\": \"PENDING\",\n            \"type\": \"DEPOSIT\",\n            \"hash\": \"00000000b7a97b9b783bafa7df0847d8473256509c5d7054a3d006e8640b59be\",\n            \"confirmation\": 0,\n            \"depositId\": \"a445054b-c3ea-42d2-8127-42c417b84c4a\",\n            \"transferId\": null,\n            \"address\": \"mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN\",\n            \"transactionRef\": \"TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#\",\n            \"fromAddress\": null,\n            \"mode\": \"TEST\",\n            \"description\": null,\n            \"amount\": \"0.45\",\n            \"dollarRate\": \"33715.32\",\n            \"dollarAmount\": \"15171.894\",\n            \"assetId\":             \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n            \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n            \"createdAt\": \"2021-06-23T21:17:08.761Z\",\n            \"updatedAt\": \"2021-06-23T21:17:08.769Z\",\n            \"completedAt\": null,\n            \"cancelledAt\": null\n        }\n    ]\n}"
+              example: "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"uid\": \"ae866891-9629-4bbf-85c0-9753ebbf57c9\",\n            \"guid\": \"e109d264-77d3-4a9e-93c9-df287c6a5ad1\",\n            \"status\": \"PENDING\",\n            \"type\": \"DEPOSIT\",\n            \"hash\": \"00000000b7a97b9b783bafa7df0847d8473256509c5d7054a3d006e8640b59be\",\n            \"confirmation\": 0,\n            \"depositId\": \"a445054b-c3ea-42d2-8127-42c417b84c4a\",\n            \"transferId\": null,\n            \"address\": \"mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN\",\n            \"transactionRef\": \"TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#\",\n            \"fromAddress\": null,\n            \"mode\": \"TEST\",\n            \"description\": null,\n            \"amount\": \"0.45\",\n            \"dollarRate\": \"33715.32\",\n            \"dollarAmount\": \"15171.894\",\n            \"assetId\":             \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n            \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n            \"createdAt\": \"2021-06-23T21:17:08.761Z\",\n            \"updatedAt\": \"2021-06-23T21:17:08.769Z\",\n            \"completedAt\": null,\n            \"cancelledAt\": null\n        }\n    ]\n}"
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/isbitpowr_addresss:
+    get:
+      tags:
+      - Address
+      summary: Check if an address is powered by Bitpowr
+      description: This endpoint checks if an address is powered by Bitpowr for a specific asset type.
+      operationId: isBitpowrAddress
+      parameters:
+      - name: address
+        in: query
+        description: The address to check.
+        required: true
+        schema:
+          type: string
+          example: 0xabhgjhshfjhsfsjhfsjhf
+      - name: assetType
+        in: query
+        description: The type of asset associated with the address.
+        required: true
+        schema:
+          type: string
+          example: BTC
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: isBitpowrAddress
+                required:
+                - status
+                - isPowered
+                type: object
+                properties:
+                  status:
+                    type: string
+                  isPowered:
+                    type: boolean
+                example: {}
+              example: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /addresses/stacking:
+    post:
+      tags:
+      - Address
+      summary: Stacking
+      description: This endpoint performs stacking operations on a specific address.
+      operationId: stacking
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - address
+              - amount
+              - operation
+              type: object
+              properties:
+                address:
+                  type: string
+                  description: The address where the stacking operation will be performed
+                  example: GD....
+                amount:
+                  type: string
+                  description: The amount to be stacked
+                  example: '100'
+                assetCode:
+                  type: string
+                  description: The asset code of the stacking asset (optional)
+                  example: USDC_XLM
+                operation:
+                  type: string
+                  description: The stacking operation to perform
+                  enum:
+                  - freezeTron
+                  - unFreezeTron
+                  - withdrawFrozenAsset
+                  example: freezeTron
+                resource:
+                  type: string
+                  description: The resource type for the stacking operation (optional)
+                  enum:
+                  - BANDWIDTH
+                  - ENERGY
+                  example: BANDWIDTH
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: stacking
+                required:
+                - status
+                type: object
+                properties:
+                  status:
+                    type: string
+                example: {}
+              example: {}
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

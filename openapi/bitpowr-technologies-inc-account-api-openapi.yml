@@ -1,0 +1,3819 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Account
+paths:
+  /accounts:
+    post:
+      tags:
+      - Account
+      summary: Create accounts
+      description: This endpoint creates an account
+      operationId: Createaccounts
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - name
+              - passphrase
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the account/wallet you want to create.
+                  example: TEST  jan 19
+                passphrase:
+                  type: string
+                  description: Something simillar to a passowrd for your wallet/account.
+                  example: ioetdf0isd08
+                type:
+                  type: string
+                  description: Could be DEFAULT/SELF_CUSTODY/SAVINGS/EXCHANGES
+                  example: DEFAULT
+                showInDashboard:
+                  type: boolean
+                  description: Choose whether to show account/wallet in dashboard
+                  example: false
+                assets:
+                  type: string
+                  description: arrays of assets you want to add to your account/wallet
+                  example: BTC
+                externalId:
+                  type: string
+                  description: The external unique id / random generated string
+                  example: BTC
+                email:
+                  type: string
+                  description: required only for SELF_CUSTODY type
+                  example: BTC
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Account
+      summary: Get account
+      description: This endpoint returns all user's accounts/wallets
+      operationId: Getaccount
+      parameters:
+      - name: perPage
+        in: query
+        description: The number of accounts per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort accounts by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                page: 1
+                totalPages: 3
+                data:
+                - uid: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  externalId: null
+                  fiatCurrency: USD
+                  name: 'Bitpowr '
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2021-12-12T14:47:45.991Z'
+                  mode: TEST
+                  maxDailyAmount: 1000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 399
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-12T15:15:56.266Z'
+                    balance:
+                      received: '0.00334066'
+                      sent: '0.00001692'
+                      balance: '0.00332374'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4
+                    guid: 3d897193-aeca-4280-a3de-a4e70df98e5a
+                    label: Bitcoin Cash
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOINCASH
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BCH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-14T07:07:27.129Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 208423b4-ad4f-4146-84f0-e1982192b1c8
+                    guid: 2df525d7-f15c-41ca-ace4-4b03ee79b59e
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: LITECOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: LTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-17T12:33:42.754Z'
+                    balance:
+                      received: '0.133702'
+                      sent: '0.06763646'
+                      balance: '0.06606554'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: d8653877-fb96-4523-81b1-e51c0d161d23
+                    guid: e95e95b8-cd23-43e3-b40b-a5298c82b27b
+                    label: Ethereum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-17T12:37:25.636Z'
+                    balance:
+                      received: '0.23543357'
+                      sent: '0.235370895066691006'
+                      balance: '0.000062674933308994'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 85ebb683-7f17-4098-89f2-683e4bb8dd6f
+                    guid: ae790f48-7434-4112-8021-7a4e6bfe8c81
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2022-01-26T17:28:34.290Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: ce5d4fe0-407c-4d39-80bd-07c9027ceaca
+                    guid: e012a523-0236-41d2-b5bd-2316fb88bcc5
+                    label: Tron (TRX)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: TRON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TRON
+                    autoForwardAddress: null
+                    createdAt: '2022-01-26T17:28:51.711Z'
+                    balance:
+                      received: '55.422050'
+                      sent: '54.331273'
+                      balance: '1.090777'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 62123e6d-dfe5-4ca9-8fcd-653ead5938f1
+                    guid: 4643099f-5e2b-47bf-b7ab-29dbab53954b
+                    label: Matic
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-01-26T17:29:08.155Z'
+                    balance:
+                      received: '0.32947691'
+                      sent: '0.326090521763289924'
+                      balance: '0.003386388236710076'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 770d2ea6-2d6b-4b08-aa35-ea2358e77ba9
+                    guid: 78878a41-b59b-4878-a2ec-35570c084ad2
+                    label: TUSDC (MATIC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-07-04T09:53:54.238Z'
+                    balance:
+                      received: '24391.98'
+                      sent: '22211.09340773'
+                      balance: '2180.88659227'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: f49f0653-68e5-42f5-b57a-12c0d5779f30
+                    guid: 7368a132-726c-4f1f-8ab0-155a27bc8031
+                    label: Celo
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: CELO
+                    network: TESTNET
+                    mode: TEST
+                    assetType: CELO
+                    autoForwardAddress: null
+                    createdAt: '2022-08-23T09:09:04.886Z'
+                    balance:
+                      received: '3.24393581'
+                      sent: '1.38923151'
+                      balance: '1.85470430'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: c88e0db3-9015-4cdb-81ab-e62b8e64a49c
+                    guid: fe360001-3833-4937-aa1e-ada4bdb667e8
+                    label: Solana
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: SOL
+                    autoForwardAddress: null
+                    createdAt: '2022-09-02T02:57:30.433Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 9b463c2a-cf6b-49fa-9583-b805f39c02ef
+                    guid: 205f7452-385d-4caf-b09a-5e9ba6c73de3
+                    label: TUSDC (ETH)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_ETH
+                    autoForwardAddress: null
+                    createdAt: '2022-09-23T03:12:22.010Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 12376842-3e74-4261-b266-9eb53210531f
+                    guid: df055b45-e39d-44f4-8e33-b81ace5862a2
+                    label: Stellar
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: XLM
+                    autoForwardAddress: null
+                    createdAt: '2023-04-10T08:07:41.728Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 4fe3af17-a3a1-4d18-971f-f95dabad1e19
+                    guid: cc497666-b58b-4606-98dd-22ff47ef1163
+                    label: TUSDC (SOL)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_SOL
+                    autoForwardAddress: null
+                    createdAt: '2023-04-10T08:15:36.229Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: c7ad98f9-a9ad-46eb-bb92-e30f27aa9967
+                    guid: ea7c29d7-dd07-4e77-b2bf-d9ca87b824e7
+                    label: TEURC (XLM)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TEURC_XLM
+                    autoForwardAddress: null
+                    createdAt: '2023-04-10T11:37:41.556Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: c87de11f-46f1-4906-8e82-9481623c053c
+                    guid: dfa42a22-7a0d-4cf4-aebb-87cca07cba49
+                    label: TUSDC (XLM)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_XLM
+                    autoForwardAddress: null
+                    createdAt: '2024-01-11T07:17:29.124Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: f28fc50c-3ac3-41b2-8d3e-7964be7e3503
+                    guid: d94e0b80-a23f-40c3-8d0e-b84b45f34806
+                    label: Arbitrum - ETH
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ARBITRUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH_ARB
+                    autoForwardAddress: null
+                    createdAt: '2024-01-16T15:11:24.368Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 42ef1363-4308-4b43-a174-3fe74977d8fd
+                    guid: 2c850f4c-59f5-4b97-a1a5-9c88174a2a9c
+                    label: TUSDC (TRX)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: TRON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_TRON
+                    autoForwardAddress: null
+                    createdAt: '2024-01-16T15:12:34.669Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '25344.08'
+                    sent: '22947.10'
+                    balance: '2396.99'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: e95836d1-f496-447a-bbc0-d975d85a1c13
+                  externalId: null
+                  fiatCurrency: USD
+                  name: Enza Capital
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2021-12-15T13:41:33.211Z'
+                  mode: TEST
+                  maxDailyAmount: 50
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 5
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 3bf73934-1e21-4ed1-ab15-eb74fb4eab5f
+                    guid: 3d37aeda-8d6e-400d-8a7c-ca90ace31229
+                    label: Bitcoin Cash
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOINCASH
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BCH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-15T13:42:19.223Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 794b7c46-b9ea-4467-bf13-e4b985c294c1
+                    guid: ff1b8e6a-47f6-4087-98fb-d15d6cd0266f
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-15T13:42:29.030Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 2326436d-2443-4f81-aa48-637a42c918a7
+                    guid: 8518d60b-ea36-4f09-a690-0426488c53f9
+                    label: Celo
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: CELO
+                    network: TESTNET
+                    mode: TEST
+                    assetType: CELO
+                    autoForwardAddress: null
+                    createdAt: '2022-09-22T21:09:12.047Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: b5bd7d71-85fe-4410-9e35-d20b087ec1ce
+                    guid: aea0fb5b-b2f0-4fd9-90ad-6c2099c4363b
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: true
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2022-11-25T16:50:27.665Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: f7893ba3-b92d-4cf4-9cca-f2062406de34
+                    guid: 09b25adf-525f-411b-b8f7-d55c5cc8dead
+                    label: Stellar
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: XLM
+                    autoForwardAddress: null
+                    createdAt: '2022-12-01T14:54:03.666Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: fc932285-3efa-4cdb-bdb7-73f889743b4a
+                    guid: 0da8b224-1a27-4565-baa0-2e83d9a0b4cc
+                    label: TUSDC (XLM)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_XLM
+                    autoForwardAddress: null
+                    createdAt: '2023-02-27T08:43:00.622Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 33ec3f01-b503-475f-b721-89272c3b5ee1
+                    guid: 35dac59e-d552-4d6b-8976-51caad4663d7
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: LITECOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: LTC
+                    autoForwardAddress: null
+                    createdAt: '2023-04-14T13:37:32.206Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: dd7944a5-d78a-4888-8aa1-13a3fed421e4
+                    guid: 4431d76b-2672-4d6f-ae92-a5f9fd4ccd20
+                    label: Matic
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2023-05-30T15:50:43.915Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: ef841a8a-d669-401d-9158-28d0f854cb06
+                    guid: d60a5580-2b78-4442-a0ce-ee362ae503e8
+                    label: Ethereum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-15T13:42:01.546Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: d16fb7fc-ad52-49e7-ab9d-5d06eebbd5c1
+                    guid: a4aba2b4-d9db-4021-bf00-bb8a6fea2cd7
+                    label: Avalanche
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: AVALANCHE
+                    network: TESTNET
+                    mode: TEST
+                    assetType: AVAX
+                    autoForwardAddress: null
+                    createdAt: '2024-02-02T00:02:09.360Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: 6f830f92-32d9-4cd3-a564-28f2ab7e4709
+                  externalId: null
+                  fiatCurrency: USD
+                  name: Bimpe
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2021-12-15T13:41:43.362Z'
+                  mode: TEST
+                  maxDailyAmount: 10000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 8a22109a-d1a4-4819-89fb-6449e4739292
+                    guid: 0707a46c-f043-4997-b4df-50d373c27892
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-22T10:42:27.037Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: cff0e044-2b60-422f-95a9-8990b7b446a8
+                    guid: 159af5d2-988e-4895-b732-3a1ccbc4fc66
+                    label: Bitcoin Cash
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOINCASH
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BCH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-22T10:42:48.428Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: c8774f75-7ab6-44a8-abc9-205b2087864a
+                    guid: 78c32506-2399-4862-af92-8b38b2385183
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-22T10:44:31.984Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 1dfcffae-bd6e-434d-947c-18394e700dd4
+                    guid: 205826e8-2077-47e3-9fdd-d6b70783f5db
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: LITECOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: LTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-22T10:44:57.606Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 3cc934a0-c544-4cd4-8655-40832163e727
+                    guid: 115c971d-ceef-40bb-8304-be87e7eca5c0
+                    label: Matic
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-22T10:46:15.443Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 01cad424-70f1-42a2-b452-02c1d4c3fbfe
+                    guid: 60949033-195c-44f3-96db-a347fcadbdae
+                    label: Base
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BASE
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BASE
+                    autoForwardAddress: null
+                    createdAt: '2024-02-01T23:55:08.486Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: f422f7f8-23d5-4dd9-8a62-46c851ddddde
+                  externalId: null
+                  fiatCurrency: USD
+                  name: EmTech
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2021-12-22T10:29:12.610Z'
+                  mode: TEST
+                  maxDailyAmount: 1000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 4
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 10bbb08f-28ff-4b2e-89b6-eb9abd2337cd
+                    guid: 9dd73574-44b5-401f-8c68-b7ad521198f9
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2022-10-24T13:26:15.969Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 4e5d0839-539a-4ae9-bb85-8739c2dd9acc
+                    guid: aa2ef4d4-4d78-4812-887f-355487938683
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: true
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:43:15.851Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: d7ccdc3f-9660-4ef7-8307-1ec7eef689b1
+                    guid: adc69483-1ae6-4157-816c-ebcda87401c5
+                    label: Tron (TRX)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: TRON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TRON
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:43:30.214Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: eaa6c53b-3f4b-4687-a9c9-1599fa2109c1
+                    guid: 0ae9f968-5980-41a5-b72d-43f8c91867d8
+                    label: Bantu
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BANTU
+                    network: TESTNET
+                    mode: TEST
+                    assetType: XBN
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:43:41.639Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 4ecb059c-40a5-4652-a480-dcb2638bfea8
+                    guid: 2e91ec78-31e7-4de3-8f23-ed1e2afdb706
+                    label: cUSD
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: CELO
+                    network: TESTNET
+                    mode: TEST
+                    assetType: CUSD
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:43:53.877Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 923f6a7d-756a-405b-ae1f-41d27fd747fd
+                    guid: 3e35fde8-432b-470e-a81c-9d4b4448eab2
+                    label: Bitcoin Cash
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOINCASH
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BCH
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:44:16.661Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 27fb58ec-f0a7-4565-b2f0-366d0a6f52b4
+                    guid: 84725d83-7e0c-42a6-8e32-c186b7b895b0
+                    label: Solana
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: SOL
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:44:32.582Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 3da9e683-b394-465b-97e6-270f4a8d129f
+                    guid: c87cf720-609d-4be5-acc6-7127e388fc39
+                    label: TUSDC (MATIC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_MATIC
+                    autoForwardAddress: null
+                    createdAt: '2023-01-06T05:58:01.429Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 9bd7d2ef-23e2-4302-87a2-57a29c0f60ff
+                    guid: fde7f770-2245-4a85-bc28-41bb63c4e972
+                    label: MATIC Asset
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2023-01-06T06:03:25.521Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 04398625-94f3-4f1b-a85e-0ea263e44117
+                    guid: 3317dded-5f34-4851-bc46-929b6ae0a0da
+                    label: TUSDC (ETH)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_ETH
+                    autoForwardAddress: null
+                    createdAt: '2022-11-02T11:43:02.381Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: b4949eed-d19d-46c5-9153-8f5e3d3c39c4
+                    guid: c36148af-b838-4be4-b564-faf618a72a0a
+                    label: Ethereum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH
+                    autoForwardAddress: null
+                    createdAt: '2022-11-13T18:51:26.193Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: dc523667-f636-4c13-8b7e-f9d6c29fb1e9
+                  externalId: null
+                  fiatCurrency: USD
+                  name: Samuel
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2022-01-19T17:45:23.130Z'
+                  mode: TEST
+                  maxDailyAmount: 10000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 50ad9978-6fc3-43c4-a5c3-f10fd380eaab
+                    guid: 2f67ab8c-703d-4d97-8863-52cc30d9284d
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2022-10-31T08:54:42.718Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 3230e8b8-e734-4723-9c38-d8f75a4258a0
+                    guid: a512b5e0-b6c9-48fd-83d8-1ad8f3fe611b
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: true
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2023-09-05T12:26:53.589Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: 607a4225-b098-4c3c-bb27-4314324cf54a
+                  externalId: df7bac9b-3614-4a60-8d84-4dd665a8dffc
+                  fiatCurrency: USD
+                  name: ViscoPay
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2022-04-22T22:31:40.858Z'
+                  mode: TEST
+                  maxDailyAmount: 120000
+                  maxMonthlyAmount: 150000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 800
+                  whiteListAddresses: null
+                  asset:
+                  - uid: f13c976a-f388-49a4-a944-8f5cc330619a
+                    guid: 27fa5b0a-bc94-4101-971d-353760feb333
+                    label: TUSDC (MATIC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-04-22T22:32:07.672Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 8444cd22-f1f6-43a5-a4a4-7ccaa7c159ff
+                    guid: 0382f483-7fed-40fd-9575-7de94d6eb509
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2022-04-22T22:32:38.199Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 621925a4-7b08-4cc2-a577-d5e761188b1f
+                    guid: e58896fa-6015-4616-908b-d099ec585c54
+                    label: MATIC Asset
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-04-22T22:42:28.675Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 0d950248-de3b-4ffc-a37c-3848fc192244
+                    guid: 5c14b78b-4c76-4971-a735-4c7641eaca54
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2022-10-19T14:39:04.333Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 9341cf9d-7203-49f5-bf3c-0869909f1acb
+                    guid: 1b24e8d6-f93e-4381-b2cc-49788c04ec85
+                    label: Arbitrum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ARBITRUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH_ARB
+                    autoForwardAddress: null
+                    createdAt: '2023-12-05T07:19:08.636Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 249fe06b-5635-46a7-a6b2-992351f8d0f7
+                    guid: 760201c8-3bcb-4d9a-b725-ae41d79779ad
+                    label: Base
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BASE
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BASE
+                    autoForwardAddress: null
+                    createdAt: '2024-02-01T23:55:42.193Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 90da65f5-e2b8-4e5c-ab6d-302a269815e1
+                    guid: 23074ae5-223c-4b4d-9fc4-acd4b7ebd804
+                    label: Ethereum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH
+                    autoForwardAddress: null
+                    createdAt: '2024-03-29T10:21:13.690Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: 2bf6d52b-4234-4c3f-8105-8813d0521e5d
+                  externalId: 4c587a21-7358-427c-ae97-4c6f2d043e40
+                  fiatCurrency: USD
+                  name: Nifemi
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2022-04-25T13:13:44.165Z'
+                  mode: TEST
+                  maxDailyAmount: 10000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 3da8f708-1fb0-4f37-a492-ac4a1a57eab1
+                    guid: 446f7697-552a-47ca-9142-636c9a513de2
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2022-04-25T13:14:07.585Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 96beadfb-2e66-45ae-a14f-16a84ebefec8
+                    guid: a1bc39d6-a05b-461f-828f-5f8e3f0009e4
+                    label: TUSDC (MATIC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-04-25T13:14:22.540Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: e42e9415-10ce-4808-b268-4b9b232e2823
+                    guid: 4b75a694-9aa9-4d90-98d3-d534c65b8423
+                    label: MATIC Asset
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-10-20T11:27:54.317Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: 78931ede-b019-4ac7-a0f3-582ebeacf8e8
+                  externalId: b8caa6d0-e897-464c-bbd9-7a29b04b0d25
+                  fiatCurrency: USD
+                  name: Peter
+                  type: SELF_CUSTODY
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2022-06-21T20:20:43.304Z'
+                  mode: TEST
+                  maxDailyAmount: 10000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 9d90a987-34c0-49c9-a01c-d44faba1ee8b
+                    guid: 0babce92-52f6-4fd3-9f28-846e7db47ba5
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2022-06-21T20:21:10.252Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 19e2c390-2867-4e79-a271-e2cafbabcd1c
+                    guid: 2c54718b-8d01-4723-8842-687a61252249
+                    label: Solana
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: SOL
+                    autoForwardAddress: null
+                    createdAt: '2023-08-17T16:36:51.308Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: 07cbc77c-554e-4946-880d-d73be1768cdf
+                  externalId: 586d08cc-c018-4077-b935-9bcbd9090d63
+                  fiatCurrency: USD
+                  name: Test segwit
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2022-06-22T16:04:02.275Z'
+                  mode: TEST
+                  maxDailyAmount: 10000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 85dd5d41-e8c1-40f3-bd7f-681ae1d5a6f4
+                    guid: 4b67a98e-5be0-43ba-85b3-e0a62b2a4591
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2022-06-22T16:04:25.752Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 3275d975-6568-4354-96e2-95054f66a6b5
+                    guid: c15f992c-e964-4e6f-81d9-9411bc603337
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: LITECOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: LTC
+                    autoForwardAddress: null
+                    createdAt: '2022-06-22T16:04:36.512Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+                - uid: 68ecb89f-5aae-4f10-a6af-800b0b5b3c28
+                  externalId: 92ccf4ab-eae9-4ce4-bf9e-0153282ef46f
+                  fiatCurrency: USD
+                  name: Gas Station Vault
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2022-07-04T09:46:47.036Z'
+                  mode: TEST
+                  maxDailyAmount: 10000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 100
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: e262a575-5f9b-41f8-92d9-6c75df4dab7f
+                    guid: 2f8cd228-8b14-4d2d-8009-1547eaf6a254
+                    label: Matic
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-07-04T09:49:48.174Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 94a74528-bc50-4024-afcf-8f1c9b738075
+                    guid: 245460ae-c61b-4d8c-85b9-3576945519fc
+                    label: Celo
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: CELO
+                    network: TESTNET
+                    mode: TEST
+                    assetType: CELO
+                    autoForwardAddress: null
+                    createdAt: '2022-09-19T08:39:05.964Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: ecb94a96-747a-4c0d-a9cd-de24a1ec6066
+                    guid: bbcb8d17-5abe-434a-b844-0e7bd42c7592
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2022-09-23T15:00:30.821Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 975553a6-dc38-4b72-a20f-90b44aa361bb
+                    guid: 0c3724aa-061c-462a-ae58-2bfa37291309
+                    label: Ethereum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH
+                    autoForwardAddress: null
+                    createdAt: '2022-09-23T15:00:40.945Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: e7a327f3-e6f2-4b68-ab4b-52a236fb6fc9
+                    guid: b8acda4d-631d-4aef-a4a9-af5dd0484ebc
+                    label: Solana
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: SOL
+                    autoForwardAddress: null
+                    createdAt: '2022-09-23T15:01:08.573Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: d73b8b57-b230-4ac4-b82c-743e2b58923f
+                    guid: bb5f391b-4909-4dee-a11e-6a25f13d048a
+                    label: Stellar
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: XLM
+                    autoForwardAddress: null
+                    createdAt: '2022-09-23T15:02:55.591Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 8b9954e7-f35e-4146-8eea-85edb2af3914
+                    guid: a08ecaae-3d9c-4871-82c9-03abe5c46878
+                    label: Tron (TRX)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: TRON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TRON
+                    autoForwardAddress: null
+                    createdAt: '2022-10-11T17:20:13.289Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: f46334da-8934-4d8f-b2f6-baaca606be12
+                    guid: f4bb4ef1-e4c6-47ff-aa9f-ebcf27643c78
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2023-04-20T14:18:58.533Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 7fa3af61-b245-43fc-9d54-bda1443c7e76
+                    guid: 75f37b21-677a-4671-9f8d-36a715962e09
+                    label: Bitcoin Cash
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOINCASH
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BCH
+                    autoForwardAddress: null
+                    createdAt: '2023-05-17T10:45:40.210Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 5720be1a-959b-4e31-87a2-6825b187f2ca
+                    guid: 1512c7ff-36b7-4e3f-8b2d-d017f5363a5a
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: LITECOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: LTC
+                    autoForwardAddress: null
+                    createdAt: '2023-06-19T08:28:50.639Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 7f323b90-d950-4589-ad93-2d1ef30ba9f3
+                    guid: d4b98b9d-5f48-494a-9044-248bb33ebcbe
+                    label: Avalanche
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: AVALANCHE
+                    network: TESTNET
+                    mode: TEST
+                    assetType: AVAX
+                    autoForwardAddress: null
+                    createdAt: '2024-01-16T08:33:00.626Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '0.00'
+                    sent: '0.00'
+                    balance: '0.00'
+                    pending: '0.00'
+                    blocked: '0.00'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/assets:
+    post:
+      tags:
+      - Account
+      summary: Add Assets to Account
+      description: This endpoint returns an asset for an account.
+      operationId: Createaccountsassetsbyid
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 123456jhgfdresrdfghjn
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              title: CreateaccountsassetsbyidRequest
+              required:
+              - label
+              - asset
+              type: object
+              properties:
+                label:
+                  type: string
+                asset:
+                  type: string
+              example:
+                label: test-asset11
+                asset: BCH
+            example:
+              label: test-asset11
+              asset: BCH
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/sub-accounts:
+    post:
+      tags:
+      - Account
+      summary: Create Sub Accounts
+      description: This endpoint creates a sub account
+      operationId: Createsub-accounts
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: e96a5c42-4374-4e6e-9e52-021fc1f65d99
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - name
+              - externalId
+              - metaData
+              type: object
+              properties:
+                name:
+                  description: The label of the Sub Account you want to Add.
+                  type: string
+                externalId:
+                  description: The unique string (e.g user id)
+                  type: string
+                autoGenerateAddress:
+                  description: The generated addresses for all available asset on the parent account.
+                  type: boolean
+                  example: 'false'
+                metaData:
+                  description: Additional data
+                  type: object
+                  example:
+                    phone: '+239444'
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: 0cc56796-9f06-4b8b-bea7-933ce771f866
+                  name: test
+                  externalId: '67338'
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2024-04-16T17:42:00.227Z'
+                  updatedAt: '2024-04-16T17:42:00.228Z'
+                  mode: TEST
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  addresses: []
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Account
+      summary: Get sub account
+      description: This endpoint gets the sub-account by it's `uid`
+      operationId: Getsubaccountbyid
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 6928a43f-a042-4905-bde8-8523d7da8869
+      - name: perPage
+        in: query
+        description: The number of sub-accounts per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 4
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort sub-accounts by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+                  Address: []
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/sub-accounts/{subId}/addresses:
+    post:
+      tags:
+      - Account
+      summary: Create Sub Account Address
+      description: This endpoint creates sub-account addresses using the account `uid` and sub accounts `uid`
+      operationId: createsubaccountaddresses
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want to work with.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: hhgfs787798988
+      - name: subId
+        in: path
+        description: The subId of the account you want to generate address for.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: bjbsu8788787879
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - label
+              - asset
+              type: object
+              properties:
+                label:
+                  type: string
+                  description: The label of the Asset you want to Add.
+                  example: test-sub-account
+                asset:
+                  type: string
+                  description: Tthe asset you want to add (BTC,USDT,LTC,BCH)
+                  example: LTC
+                addressType:
+                  type: string
+                  description: The address type can be segwit, wrappedsegwit or legacy
+                  example: legacy
+                derivationIndex:
+                  type: number
+                  description: The derivation index of the address you want to generate. address derivation index - default(last derivationIndex + 1). For instance, it can be used to generate the same address across multiple EVM chains and ERC20 tokens. Can also be used to generate a different version of BTC and LTC address at the same index.
+                  example: 1
+                isChangeAddress:
+                  type: boolean
+                  description: 'Generate a change address. Change address transactions are partially monitored '
+                  example: false
+                enableNativeToken:
+                  type: boolean
+                  description: Automatically generate native address for non native token address at the same index. E.g USDC
+                  example: false
+                deploymentParams:
+                  type: object
+                  description: Deployment paramaters to pass when generating the smart contract. autoDeploy, autoFlush, autoFlushErc20
+                  properties:
+                    autoDeploy:
+                      type: boolean
+                      description: Auto deploy the address once it receives a deposit
+                    autoFlush:
+                      type: boolean
+                      description: Auto flush native token on the address once it receives a deposit
+                    autoFlushErc20:
+                      type: boolean
+                      description: Auto flush erc20 token on the address once it receives a deposit
+                  example:
+                    autoDepoy: true
+                    autoFlush: true
+                    autoFlushErc20: true
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: 3b3c57d1-f5cd-4d50-8598-19ef9fb09ad4
+                  guid: bf101c0b-20f9-4ed7-aba7-ec44805da61c
+                  address: 2N8iYKLMZUyegoYSAmpgC3M1Ma4EE3THWoB
+                  addressRef: oEMMSdyXsO
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BTC
+                  addressType: BTC
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 21
+                  label: test-sub-account
+                  chain: BITCOIN
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  subAccountId: 0cc56796-9f06-4b8b-bea7-933ce771f866
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2024-04-16T18:22:24.716Z'
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Account
+      summary: GET Sub Account Addressess
+      description: This endpoint returns details of a sub-account and its addresses using the account `uid` and sub account `uid`
+      operationId: Getaddresssub-accountsbyIdandaddress
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: oiuy787989w483
+      - name: subId
+        in: path
+        description: The subId of the sub-account you want to get.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 0xanbhgsuyfuysif
+      - name: perPage
+        in: query
+        description: The number of addresses per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 10
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort addresses by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                page: 1
+                totalPages: 1
+                data:
+                - uid: 3b3c57d1-f5cd-4d50-8598-19ef9fb09ad4
+                  guid: bf101c0b-20f9-4ed7-aba7-ec44805da61c
+                  address: 2N8iYKLMZUyegoYSAmpgC3M1Ma4EE3THWoB
+                  addressRef: oEMMSdyXsO
+                  mode: TEST
+                  network: TESTNET
+                  assetType: BTC
+                  addressType: BTC
+                  isContract: false
+                  isChangeAddress: false
+                  derivationIndex: 21
+                  label: test-sub-account
+                  chain: BITCOIN
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  accountId: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  subAccountId: 0cc56796-9f06-4b8b-bea7-933ce771f866
+                  used: false
+                  addressContractIdentifier: null
+                  deploymentParams: null
+                  lastUsedAt: null
+                  createdAt: '2024-04-16T18:22:24.716Z'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{id}/assets:
+    get:
+      tags:
+      - Account
+      summary: Get Account Assets
+      description: This endpoint returns all assets associated with an account by the `uid` of the account.
+      operationId: GetaccountassetsbyaccountId
+      parameters:
+      - name: id
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 'null'
+      - name: perPage
+        in: query
+        description: The number of assets per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 10
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort assets by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                page: 1
+                totalPages: 2
+                data:
+                - uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                  label: Bitcoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-12T15:15:56.266Z'
+                  balance:
+                    received: '0.00334066'
+                    sent: '0.00001692'
+                    balance: '0.00332374'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4
+                  guid: 3d897193-aeca-4280-a3de-a4e70df98e5a
+                  label: Bitcoin Cash
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOINCASH
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BCH
+                  autoForwardAddress: null
+                  createdAt: '2021-12-14T07:07:27.129Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+                - uid: 208423b4-ad4f-4146-84f0-e1982192b1c8
+                  guid: 2df525d7-f15c-41ca-ace4-4b03ee79b59e
+                  label: Litecoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: LITECOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: LTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-17T12:33:42.754Z'
+                  balance:
+                    received: '0.133702'
+                    sent: '0.06763646'
+                    balance: '0.06606554'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: d8653877-fb96-4523-81b1-e51c0d161d23
+                  guid: e95e95b8-cd23-43e3-b40b-a5298c82b27b
+                  label: Ethereum
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: ETHEREUM
+                  network: TESTNET
+                  mode: TEST
+                  assetType: ETH
+                  autoForwardAddress: null
+                  createdAt: '2021-12-17T12:37:25.636Z'
+                  balance:
+                    received: '0.23543357'
+                    sent: '0.235370895066691006'
+                    balance: '0.000062674933308994'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 85ebb683-7f17-4098-89f2-683e4bb8dd6f
+                  guid: ae790f48-7434-4112-8021-7a4e6bfe8c81
+                  label: BNB (BSC)
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BSC
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BSC
+                  autoForwardAddress: null
+                  createdAt: '2022-01-26T17:28:34.290Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+                - uid: ce5d4fe0-407c-4d39-80bd-07c9027ceaca
+                  guid: e012a523-0236-41d2-b5bd-2316fb88bcc5
+                  label: Tron (TRX)
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: TRON
+                  network: TESTNET
+                  mode: TEST
+                  assetType: TRON
+                  autoForwardAddress: null
+                  createdAt: '2022-01-26T17:28:51.711Z'
+                  balance:
+                    received: '55.422050'
+                    sent: '54.331273'
+                    balance: '1.090777'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 62123e6d-dfe5-4ca9-8fcd-653ead5938f1
+                  guid: 4643099f-5e2b-47bf-b7ab-29dbab53954b
+                  label: Matic
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: POLYGON
+                  network: TESTNET
+                  mode: TEST
+                  assetType: MATIC
+                  autoForwardAddress: null
+                  createdAt: '2022-01-26T17:29:08.155Z'
+                  balance:
+                    received: '0.32947691'
+                    sent: '0.326090521763289924'
+                    balance: '0.003386388236710076'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 770d2ea6-2d6b-4b08-aa35-ea2358e77ba9
+                  guid: 78878a41-b59b-4878-a2ec-35570c084ad2
+                  label: TUSDC (MATIC)
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: POLYGON
+                  network: TESTNET
+                  mode: TEST
+                  assetType: TUSDC_MATIC
+                  autoForwardAddress: null
+                  createdAt: '2022-07-04T09:53:54.238Z'
+                  balance:
+                    received: '24391.98'
+                    sent: '22211.09340773'
+                    balance: '2180.88659227'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: f49f0653-68e5-42f5-b57a-12c0d5779f30
+                  guid: 7368a132-726c-4f1f-8ab0-155a27bc8031
+                  label: Celo
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: CELO
+                  network: TESTNET
+                  mode: TEST
+                  assetType: CELO
+                  autoForwardAddress: null
+                  createdAt: '2022-08-23T09:09:04.886Z'
+                  balance:
+                    received: '3.24393581'
+                    sent: '1.38923151'
+                    balance: '1.85470430'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: c88e0db3-9015-4cdb-81ab-e62b8e64a49c
+                  guid: fe360001-3833-4937-aa1e-ada4bdb667e8
+                  label: Solana
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: SOLANA
+                  network: TESTNET
+                  mode: TEST
+                  assetType: SOL
+                  autoForwardAddress: null
+                  createdAt: '2022-09-02T02:57:30.433Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{accountId}/sub-accounts/{subAccountId}/balance:
+    get:
+      tags:
+      - Account
+      summary: Get account balance by accountId and subAccountId
+      description: This endpoint returns an account's balance by it's `accountId` and `subaccounId`
+      operationId: GetaccountbalancebyaccountIdandsubAccountId
+      parameters:
+      - name: accountId
+        in: path
+        description: The account Id of the account/wallet you want to get assets.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: uy7hjjshf
+      - name: subAccountId
+        in: path
+        description: The uid of the account/wallet you want to get assets.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 90987hhjsfjhs
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  received: '0.00'
+                  sent: '0.00'
+                  balance: '0.00'
+                  pending: '0.00'
+                  blocked: '0.00'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/balance:
+    get:
+      tags:
+      - Account
+      summary: Get account balance
+      description: This endpoint returns the balance of an account by the `uid` of the account.
+      operationId: Getaccountbalancebyid
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 3rhjfhhsu8u9rw
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  received: '25344.14'
+                  sent: '892857102734085299530232929842094380994874680494321289698075212396921.54'
+                  balance: '-892857102734085299530232929842094380994874680494321289698075212378440.37'
+                  pending: '0.00'
+                  blocked: '6862.98'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}:
+    get:
+      tags:
+      - Account
+      summary: Get account by id
+      description: This endpoint returns a user's accounts/wallets by it's `uid`
+      operationId: Getaccountbyid
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 6928a43f-a042-4905-bde8-8523d7da886912345
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: d2acaff2-554d-4a7e-8c60-a3f8105c9f32
+                  externalId: null
+                  fiatCurrency: USD
+                  name: 'Bitpowr '
+                  type: DEFAULT
+                  showInDashboard: true
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  network: TESTNET
+                  createdAt: '2021-12-12T14:47:45.991Z'
+                  mode: TEST
+                  maxDailyAmount: 1000
+                  maxMonthlyAmount: 100000
+                  maxDailyTransactionsCount: 399
+                  maxMonthlyTransactionsCount: 1000
+                  whiteListAddresses: null
+                  asset:
+                  - uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-12T15:15:56.266Z'
+                    balance:
+                      received: '0.00334066'
+                      sent: '0.00001692'
+                      balance: '0.00332374'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4
+                    guid: 3d897193-aeca-4280-a3de-a4e70df98e5a
+                    label: Bitcoin Cash
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BITCOINCASH
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BCH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-14T07:07:27.129Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 208423b4-ad4f-4146-84f0-e1982192b1c8
+                    guid: 2df525d7-f15c-41ca-ace4-4b03ee79b59e
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: LITECOIN
+                    network: TESTNET
+                    mode: TEST
+                    assetType: LTC
+                    autoForwardAddress: null
+                    createdAt: '2021-12-17T12:33:42.754Z'
+                    balance:
+                      received: '0.133702'
+                      sent: '0.06763646'
+                      balance: '0.06606554'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: d8653877-fb96-4523-81b1-e51c0d161d23
+                    guid: e95e95b8-cd23-43e3-b40b-a5298c82b27b
+                    label: Ethereum
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH
+                    autoForwardAddress: null
+                    createdAt: '2021-12-17T12:37:25.636Z'
+                    balance:
+                      received: '0.23543357'
+                      sent: '0.235370895066691006'
+                      balance: '0.000062674933308994'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 85ebb683-7f17-4098-89f2-683e4bb8dd6f
+                    guid: ae790f48-7434-4112-8021-7a4e6bfe8c81
+                    label: BNB (BSC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: BSC
+                    network: TESTNET
+                    mode: TEST
+                    assetType: BSC
+                    autoForwardAddress: null
+                    createdAt: '2022-01-26T17:28:34.290Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: ce5d4fe0-407c-4d39-80bd-07c9027ceaca
+                    guid: e012a523-0236-41d2-b5bd-2316fb88bcc5
+                    label: Tron (TRX)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: TRON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TRON
+                    autoForwardAddress: null
+                    createdAt: '2022-01-26T17:28:51.711Z'
+                    balance:
+                      received: '55.422050'
+                      sent: '54.331273'
+                      balance: '1.090777'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 62123e6d-dfe5-4ca9-8fcd-653ead5938f1
+                    guid: 4643099f-5e2b-47bf-b7ab-29dbab53954b
+                    label: Matic
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-01-26T17:29:08.155Z'
+                    balance:
+                      received: '0.32947691'
+                      sent: '0.326090521763289924'
+                      balance: '0.003386388236710076'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: 770d2ea6-2d6b-4b08-aa35-ea2358e77ba9
+                    guid: 78878a41-b59b-4878-a2ec-35570c084ad2
+                    label: TUSDC (MATIC)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: POLYGON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_MATIC
+                    autoForwardAddress: null
+                    createdAt: '2022-07-04T09:53:54.238Z'
+                    balance:
+                      received: '24391.98'
+                      sent: '22211.09340773'
+                      balance: '2180.88659227'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: f49f0653-68e5-42f5-b57a-12c0d5779f30
+                    guid: 7368a132-726c-4f1f-8ab0-155a27bc8031
+                    label: Celo
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: CELO
+                    network: TESTNET
+                    mode: TEST
+                    assetType: CELO
+                    autoForwardAddress: null
+                    createdAt: '2022-08-23T09:09:04.886Z'
+                    balance:
+                      received: '3.24393581'
+                      sent: '1.38923151'
+                      balance: '1.85470430'
+                      pending: '0.0'
+                      blocked: '0'
+                  - uid: c88e0db3-9015-4cdb-81ab-e62b8e64a49c
+                    guid: fe360001-3833-4937-aa1e-ada4bdb667e8
+                    label: Solana
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: SOL
+                    autoForwardAddress: null
+                    createdAt: '2022-09-02T02:57:30.433Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 9b463c2a-cf6b-49fa-9583-b805f39c02ef
+                    guid: 205f7452-385d-4caf-b09a-5e9ba6c73de3
+                    label: TUSDC (ETH)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ETHEREUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_ETH
+                    autoForwardAddress: null
+                    createdAt: '2022-09-23T03:12:22.010Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 12376842-3e74-4261-b266-9eb53210531f
+                    guid: df055b45-e39d-44f4-8e33-b81ace5862a2
+                    label: Stellar
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: XLM
+                    autoForwardAddress: null
+                    createdAt: '2023-04-10T08:07:41.728Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 4fe3af17-a3a1-4d18-971f-f95dabad1e19
+                    guid: cc497666-b58b-4606-98dd-22ff47ef1163
+                    label: TUSDC (SOL)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: SOLANA
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_SOL
+                    autoForwardAddress: null
+                    createdAt: '2023-04-10T08:15:36.229Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: c7ad98f9-a9ad-46eb-bb92-e30f27aa9967
+                    guid: ea7c29d7-dd07-4e77-b2bf-d9ca87b824e7
+                    label: TEURC (XLM)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TEURC_XLM
+                    autoForwardAddress: null
+                    createdAt: '2023-04-10T11:37:41.556Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: c87de11f-46f1-4906-8e82-9481623c053c
+                    guid: dfa42a22-7a0d-4cf4-aebb-87cca07cba49
+                    label: TUSDC (XLM)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: STELLAR
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_XLM
+                    autoForwardAddress: null
+                    createdAt: '2024-01-11T07:17:29.124Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: f28fc50c-3ac3-41b2-8d3e-7964be7e3503
+                    guid: d94e0b80-a23f-40c3-8d0e-b84b45f34806
+                    label: Arbitrum - ETH
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: ARBITRUM
+                    network: TESTNET
+                    mode: TEST
+                    assetType: ETH_ARB
+                    autoForwardAddress: null
+                    createdAt: '2024-01-16T15:11:24.368Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  - uid: 42ef1363-4308-4b43-a174-3fe74977d8fd
+                    guid: 2c850f4c-59f5-4b97-a1a5-9c88174a2a9c
+                    label: TUSDC (TRX)
+                    isDeleted: false
+                    isArchived: false
+                    isContract: false
+                    chain: TRON
+                    network: TESTNET
+                    mode: TEST
+                    assetType: TUSDC_TRON
+                    autoForwardAddress: null
+                    createdAt: '2024-01-16T15:12:34.669Z'
+                    balance:
+                      received: '0.0'
+                      sent: '0.0'
+                      balance: '0.0'
+                      pending: '0.0'
+                      blocked: '0.0'
+                  fiatBalance:
+                    received: '25344.11'
+                    sent: '22947.12'
+                    balance: '2396.99'
+                    pending: '0.00'
+                    blocked: '0.00'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{accountId}/sub-accounts/{subAccountId}/crypto-balance:
+    get:
+      tags:
+      - Account
+      summary: Get account crypto balance by accountId and subAccountId
+      description: This endpoint returns an account's crypto balance by it's `accountId` and `subaccounId`
+      operationId: GetaccountcryptobalancebyaccountIdandsubAccountId
+      parameters:
+      - name: accountId
+        in: path
+        description: The account Id of the account/wallet you want to get assets.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: uy7hjjshf
+      - name: subAccountId
+        in: path
+        description: The uid of the account/wallet you want to get assets.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 90987hhjsfjhs
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data-balance
+                required:
+                - received
+                - sent
+                - balance
+                - pending
+                - blocked
+                type: object
+                properties:
+                  received:
+                    type: string
+                  sent:
+                    type: string
+                  balance:
+                    type: string
+                  pending:
+                    type: string
+                  blocked:
+                    type: string
+                example:
+                  received: '0.00'
+                  sent: '0.00'
+                  balance: '0.00'
+                  pending: '0.00'
+                  blocked: '0.00'
+              example:
+                status: success
+                data:
+                  received: '0.00'
+                  sent: '0.00'
+                  balance: '0.00'
+                  pending: '0.00'
+                  blocked: '0.00'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/assets/{assetId}:
+    get:
+      tags:
+      - Account
+      summary: Get Account Asset
+      description: This endpoint returns an asset associated with an account by the `uid` of the account and the `assetId` of the asset.
+      operationId: GetaccountsassetsbyassetsIdandId
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 23456nbgvfdghbjn
+      - name: assetId
+        in: path
+        description: The assetId of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: USDt567ujhgrfdgh
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                  label: Bitcoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-12T15:15:56.266Z'
+                  balance:
+                    received: '0.00334066'
+                    sent: '0.00001692'
+                    balance: '0.00332374'
+                    pending: '0.0'
+                    blocked: '0'
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/transactions:
+    get:
+      tags:
+      - Account
+      summary: Get account transaction
+      description: This endpoint returns the transactions of an account by it's `uid`
+      operationId: Getaccounttransactionbyid
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: hjhdhfei8ue9u8rewuru876
+      - name: perPage
+        in: query
+        description: The number of transactions per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 10
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: orderBy
+        in: query
+        description: Sort transactions by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                page: 1
+                totalPages: 18
+                data:
+                - uid: ba0baa6a-329f-486f-be13-fbcbfa1766f3
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 4a9f7116ebd04f039999b8c6b36fb616f29863c42df686aef8d0f07016133dd3
+                  confirmation: 1
+                  depositId: 3342d64c-b9a5-4cb9-93ea-d6f46ed928ec
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-bqDHNLH4NfivfZcAppiuilOpFGzp$g
+                  description: null
+                  amount: 0.001
+                  dollarRate: 49730.11
+                  dollarAmount: 49.73011
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2021-12-12T15:19:17.899Z'
+                  updatedAt: '2021-12-12T15:19:17.985Z'
+                  completedAt: '2021-12-12T15:19:17.985Z'
+                  cancelledAt: null
+                - uid: 7dbac6f1-53b0-46ed-b950-50f3f8a187f9
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 97fe9f8fcd1e3b8779e269b824f0cb48723adb61d1c2780960830850429d9bb5
+                  confirmation: 1
+                  depositId: 17f49099-dc63-4dac-b284-dbdc6b9fbb9b
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-atJnrcDbzERah1VpcPbWIGAi4B#Myo
+                  description: null
+                  amount: 0.001
+                  dollarRate: 47484.26
+                  dollarAmount: 47.48426
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2021-12-15T13:24:08.248Z'
+                  updatedAt: '2021-12-15T13:24:08.326Z'
+                  completedAt: '2021-12-15T13:24:08.326Z'
+                  cancelledAt: null
+                - uid: ea71714c-7d47-4868-82c8-5b40607b55ad
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 758e710bc3433e3ef28459be92897d29092c8320606998144fa44d192ea9c6f1
+                  confirmation: 1
+                  depositId: 94665949-54b7-4506-85c4-77190b94e008
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-oqIYbSH7IwhtmPbT81W#SUAE83uWtw
+                  description: null
+                  amount: 0.133702
+                  dollarRate: 147.27
+                  dollarAmount: 19.69029354
+                  assetId: 208423b4-ad4f-4146-84f0-e1982192b1c8
+                  assetType: LTC
+                  chain: LITECOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2021-12-18T08:48:02.411Z'
+                  updatedAt: '2021-12-18T08:48:02.648Z'
+                  completedAt: '2021-12-18T08:48:02.648Z'
+                  cancelledAt: null
+                - uid: 581f86e5-9d2a-4b9c-a526-bfc114d79e0e
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 45bc88b56e7c0100a0f6a7b9c97149a4bff2c44a92f0acf9bfb2adce85c00cb1
+                  confirmation: 1
+                  depositId: ef093edc-bfb0-4544-a1f8-da4d97a12bf7
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-jAS0HsfNGjv1ml5FsV5xBnXeoMNtGe
+                  description: null
+                  amount: 0.00077549
+                  dollarRate: 42053.99
+                  dollarAmount: 32.6124487051
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-01-19T17:41:17.507Z'
+                  updatedAt: '2022-01-19T17:41:17.606Z'
+                  completedAt: '2022-01-19T17:41:17.606Z'
+                  cancelledAt: null
+                - uid: fa40afaa-c4e1-462c-b19e-a4642dc5ff33
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: 590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517
+                  confirmation: 1
+                  depositId: null
+                  transferId: 95323f3c-2de8-48ba-9438-4a98b89dc130
+                  address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                  fromAddress: null
+                  transactionRef: BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo
+                  description: null
+                  amount: 0.00015885
+                  dollarRate: 44043.52
+                  dollarAmount: 7
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-02-09T18:25:23.605Z'
+                  updatedAt: '2023-05-04T11:12:38.241Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 2da31740-b1dc-486d-a576-4e5fadd43034
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: BTP-8mpR1vgpCez6kU6uv9m9nAZAg3LNt8
+                  description: null
+                  amount: 0.00045885
+                  dollarRate: 43572.01
+                  dollarAmount: 19.99
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-02-16T18:08:38.289Z'
+                  updatedAt: '2022-02-16T18:09:25.220Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 3a2b75ae-042d-4da1-8044-904cb0443b87
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                  fromAddress: null
+                  transactionRef: BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#
+                  description: null
+                  amount: 0.00043494
+                  dollarRate: 43704.24
+                  dollarAmount: 19.01
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-02-16T18:31:07.981Z'
+                  updatedAt: '2022-02-16T18:31:29.340Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 4832a346-625f-44f0-990f-54ab0856e2b5
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                  fromAddress: null
+                  transactionRef: BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO
+                  description: null
+                  amount: 0.00041202
+                  dollarRate: 43681.31
+                  dollarAmount: 18
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-02-17T05:22:57.971Z'
+                  updatedAt: '2022-02-17T05:24:02.119Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: b08bd0f8-f911-4732-b1da-4ee2ae84576f
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw
+                  fromAddress: null
+                  transactionRef: BTP-YINqm$0WZFPQSxG8$fGX17bXb8RdpY
+                  description: null
+                  amount: 0.00077299
+                  dollarRate: 38795.81
+                  dollarAmount: 29.99
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-04-25T13:18:31.220Z'
+                  updatedAt: '2022-04-25T13:19:09.582Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 320c60b4-af18-4ebd-b8ac-f3b6e9fcd435
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66
+                  confirmation: 6
+                  depositId: 552325ab-6771-40e5-aa3e-cfd00fef0578
+                  transferId: null
+                  address: tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv
+                  fromAddress: null
+                  transactionRef: TRX-pymDGTnjJTN4tGNRInvs6DPerodGKV
+                  description: null
+                  amount: 0.0002
+                  dollarRate: 21429.15
+                  dollarAmount: 4.28583
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-06-21T16:23:47.359Z'
+                  updatedAt: '2022-06-21T16:36:15.217Z'
+                  completedAt: '2022-06-21T16:36:15.217Z'
+                  cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+  /accounts/{uid}/transactions/{txId}:
+    get:
+      tags:
+      - Account
+      summary: Get transaction
+      description: This endpoint returns an account's transaction by it's  `txid`
+      operationId: GettransactionbytxId
+      parameters:
+      - name: uid
+        in: path
+        description: The uid of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 78hshd
+      - name: txId
+        in: path
+        description: The transaction Id of the account/wallet you want retrieve.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 78798hhshdhsdhshdhsh
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Data9
+                required:
+                - uid
+                - name
+                - externalId
+                - isDeleted
+                - isArchived
+                - organizationId
+                - network
+                - createdAt
+                - updatedAt
+                - mode
+                - accountId
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  name:
+                    type: string
+                  externalId:
+                    type: string
+                  network:
+                    type: string
+                  mode:
+                    type: string
+                  isArchived:
+                    type: boolean
+                  isDeleted:
+                    type: boolean
+                  organizationId:
+                    type: string
+                  updatedAt:
+                    type: string
+                    nullable: true
+                  createdAt:
+                    type: string
+                  Address:
+                    type: array
+                example:
+                  uid: e4a169a9-c8cb-4222-b046-505c24dd6dc7
+                  name: Address Testing
+                  externalId: 9cf60605-afdc-48b4-bd65-d836cffbfb74-23456
+                  isDeleted: false
+                  isArchived: false
+                  organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                  network: TESTNET
+                  createdAt: '2023-12-09T14:45:43.244Z'
+                  updatedAt: '2023-12-09T14:45:43.245Z'
+                  mode: TEST
+                  accountId: c4877f32-242b-462c-8de1-1d77ca4e8736
+              example:
+                status: success
+                data:
+                  uid: ba0baa6a-329f-486f-be13-fbcbfa1766f3
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 4a9f7116ebd04f039999b8c6b36fb616f29863c42df686aef8d0f07016133dd3
+                  confirmation: 1
+                  depositId: 3342d64c-b9a5-4cb9-93ea-d6f46ed928ec
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-bqDHNLH4NfivfZcAppiuilOpFGzp$g
+                  description: null
+                  amount: 0.001
+                  dollarRate: 49730.11
+                  dollarAmount: 49.73011
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2021-12-12T15:19:17.899Z'
+                  updatedAt: '2021-12-12T15:19:17.985Z'
+                  completedAt: '2021-12-12T15:19:17.985Z'
+                  cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

@@ -1,0 +1,2071 @@
+openapi: 3.0.0
+info:
+  title: Bitpowr Reference Account Assets API
+  contact: {}
+  version: '1.0'
+  x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
+servers:
+- url: https://developers.bitpowr.com/api/v1
+tags:
+- name: Assets
+paths:
+  /assets:
+    post:
+      tags:
+      - Assets
+      summary: Add assets
+      description: This endpoint adds assets
+      operationId: Addassets
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            encoding: {}
+            schema:
+              required:
+              - label
+              - asset
+              - accountId
+              type: object
+              properties:
+                label:
+                  type: string
+                  description: The label of the Asset you want to Add.
+                  example: ioetdf0isd08
+                asset:
+                  type: string
+                  description: Tthe asset you want to add (BTC,USDT,LTC,BCH)
+                  example: ETH
+                accountId:
+                  type: string
+                  description: The uid of the account/wallet you want to add assets for.
+                  example: e96a5c42-4374-4e6e-9e52-021fc1f65d99
+        required: false
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Addassets
+                required:
+                - status
+                - message
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    title: Data4
+                    required:
+                    - uid
+                    - label
+                    - isDeleted
+                    - isArchived
+                    - organizationId
+                    - accountId
+                    - assetType
+                    - network
+                    - mode
+                    - enableAutoForwarding
+                    - autoForwardAddress
+                    - createdAt
+                    - balance
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      label:
+                        type: string
+                      isDeleted:
+                        type: boolean
+                      isArchived:
+                        type: boolean
+                      organizationId:
+                        type: string
+                      accountId:
+                        type: string
+                      assetType:
+                        type: string
+                      network:
+                        type: string
+                      mode:
+                        type: string
+                      enableAutoForwarding:
+                        type: boolean
+                      autoForwardAddress:
+                        type: string
+                        nullable: true
+                      createdAt:
+                        type: string
+                      balance:
+                        title: Balance
+                        required:
+                        - received
+                        - sent
+                        - balance
+                        - pending
+                        - blocked
+                        type: object
+                        properties:
+                          received:
+                            type: string
+                          sent:
+                            type: string
+                          balance:
+                            type: string
+                          pending:
+                            type: string
+                          blocked:
+                            type: string
+                        example:
+                          received: '0.00'
+                          sent: '0.00'
+                          balance: '0.00'
+                          pending: '0.00'
+                          blocked: '0.00'
+                    example:
+                      uid: 49e090c7-1570-4bd1-8710-20e7139b34f5
+                      label: Litecoin
+                      isDeleted: false
+                      isArchived: false
+                      organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                      accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                      assetType: LTC
+                      network: TESTNET
+                      mode: TEST
+                      enableAutoForwarding: false
+                      autoForwardAddress: null
+                      createdAt: '2021-08-18T17:16:35.926Z'
+                      balance:
+                        received: '0.00'
+                        sent: '0.00'
+                        balance: '0.00'
+                        pending: '0.00'
+                        blocked: '0.00'
+                example:
+                  status: success
+                  message: success
+                  data:
+                    uid: 49e090c7-1570-4bd1-8710-20e7139b34f5
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                    accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                    assetType: LTC
+                    network: TESTNET
+                    mode: TEST
+                    enableAutoForwarding: false
+                    autoForwardAddress: null
+                    createdAt: '2021-08-18T17:16:35.926Z'
+                    balance:
+                      received: '0.00'
+                      sent: '0.00'
+                      balance: '0.00'
+                      pending: '0.00'
+                      blocked: '0.00'
+              example:
+                status: success
+                message: BTC already added to this wallet
+                data:
+                  uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                  label: Bitcoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-12T15:15:56.266Z'
+                  Transaction:
+                  - uid: ba0baa6a-329f-486f-be13-fbcbfa1766f3
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: DEPOSIT
+                    hash: 4a9f7116ebd04f039999b8c6b36fb616f29863c42df686aef8d0f07016133dd3
+                    confirmation: 1
+                    depositId: 3342d64c-b9a5-4cb9-93ea-d6f46ed928ec
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: null
+                    transactionRef: TRX-bqDHNLH4NfivfZcAppiuilOpFGzp$g
+                    description: null
+                    amount: 0.001
+                    dollarRate: 49730.11
+                    dollarAmount: 49.73011
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2021-12-12T15:19:17.899Z'
+                    updatedAt: '2021-12-12T15:19:17.985Z'
+                    completedAt: '2021-12-12T15:19:17.985Z'
+                    cancelledAt: null
+                  - uid: 7dbac6f1-53b0-46ed-b950-50f3f8a187f9
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: DEPOSIT
+                    hash: 97fe9f8fcd1e3b8779e269b824f0cb48723adb61d1c2780960830850429d9bb5
+                    confirmation: 1
+                    depositId: 17f49099-dc63-4dac-b284-dbdc6b9fbb9b
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: null
+                    transactionRef: TRX-atJnrcDbzERah1VpcPbWIGAi4B#Myo
+                    description: null
+                    amount: 0.001
+                    dollarRate: 47484.26
+                    dollarAmount: 47.48426
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2021-12-15T13:24:08.248Z'
+                    updatedAt: '2021-12-15T13:24:08.326Z'
+                    completedAt: '2021-12-15T13:24:08.326Z'
+                    cancelledAt: null
+                  - uid: 581f86e5-9d2a-4b9c-a526-bfc114d79e0e
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: DEPOSIT
+                    hash: 45bc88b56e7c0100a0f6a7b9c97149a4bff2c44a92f0acf9bfb2adce85c00cb1
+                    confirmation: 1
+                    depositId: ef093edc-bfb0-4544-a1f8-da4d97a12bf7
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: null
+                    transactionRef: TRX-jAS0HsfNGjv1ml5FsV5xBnXeoMNtGe
+                    description: null
+                    amount: 0.00077549
+                    dollarRate: 42053.99
+                    dollarAmount: 32.6124487051
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-01-19T17:41:17.507Z'
+                    updatedAt: '2022-01-19T17:41:17.606Z'
+                    completedAt: '2022-01-19T17:41:17.606Z'
+                    cancelledAt: null
+                  - uid: 2da31740-b1dc-486d-a576-4e5fadd43034
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: null
+                    transactionRef: BTP-8mpR1vgpCez6kU6uv9m9nAZAg3LNt8
+                    description: null
+                    amount: 0.00045885
+                    dollarRate: 43572.01
+                    dollarAmount: 19.99
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: Request failed with status code 403
+                    createdAt: '2022-02-16T18:08:38.289Z'
+                    updatedAt: '2022-02-16T18:09:25.220Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 3a2b75ae-042d-4da1-8044-904cb0443b87
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                    fromAddress: null
+                    transactionRef: BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#
+                    description: null
+                    amount: 0.00043494
+                    dollarRate: 43704.24
+                    dollarAmount: 19.01
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: Request failed with status code 403
+                    createdAt: '2022-02-16T18:31:07.981Z'
+                    updatedAt: '2022-02-16T18:31:29.340Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 4832a346-625f-44f0-990f-54ab0856e2b5
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                    fromAddress: null
+                    transactionRef: BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO
+                    description: null
+                    amount: 0.00041202
+                    dollarRate: 43681.31
+                    dollarAmount: 18
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: Request failed with status code 403
+                    createdAt: '2022-02-17T05:22:57.971Z'
+                    updatedAt: '2022-02-17T05:24:02.119Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: b08bd0f8-f911-4732-b1da-4ee2ae84576f
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw
+                    fromAddress: null
+                    transactionRef: BTP-YINqm$0WZFPQSxG8$fGX17bXb8RdpY
+                    description: null
+                    amount: 0.00077299
+                    dollarRate: 38795.81
+                    dollarAmount: 29.99
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: Request failed with status code 403
+                    createdAt: '2022-04-25T13:18:31.220Z'
+                    updatedAt: '2022-04-25T13:19:09.582Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 320c60b4-af18-4ebd-b8ac-f3b6e9fcd435
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: DEPOSIT
+                    hash: ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66
+                    confirmation: 6
+                    depositId: 552325ab-6771-40e5-aa3e-cfd00fef0578
+                    transferId: null
+                    address: tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv
+                    fromAddress: null
+                    transactionRef: TRX-pymDGTnjJTN4tGNRInvs6DPerodGKV
+                    description: null
+                    amount: 0.0002
+                    dollarRate: 21429.15
+                    dollarAmount: 4.28583
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-21T16:23:47.359Z'
+                    updatedAt: '2022-06-21T16:36:15.217Z'
+                    completedAt: '2022-06-21T16:36:15.217Z'
+                    cancelledAt: null
+                  - uid: 743828cf-9636-4053-8ceb-81e15e6aa182
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: tb1ql0rvausepq4v9vg9h33aac435c3lf0k8y3syuz
+                    fromAddress: null
+                    transactionRef: BTP-b9cPqmtP$gbzH#OOgAbbjjfVmYBLmk
+                    description: null
+                    amount: 0.00023331
+                    dollarRate: 21431.12
+                    dollarAmount: 5
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-21T16:26:54.873Z'
+                    updatedAt: '2022-06-21T16:27:11.272Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 7478e9ff-064e-4d8c-bb29-3b7a89060805
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: tb1ql0rvausepq4v9vg9h33aac435c3lf0k8y3syuz
+                    fromAddress: null
+                    transactionRef: BTP-U$d52jsPEEyTwsr3ivYWRDSbbkyY8T
+                    description: null
+                    amount: 0.00014001
+                    dollarRate: 21474.98
+                    dollarAmount: 3.01
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-21T16:30:12.335Z'
+                    updatedAt: '2022-06-21T16:31:13.389Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 70d07356-0d1d-4f67-8dad-e6c8fe74d550
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mtgGLPJU1s5YoQVBJ42amge6nLRaXndhXQ
+                    fromAddress: null
+                    transactionRef: BTP-bbeSUuvejw2vICdo#GDhuLxIiN4hZe
+                    description: test
+                    amount: 0.00294337
+                    dollarRate: 19354.25
+                    dollarAmount: 56.97
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-10-24T13:09:16.369Z'
+                    updatedAt: '2022-10-24T13:57:02.529Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: af6065c5-6979-49fe-bea3-e65522c07a70
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mkMhn8jvXWowRgaZfwPqPmSj5CAgXWSpao
+                    fromAddress: null
+                    transactionRef: BTP-YWDSgDnOaDiu5XqFCwXzoz6HRDRnX#
+                    description: null
+                    amount: 0.00014466
+                    dollarRate: 20779.35
+                    dollarAmount: 3.01
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-21T20:25:21.468Z'
+                    updatedAt: '2022-06-21T20:26:24.733Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: c556c088-4e1d-45b1-a97b-aa94ded805fe
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mkMhn8jvXWowRgaZfwPqPmSj5CAgXWSpao
+                    fromAddress: null
+                    transactionRef: BTP-2LBq2RR$KgfuW1onqQJSEzXR2WxzKM
+                    description: null
+                    amount: 0.00014378
+                    dollarRate: 20822.19
+                    dollarAmount: 2.99
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-21T20:49:29.800Z'
+                    updatedAt: '2022-06-21T20:50:28.887Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 3794fc1f-9bdd-472c-82c0-25c58e3dd8e8
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mtgGLPJU1s5YoQVBJ42amge6nLRaXndhXQ
+                    fromAddress: null
+                    transactionRef: BTP-ys6ThGynp#ADq#wJC2P1ty8xyxhXuw
+                    description: null
+                    amount: 0.00099783
+                    dollarRate: 20043.51
+                    dollarAmount: 20
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-22T16:05:51.253Z'
+                    updatedAt: '2022-06-22T16:06:19.764Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 57aa1c1c-01bf-4546-942e-c496069d1656
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mtgGLPJU1s5YoQVBJ42amge6nLRaXndhXQ
+                    fromAddress: null
+                    transactionRef: BTP-I#X$EFHMsmzH9gAmqXFy1bo9U1XTO8
+                    description: wrghrigr
+                    amount: 0.00100567
+                    dollarRate: 19887.26
+                    dollarAmount: 20
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-22T16:07:36.375Z'
+                    updatedAt: '2022-06-22T16:08:22.124Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 21486d8d-30bd-48b8-b1de-cc345f056d07
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: tb1qehflylquqg45u8syg9253x3l4485u5zf3w5yex
+                    fromAddress: null
+                    transactionRef: BTP-qgFwSAzbttxd90i5VQzKNbw6V28BrC
+                    description: fwhfuwhfguwhgh
+                    amount: 0.00105694
+                    dollarRate: 19874.53
+                    dollarAmount: 21.01
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-06-22T16:09:26.007Z'
+                    updatedAt: '2022-06-22T16:10:24.011Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: d31fc1f5-8e1c-496d-b4fb-750895c8b94b
+                    status: PENDING
+                    subStatus: BLOCKED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw
+                    fromAddress: null
+                    transactionRef: BTP-8C2806KxUYggQ#KQSSjY0gKRF0b2FL
+                    description: null
+                    amount: 0.00289479
+                    dollarRate: 19347.14
+                    dollarAmount: 56.01
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-10-24T13:21:30.481Z'
+                    updatedAt: '2022-10-24T13:21:31.884Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 00ddf5e4-8621-4cd7-877b-94ebc7c78c06
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: DEPOSIT
+                    hash: 69059e96abe4015942eeec2ab0898f0a02a69b1fd6fc65b5b4db2e3d6854f1e8
+                    confirmation: 6
+                    depositId: 8b4794fb-b803-4df5-b5b3-34ec83da75ce
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: ''
+                    transactionRef: TRX-P8W2SCEp7emJzSfBQ4Gp7kNX$FyGdi
+                    description: null
+                    amount: 0.00035517
+                    dollarRate: 20711.17
+                    dollarAmount: 7.3559862489
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-10-31T09:50:50.793Z'
+                    updatedAt: '2022-10-31T10:44:55.315Z'
+                    completedAt: '2022-10-31T10:44:55.315Z'
+                    cancelledAt: null
+                  - uid: 6a829991-c5ed-4abf-9aa0-b96c92318f14
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: DEPOSIT
+                    hash: 5d3c0e049cd9d43c136b479f4c26f49582df74b34894ed2b88313232b7fdfe18
+                    confirmation: 6
+                    depositId: fa34656c-f37c-4519-ad98-2aba656082c3
+                    transferId: null
+                    address: tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv
+                    fromAddress: ''
+                    transactionRef: TRX-2Ezphvzv$R9A2zCgafqFYKDkk3Cj#R
+                    description: null
+                    amount: 1.0e-05
+                    dollarRate: 16638.67
+                    dollarAmount: 0.1663867
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-11-17T20:06:52.799Z'
+                    updatedAt: '2022-11-17T20:34:57.895Z'
+                    completedAt: '2022-11-17T20:34:57.895Z'
+                    cancelledAt: null
+                  - uid: 1b334602-694d-4939-83d9-8af00f9cc687
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: FEE
+                    hash: 590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517
+                    confirmation: 1
+                    depositId: null
+                    transferId: 95323f3c-2de8-48ba-9438-4a98b89dc130
+                    address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                    fromAddress: null
+                    transactionRef: BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo-fee
+                    description: Transaction fee
+                    amount: 8.125e-05
+                    dollarRate: 44043.52
+                    dollarAmount: 3.578536
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-02-09T18:25:23.605Z'
+                    updatedAt: '2022-02-11T00:04:15.420Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: fa40afaa-c4e1-462c-b19e-a4642dc5ff33
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: TRANSFER
+                    hash: 590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517
+                    confirmation: 1
+                    depositId: null
+                    transferId: 95323f3c-2de8-48ba-9438-4a98b89dc130
+                    address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                    fromAddress: null
+                    transactionRef: BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo
+                    description: null
+                    amount: 0.00015885
+                    dollarRate: 44043.52
+                    dollarAmount: 7
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2022-02-09T18:25:23.605Z'
+                    updatedAt: '2023-05-04T11:12:38.241Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 4a7a21a8-693b-4085-8af6-f549ceaddb01
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: FEE
+                    hash: 9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1
+                    confirmation: 0
+                    depositId: null
+                    transferId: ee33e2df-f0f8-450b-b8d6-fdebb7ddd108
+                    address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                    fromAddress: null
+                    transactionRef: BTP-RjPoWYymQU2mNePfJCYuz5VIO01KDV-fee
+                    description: Transaction fee
+                    amount: 1.145e-05
+                    dollarRate: 36576.84
+                    dollarAmount: 0.418804818
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2023-11-22T10:32:22.470Z'
+                    updatedAt: '2023-11-22T11:15:16.906Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 1c3ae573-d01c-45ed-9f7e-8b1f502a04c2
+                    status: SUCCESS
+                    subStatus: SUCCESS
+                    type: TRANSFER
+                    hash: 9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1
+                    confirmation: 1
+                    depositId: null
+                    transferId: ee33e2df-f0f8-450b-b8d6-fdebb7ddd108
+                    address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                    fromAddress: null
+                    transactionRef: BTP-RjPoWYymQU2mNePfJCYuz5VIO01KDV
+                    description: null
+                    amount: 5.47e-06
+                    dollarRate: 36576.84
+                    dollarAmount: 0.2
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: null
+                    errorMessage: null
+                    createdAt: '2023-11-22T10:32:22.470Z'
+                    updatedAt: '2023-11-22T11:15:16.886Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: 6cad6ded-159a-409a-a8a2-ca8693779f46
+                    status: FAILED
+                    subStatus: FAILED
+                    type: TRANSFER
+                    hash: null
+                    confirmation: null
+                    depositId: null
+                    transferId: null
+                    address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                    fromAddress: null
+                    transactionRef: BTP-posnoaioyIbG3YbLGy5pIHKULH676n
+                    description: null
+                    amount: 8.894e-05
+                    dollarRate: 33731.0300000468
+                    dollarAmount: 3
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: Could not complete the transaction
+                    errorMessage: Could not complete the transaction
+                    createdAt: '2023-10-24T15:30:03.385Z'
+                    updatedAt: '2023-10-24T15:30:07.491Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: c3041537-35cb-4b07-bebb-239ad56d92fa
+                    status: FAILED
+                    subStatus: ERROR
+                    type: TRANSFER
+                    hash: null
+                    confirmation: 0
+                    depositId: null
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    transactionRef: BTP-86U9V2nrdcgIzIpyns7rc3esPADI#6
+                    description: Testing Here
+                    amount: 1.0e-05
+                    dollarRate: 68889.35
+                    dollarAmount: 0.69
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: '"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 "'
+                    errorMessage: '"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 "'
+                    createdAt: '2024-03-05T15:10:07.113Z'
+                    updatedAt: '2024-03-05T15:10:11.857Z'
+                    completedAt: null
+                    cancelledAt: null
+                  - uid: dc01d799-cae0-49fa-bba8-b0428839fe09
+                    status: FAILED
+                    subStatus: ERROR
+                    type: TRANSFER
+                    hash: null
+                    confirmation: 0
+                    depositId: null
+                    transferId: null
+                    address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    fromAddress: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                    transactionRef: BTP-zq4ULe5TXivNv8DO$EzLXe0ntlV7Bf
+                    description: Testing Here
+                    amount: 1.0e-05
+                    dollarRate: 68454.075
+                    dollarAmount: 0.68
+                    assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                    assetType: BTC
+                    chain: BITCOIN
+                    organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                    errorReason: '"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 "'
+                    errorMessage: '"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 "'
+                    createdAt: '2024-03-08T23:28:34.107Z'
+                    updatedAt: '2024-03-08T23:28:54.494Z'
+                    completedAt: null
+                    cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+    get:
+      tags:
+      - Assets
+      summary: Get assets accounts
+      description: This endpoint returns all assets in an account/wallet
+      operationId: Getassetsaccounts
+      parameters:
+      - name: accountId
+        in: query
+        description: The uid of the account/wallet you want to get assets.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: gjhsj-nbsjbhsk-kjbhgshjs
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: perPage
+        in: query
+        description: The number of assets per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 6
+      - name: orderBy
+        in: query
+        description: Sort assets by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: asc
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Getassetsaccounts
+                required:
+                - status
+                - page
+                - totalPages
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  page:
+                    type: integer
+                    format: int32
+                  totalPages:
+                    type: integer
+                    format: int32
+                  data:
+                    type: array
+                    items:
+                      title: Data4
+                      required:
+                      - uid
+                      - label
+                      - isDeleted
+                      - isArchived
+                      - organizationId
+                      - accountId
+                      - assetType
+                      - network
+                      - mode
+                      - enableAutoForwarding
+                      - autoForwardAddress
+                      - createdAt
+                      - balance
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        label:
+                          type: string
+                        isDeleted:
+                          type: boolean
+                        isArchived:
+                          type: boolean
+                        organizationId:
+                          type: string
+                        accountId:
+                          type: string
+                        assetType:
+                          type: string
+                        network:
+                          type: string
+                        mode:
+                          type: string
+                        enableAutoForwarding:
+                          type: boolean
+                        autoForwardAddress:
+                          type: string
+                          nullable: true
+                        createdAt:
+                          type: string
+                        balance:
+                          title: Balance
+                          required:
+                          - received
+                          - sent
+                          - balance
+                          - pending
+                          - blocked
+                          type: object
+                          properties:
+                            received:
+                              type: string
+                            sent:
+                              type: string
+                            balance:
+                              type: string
+                            pending:
+                              type: string
+                            blocked:
+                              type: string
+                          example:
+                            received: '0.00'
+                            sent: '0.00'
+                            balance: '0.00'
+                            pending: '0.00'
+                            blocked: '0.00'
+                      example:
+                        uid: 49e090c7-1570-4bd1-8710-20e7139b34f5
+                        label: Litecoin
+                        isDeleted: false
+                        isArchived: false
+                        organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                        accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                        assetType: LTC
+                        network: TESTNET
+                        mode: TEST
+                        enableAutoForwarding: false
+                        autoForwardAddress: null
+                        createdAt: '2021-08-18T17:16:35.926Z'
+                        balance:
+                          received: '0.00'
+                          sent: '0.00'
+                          balance: '0.00'
+                          pending: '0.00'
+                          blocked: '0.00'
+                    description: ''
+                example:
+                  status: success
+                  page: 1
+                  totalPages: 1
+                  data:
+                  - uid: 1a14df95-9c66-4966-9968-13416f472ba0
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                    accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                    assetType: BTC
+                    network: TESTNET
+                    mode: TEST
+                    enableAutoForwarding: false
+                    autoForwardAddress: null
+                    createdAt: '2021-08-18T17:04:27.831Z'
+                    balance:
+                      received: '2086.03'
+                      sent: '0.00'
+                      balance: '2086.03'
+                      pending: '48.17'
+                      blocked: '0.00'
+                  - uid: 49e090c7-1570-4bd1-8710-20e7139b34f5
+                    label: Litecoin
+                    isDeleted: false
+                    isArchived: false
+                    organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                    accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                    assetType: LTC
+                    network: TESTNET
+                    mode: TEST
+                    enableAutoForwarding: false
+                    autoForwardAddress: null
+                    createdAt: '2021-08-18T17:16:35.926Z'
+                    balance:
+                      received: '27.77'
+                      sent: '0.00'
+                      balance: '27.77'
+                      pending: '0.00'
+                      blocked: '0.00'
+              example:
+                status: success
+                page: 1
+                totalPages: 2
+                data:
+                - uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                  label: Bitcoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-12T15:15:56.266Z'
+                  balance:
+                    received: '0.00334066'
+                    sent: '0.00001692'
+                    balance: '0.00332374'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4
+                  guid: 3d897193-aeca-4280-a3de-a4e70df98e5a
+                  label: Bitcoin Cash
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOINCASH
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BCH
+                  autoForwardAddress: null
+                  createdAt: '2021-12-14T07:07:27.129Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+                - uid: 208423b4-ad4f-4146-84f0-e1982192b1c8
+                  guid: 2df525d7-f15c-41ca-ace4-4b03ee79b59e
+                  label: Litecoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: LITECOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: LTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-17T12:33:42.754Z'
+                  balance:
+                    received: '0.133702'
+                    sent: '0.06763646'
+                    balance: '0.06606554'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: d8653877-fb96-4523-81b1-e51c0d161d23
+                  guid: e95e95b8-cd23-43e3-b40b-a5298c82b27b
+                  label: Ethereum
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: ETHEREUM
+                  network: TESTNET
+                  mode: TEST
+                  assetType: ETH
+                  autoForwardAddress: null
+                  createdAt: '2021-12-17T12:37:25.636Z'
+                  balance:
+                    received: '0.23543357'
+                    sent: '0.235370895066691006'
+                    balance: '0.000062674933308994'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 85ebb683-7f17-4098-89f2-683e4bb8dd6f
+                  guid: ae790f48-7434-4112-8021-7a4e6bfe8c81
+                  label: BNB (BSC)
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BSC
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BSC
+                  autoForwardAddress: null
+                  createdAt: '2022-01-26T17:28:34.290Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+                - uid: ce5d4fe0-407c-4d39-80bd-07c9027ceaca
+                  guid: e012a523-0236-41d2-b5bd-2316fb88bcc5
+                  label: Tron (TRX)
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: TRON
+                  network: TESTNET
+                  mode: TEST
+                  assetType: TRON
+                  autoForwardAddress: null
+                  createdAt: '2022-01-26T17:28:51.711Z'
+                  balance:
+                    received: '55.422050'
+                    sent: '54.331273'
+                    balance: '1.090777'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 62123e6d-dfe5-4ca9-8fcd-653ead5938f1
+                  guid: 4643099f-5e2b-47bf-b7ab-29dbab53954b
+                  label: Matic
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: POLYGON
+                  network: TESTNET
+                  mode: TEST
+                  assetType: MATIC
+                  autoForwardAddress: null
+                  createdAt: '2022-01-26T17:29:08.155Z'
+                  balance:
+                    received: '0.32947691'
+                    sent: '0.326090521763289924'
+                    balance: '0.003386388236710076'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: 770d2ea6-2d6b-4b08-aa35-ea2358e77ba9
+                  guid: 78878a41-b59b-4878-a2ec-35570c084ad2
+                  label: TUSDC (MATIC)
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: POLYGON
+                  network: TESTNET
+                  mode: TEST
+                  assetType: TUSDC_MATIC
+                  autoForwardAddress: null
+                  createdAt: '2022-07-04T09:53:54.238Z'
+                  balance:
+                    received: '24391.98'
+                    sent: '22211.09340773'
+                    balance: '2180.88659227'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: f49f0653-68e5-42f5-b57a-12c0d5779f30
+                  guid: 7368a132-726c-4f1f-8ab0-155a27bc8031
+                  label: Celo
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: CELO
+                  network: TESTNET
+                  mode: TEST
+                  assetType: CELO
+                  autoForwardAddress: null
+                  createdAt: '2022-08-23T09:09:04.886Z'
+                  balance:
+                    received: '3.24393581'
+                    sent: '1.38923151'
+                    balance: '1.85470430'
+                    pending: '0.0'
+                    blocked: '0'
+                - uid: c88e0db3-9015-4cdb-81ab-e62b8e64a49c
+                  guid: fe360001-3833-4937-aa1e-ada4bdb667e8
+                  label: Solana
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: SOLANA
+                  network: TESTNET
+                  mode: TEST
+                  assetType: SOL
+                  autoForwardAddress: null
+                  createdAt: '2022-09-02T02:57:30.433Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+      deprecated: false
+      security:
+      - bearer: []
+  /assets/{assetId}:
+    get:
+      tags:
+      - Assets
+      summary: Get assets
+      description: This endpoint returns an asset
+      operationId: Getassets
+      parameters:
+      - name: assetId
+        in: path
+        description: The uid of the account/wallet you want to get assets.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: hghgshf87768jhb
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: GetassetsbyassetsId
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data4
+                    required:
+                    - uid
+                    - label
+                    - isDeleted
+                    - isArchived
+                    - organizationId
+                    - accountId
+                    - assetType
+                    - network
+                    - mode
+                    - enableAutoForwarding
+                    - autoForwardAddress
+                    - createdAt
+                    - balance
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      label:
+                        type: string
+                      isDeleted:
+                        type: boolean
+                      isArchived:
+                        type: boolean
+                      organizationId:
+                        type: string
+                      accountId:
+                        type: string
+                      assetType:
+                        type: string
+                      network:
+                        type: string
+                      mode:
+                        type: string
+                      enableAutoForwarding:
+                        type: boolean
+                      autoForwardAddress:
+                        type: string
+                        nullable: true
+                      createdAt:
+                        type: string
+                      balance:
+                        title: Balance
+                        required:
+                        - received
+                        - sent
+                        - balance
+                        - pending
+                        - blocked
+                        type: object
+                        properties:
+                          received:
+                            type: string
+                          sent:
+                            type: string
+                          balance:
+                            type: string
+                          pending:
+                            type: string
+                          blocked:
+                            type: string
+                        example:
+                          received: '0.00'
+                          sent: '0.00'
+                          balance: '0.00'
+                          pending: '0.00'
+                          blocked: '0.00'
+                    example:
+                      uid: 49e090c7-1570-4bd1-8710-20e7139b34f5
+                      label: Litecoin
+                      isDeleted: false
+                      isArchived: false
+                      organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                      accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                      assetType: LTC
+                      network: TESTNET
+                      mode: TEST
+                      enableAutoForwarding: false
+                      autoForwardAddress: null
+                      createdAt: '2021-08-18T17:16:35.926Z'
+                      balance:
+                        received: '0.00'
+                        sent: '0.00'
+                        balance: '0.00'
+                        pending: '0.00'
+                        blocked: '0.00'
+                example:
+                  status: success
+                  data:
+                    uid: 1a14df95-9c66-4966-9968-13416f472ba0
+                    label: Bitcoin
+                    isDeleted: false
+                    isArchived: false
+                    organizationId: 91f55ca6-c413-4ee8-9c4e-197bf9533350
+                    accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                    assetType: BTC
+                    network: TESTNET
+                    mode: TEST
+                    enableAutoForwarding: false
+                    autoForwardAddress: null
+                    createdAt: '2021-08-18T17:04:27.831Z'
+                    balance:
+                      received: '2087.82'
+                      sent: '0.00'
+                      balance: '2087.82'
+                      pending: '48.21'
+                      blocked: '0.00'
+              example:
+                status: success
+                data:
+                  uid: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  guid: 5da79336-49a6-4cf0-b056-f8c9e38a0b63
+                  label: Bitcoin
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: BITCOIN
+                  network: TESTNET
+                  mode: TEST
+                  assetType: BTC
+                  autoForwardAddress: null
+                  createdAt: '2021-12-12T15:15:56.266Z'
+                  balance:
+                    received: '0.00334066'
+                    sent: '0.00001692'
+                    balance: '0.00332374'
+                    pending: '0.0'
+                    blocked: '0'
+      deprecated: false
+      security:
+      - bearer: []
+  /assets/{assetId}/balance:
+    get:
+      tags:
+      - Assets
+      summary: Get assets balance
+      description: This endpoint returns an asset's balance
+      operationId: Getassetsbalance
+      parameters:
+      - name: assetId
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: hhjs8898jhsjhs
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Getassetsbalance
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data6
+                    required:
+                    - received
+                    - sent
+                    - balance
+                    - pending
+                    - blocked
+                    type: object
+                    properties:
+                      received:
+                        type: string
+                      sent:
+                        type: string
+                      balance:
+                        type: string
+                      pending:
+                        type: string
+                      blocked:
+                        type: string
+                    example:
+                      received: '2087.82'
+                      sent: '0.00'
+                      balance: '2087.82'
+                      pending: '48.21'
+                      blocked: '0.00'
+                example:
+                  status: success
+                  data:
+                    received: '2087.82'
+                    sent: '0.00'
+                    balance: '2087.82'
+                    pending: '48.21'
+                    blocked: '0.00'
+              example:
+                status: success
+                data:
+                  received: '2087.82'
+                  sent: '0.00'
+                  balance: '2087.82'
+                  pending: '48.21'
+                  blocked: '0.00'
+      deprecated: false
+  /assets/{accountId}:
+    get:
+      tags:
+      - Assets
+      summary: Get assets by accountId
+      description: This endpoint returns details of an address by using the `accountId`
+      operationId: GetassetsbyaccountId
+      parameters:
+      - name: accountId
+        in: path
+        description: The accountId of the account/wallet you want to get assets.
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 7867wdhhdhsjhdhsj
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: GetassetsbyaccountId
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    title: Data9
+                    required:
+                    - uid
+                    - address
+                    - addressRef
+                    - autoForwardAddress
+                    - network
+                    - assetType
+                    - isChangeAddress
+                    - isContract
+                    - chain
+                    - assetId
+                    - organizationId
+                    - subAccountId
+                    - used
+                    - lastUsedAt
+                    - createdAt
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      address:
+                        type: string
+                      addressRef:
+                        type: string
+                      autoForwardAddress:
+                        type: string
+                        nullable: true
+                      network:
+                        type: string
+                      assetType:
+                        type: string
+                      isChangeAddress:
+                        type: boolean
+                      isContract:
+                        type: boolean
+                      chain:
+                        type: string
+                      assetId:
+                        type: string
+                      organizationId:
+                        type: string
+                      subAccountId:
+                        type: string
+                        nullable: true
+                      used:
+                        type: boolean
+                      lastUsedAt:
+                        type: string
+                        nullable: true
+                      createdAt:
+                        type: string
+                    example:
+                      uid: e912110f-2cba-4bf7-b063-e93ddf428722
+                      address: n3TdwXSubjAKoJTaBuVrun8hcpusPt4sq4
+                      addressRef: wccUkWHsK7
+                      autoForwardAddress: null
+                      network: TESTNET
+                      assetType: BTC
+                      isChangeAddress: false
+                      isContract: false
+                      chain: BITCOIN
+                      assetId: a2888c03-e412-4e30-aa22-dfd7eb23c6a6
+                      organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                      subAccountId: null
+                      used: false
+                      lastUsedAt: null
+                      createdAt: '2022-03-11T01:42:06.761Z'
+                example:
+                  status: success
+                  data:
+                    uid: e912110f-2cba-4bf7-b063-e93ddf428722
+                    address: n3TdwXSubjAKoJTaBuVrun8hcpusPt4sq4
+                    addressRef: wccUkWHsK7
+                    autoForwardAddress: null
+                    network: TESTNET
+                    assetType: BTC
+                    isChangeAddress: false
+                    isContract: false
+                    chain: BITCOIN
+                    assetId: a2888c03-e412-4e30-aa22-dfd7eb23c6a6
+                    organizationId: 93d65302-f671-4ec6-9c55-f2b0af3bc874
+                    subAccountId: null
+                    used: false
+                    lastUsedAt: null
+                    createdAt: '2022-03-11T01:42:06.761Z'
+              example:
+                status: success
+                data:
+                  uid: c88e0db3-9015-4cdb-81ab-e62b8e64a49c
+                  guid: fe360001-3833-4937-aa1e-ada4bdb667e8
+                  label: Solana
+                  isDeleted: false
+                  isArchived: false
+                  isContract: false
+                  chain: SOLANA
+                  network: TESTNET
+                  mode: TEST
+                  assetType: SOL
+                  autoForwardAddress: null
+                  createdAt: '2022-09-02T02:57:30.433Z'
+                  balance:
+                    received: '0.0'
+                    sent: '0.0'
+                    balance: '0.0'
+                    pending: '0.0'
+                    blocked: '0.0'
+      deprecated: false
+      security:
+      - bearer: []
+  /assets/{assetId}/transactions:
+    get:
+      tags:
+      - Assets
+      summary: Get assets transaction
+      description: This endpoint gets an asset's transactions
+      operationId: Getassetstransaction
+      parameters:
+      - name: assetId
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: hjsjhfjshf988sbs
+      - name: page
+        in: query
+        description: The page offset
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 1
+      - name: perPage
+        in: query
+        description: The number of transactions per request.
+        required: false
+        style: form
+        schema:
+          type: number
+          example: 8
+      - name: orderBy
+        in: query
+        description: Sort transactions by asc or desc.
+        required: false
+        style: form
+        schema:
+          type: string
+          example: desc
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                title: Getassetstransactions
+                required:
+                - status
+                - data
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      title: Data7
+                      required:
+                      - uid
+                      - guid
+                      - status
+                      - type
+                      - hash
+                      - confirmation
+                      - depositId
+                      - transferId
+                      - address
+                      - transactionRef
+                      - fromAddress
+                      - mode
+                      - description
+                      - amount
+                      - dollarRate
+                      - dollarAmount
+                      - assetId
+                      - accountId
+                      - createdAt
+                      - updatedAt
+                      - completedAt
+                      - cancelledAt
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        guid:
+                          type: string
+                        status:
+                          type: string
+                        type:
+                          type: string
+                        hash:
+                          type: string
+                        confirmation:
+                          type: integer
+                          format: int32
+                        depositId:
+                          type: string
+                        transferId:
+                          type: string
+                          nullable: true
+                        address:
+                          type: string
+                        transactionRef:
+                          type: string
+                        fromAddress:
+                          type: string
+                          nullable: true
+                        mode:
+                          type: string
+                        description:
+                          type: string
+                          nullable: true
+                        amount:
+                          type: string
+                        dollarRate:
+                          type: string
+                        dollarAmount:
+                          type: string
+                        assetId:
+                          type: string
+                        accountId:
+                          type: string
+                        createdAt:
+                          type: string
+                        updatedAt:
+                          type: string
+                        completedAt:
+                          type: string
+                        cancelledAt:
+                          type: string
+                          nullable: true
+                      example:
+                        uid: ed27509f-6d0b-4390-a7ce-94323e8e81fb
+                        guid: 4b63ca22-2b21-4891-bfba-2683384084f4
+                        status: SUCCESS
+                        type: DEPOSIT
+                        hash: 00000000b7a97b9b783bafa7df0847d8473256509c5d7054a3d006e8640b59be
+                        confirmation: 1
+                        depositId: f02ac546-299b-4d3c-9512-f90e5ab9a764
+                        transferId: null
+                        address: mhHkYXiiXPzqc1Y2gGK3oBV3FVbEaEZ84b
+                        transactionRef: TRX-WOmI35fPZ9I#Lh2kD1Ks4et0PKnOu1
+                        fromAddress: null
+                        mode: TEST
+                        description: null
+                        amount: '0.001'
+                        dollarRate: '44380.27'
+                        dollarAmount: '44.38027'
+                        assetId: 1a14df95-9c66-4966-9968-13416f472ba0
+                        accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                        createdAt: '2021-08-19T10:57:20.095Z'
+                        updatedAt: '2021-08-19T10:57:20.172Z'
+                        completedAt: '2021-08-19T10:57:20.172Z'
+                        cancelledAt: null
+                    description: ''
+                example:
+                  status: success
+                  data:
+                  - uid: ed27509f-6d0b-4390-a7ce-94323e8e81fb
+                    guid: 4b63ca22-2b21-4891-bfba-2683384084f4
+                    status: SUCCESS
+                    type: DEPOSIT
+                    hash: 00000000b7a97b9b783bafa7df0847d8473256509c5d7054a3d006e8640b59be
+                    confirmation: 1
+                    depositId: f02ac546-299b-4d3c-9512-f90e5ab9a764
+                    transferId: null
+                    address: mhHkYXiiXPzqc1Y2gGK3oBV3FVbEaEZ84b
+                    transactionRef: TRX-WOmI35fPZ9I#Lh2kD1Ks4et0PKnOu1
+                    fromAddress: null
+                    mode: TEST
+                    description: null
+                    amount: '0.001'
+                    dollarRate: '44380.27'
+                    dollarAmount: '44.38027'
+                    assetId: 1a14df95-9c66-4966-9968-13416f472ba0
+                    accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                    createdAt: '2021-08-19T10:57:20.095Z'
+                    updatedAt: '2021-08-19T10:57:20.172Z'
+                    completedAt: '2021-08-19T10:57:20.172Z'
+                    cancelledAt: null
+                  - uid: 2b011d1d-90d9-4800-8a72-89ad933947e3
+                    guid: a1b225ac-d252-404e-8ba9-cf595a0470fe
+                    status: SUCCESS
+                    type: DEPOSIT
+                    hash: 00000000b7a97b9b783bafa7df0847d8473256509c5d7054a3d006e8640b59be
+                    confirmation: 1
+                    depositId: 82f9e1a4-4533-4255-b38e-87ce5ca2f7c6
+                    transferId: null
+                    address: mhHkYXiiXPzqc1Y2gGK3oBV3FVbEaEZ84b
+                    transactionRef: TRX-jK8bXJi9kcXAPkZbsKFWJuyNPkX7hl
+                    fromAddress: null
+                    mode: TEST
+                    description: null
+                    amount: '0.001'
+                    dollarRate: '44398.79'
+                    dollarAmount: '44.39879000000001'
+                    assetId: 1a14df95-9c66-4966-9968-13416f472ba0
+                    accountId: bfbb4394-fd3b-4054-a821-42b6e7827194
+                    createdAt: '2021-08-19T10:57:34.708Z'
+                    updatedAt: '2021-08-19T10:57:34.772Z'
+                    completedAt: '2021-08-19T10:57:34.772Z'
+                    cancelledAt: null
+              example:
+                status: success
+                page: 1
+                totalPages: 3
+                data:
+                - uid: ba0baa6a-329f-486f-be13-fbcbfa1766f3
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 4a9f7116ebd04f039999b8c6b36fb616f29863c42df686aef8d0f07016133dd3
+                  confirmation: 1
+                  depositId: 3342d64c-b9a5-4cb9-93ea-d6f46ed928ec
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-bqDHNLH4NfivfZcAppiuilOpFGzp$g
+                  description: null
+                  amount: 0.001
+                  dollarRate: 49730.11
+                  dollarAmount: 49.73011
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2021-12-12T15:19:17.899Z'
+                  updatedAt: '2021-12-12T15:19:17.985Z'
+                  completedAt: '2021-12-12T15:19:17.985Z'
+                  cancelledAt: null
+                - uid: 7dbac6f1-53b0-46ed-b950-50f3f8a187f9
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 97fe9f8fcd1e3b8779e269b824f0cb48723adb61d1c2780960830850429d9bb5
+                  confirmation: 1
+                  depositId: 17f49099-dc63-4dac-b284-dbdc6b9fbb9b
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-atJnrcDbzERah1VpcPbWIGAi4B#Myo
+                  description: null
+                  amount: 0.001
+                  dollarRate: 47484.26
+                  dollarAmount: 47.48426
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2021-12-15T13:24:08.248Z'
+                  updatedAt: '2021-12-15T13:24:08.326Z'
+                  completedAt: '2021-12-15T13:24:08.326Z'
+                  cancelledAt: null
+                - uid: 581f86e5-9d2a-4b9c-a526-bfc114d79e0e
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: 45bc88b56e7c0100a0f6a7b9c97149a4bff2c44a92f0acf9bfb2adce85c00cb1
+                  confirmation: 1
+                  depositId: ef093edc-bfb0-4544-a1f8-da4d97a12bf7
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: TRX-jAS0HsfNGjv1ml5FsV5xBnXeoMNtGe
+                  description: null
+                  amount: 0.00077549
+                  dollarRate: 42053.99
+                  dollarAmount: 32.6124487051
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-01-19T17:41:17.507Z'
+                  updatedAt: '2022-01-19T17:41:17.606Z'
+                  completedAt: '2022-01-19T17:41:17.606Z'
+                  cancelledAt: null
+                - uid: fa40afaa-c4e1-462c-b19e-a4642dc5ff33
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: TRANSFER
+                  hash: 590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517
+                  confirmation: 1
+                  depositId: null
+                  transferId: 95323f3c-2de8-48ba-9438-4a98b89dc130
+                  address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                  fromAddress: null
+                  transactionRef: BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo
+                  description: null
+                  amount: 0.00015885
+                  dollarRate: 44043.52
+                  dollarAmount: 7
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-02-09T18:25:23.605Z'
+                  updatedAt: '2023-05-04T11:12:38.241Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 2da31740-b1dc-486d-a576-4e5fadd43034
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm
+                  fromAddress: null
+                  transactionRef: BTP-8mpR1vgpCez6kU6uv9m9nAZAg3LNt8
+                  description: null
+                  amount: 0.00045885
+                  dollarRate: 43572.01
+                  dollarAmount: 19.99
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-02-16T18:08:38.289Z'
+                  updatedAt: '2022-02-16T18:09:25.220Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 3a2b75ae-042d-4da1-8044-904cb0443b87
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD
+                  fromAddress: null
+                  transactionRef: BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#
+                  description: null
+                  amount: 0.00043494
+                  dollarRate: 43704.24
+                  dollarAmount: 19.01
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-02-16T18:31:07.981Z'
+                  updatedAt: '2022-02-16T18:31:29.340Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 4832a346-625f-44f0-990f-54ab0856e2b5
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp
+                  fromAddress: null
+                  transactionRef: BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO
+                  description: null
+                  amount: 0.00041202
+                  dollarRate: 43681.31
+                  dollarAmount: 18
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-02-17T05:22:57.971Z'
+                  updatedAt: '2022-02-17T05:24:02.119Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: b08bd0f8-f911-4732-b1da-4ee2ae84576f
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw
+                  fromAddress: null
+                  transactionRef: BTP-YINqm$0WZFPQSxG8$fGX17bXb8RdpY
+                  description: null
+                  amount: 0.00077299
+                  dollarRate: 38795.81
+                  dollarAmount: 29.99
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: Request failed with status code 403
+                  createdAt: '2022-04-25T13:18:31.220Z'
+                  updatedAt: '2022-04-25T13:19:09.582Z'
+                  completedAt: null
+                  cancelledAt: null
+                - uid: 320c60b4-af18-4ebd-b8ac-f3b6e9fcd435
+                  status: SUCCESS
+                  subStatus: SUCCESS
+                  type: DEPOSIT
+                  hash: ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66
+                  confirmation: 6
+                  depositId: 552325ab-6771-40e5-aa3e-cfd00fef0578
+                  transferId: null
+                  address: tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv
+                  fromAddress: null
+                  transactionRef: TRX-pymDGTnjJTN4tGNRInvs6DPerodGKV
+                  description: null
+                  amount: 0.0002
+                  dollarRate: 21429.15
+                  dollarAmount: 4.28583
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-06-21T16:23:47.359Z'
+                  updatedAt: '2022-06-21T16:36:15.217Z'
+                  completedAt: '2022-06-21T16:36:15.217Z'
+                  cancelledAt: null
+                - uid: 743828cf-9636-4053-8ceb-81e15e6aa182
+                  status: FAILED
+                  subStatus: FAILED
+                  type: TRANSFER
+                  hash: null
+                  confirmation: null
+                  depositId: null
+                  transferId: null
+                  address: tb1ql0rvausepq4v9vg9h33aac435c3lf0k8y3syuz
+                  fromAddress: null
+                  transactionRef: BTP-b9cPqmtP$gbzH#OOgAbbjjfVmYBLmk
+                  description: null
+                  amount: 0.00023331
+                  dollarRate: 21431.12
+                  dollarAmount: 5
+                  assetId: 564ae50d-7285-417d-96aa-c8b99b06467a
+                  assetType: BTC
+                  chain: BITCOIN
+                  organizationId: 0ed32cca-14b2-4fd0-8221-bd1c4e752198
+                  errorReason: null
+                  errorMessage: null
+                  createdAt: '2022-06-21T16:26:54.873Z'
+                  updatedAt: '2022-06-21T16:27:11.272Z'
+                  completedAt: null
+                  cancelledAt: null
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
