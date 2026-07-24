@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.bitpowr.com/docs/environment
+modes:
+- name: test
+  description: >-
+    Simulated transactions with no real money. All endpoints and webhooks are
+    available exactly as in live. Toggled via the dashboard (top-right Live/Test
+    switch).
+  key_prefix: test_
+  networks: TESTNET
+- name: live
+  description: >-
+    Real transactions with real monetary value on production blockchain networks.
+  key_prefix: null
+  networks: MAINNET (default)
+key_binding: >-
+  API keys are tightly coupled to their environment — a test key only works in
+  test mode and a live key only in live mode. Test keys are identifiable by the
+  `test_` prefix.
+test_values: []
+notes: >-
+  Bitpowr publishes a full test environment (test keys + testnet) but does NOT
+  publish fixed "magic" test values (test card numbers, canned addresses); test
+  activity uses simulated testnet data. No such values are invented here.

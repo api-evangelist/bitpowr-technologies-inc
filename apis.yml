@@ -1,9 +1,30 @@
 aid: bitpowr-technologies-inc
 name: BitPowr Technologies, Inc.
-description: BitPowr Technologies, Inc. is a company surfaced as a portfolio company of 500-global and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  BitPowr Technologies is an institutional digital-asset infrastructure provider
+  — often described as "AWS for crypto" — offering wallet-as-a-service, treasury
+  management, tokenization, and compliance (AML / Know-Your-Transaction) tooling
+  for fintechs, exchanges, and payment gateways. The Bitpowr Developer API is a
+  REST API (base https://developers.bitpowr.com/api/v1) that lets businesses
+  create and manage MPC-secured wallets, generate addresses, add assets, move
+  funds, and stream events across 12+ blockchains including Bitcoin, Ethereum,
+  Solana, Tron, Stellar, Litecoin, Bitcoin Cash, and Polygon. It supports test
+  and live environments, page-based pagination, HTTP-429 rate-limit signaling,
+  and a webhook event catalog. Backed by 500 Global.
 url: https://raw.githubusercontent.com/api-evangelist/bitpowr-technologies-inc/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://bitpowr.com/static/img/bitpowr_banner.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -12,15 +33,237 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Cryptocurrency
+- Blockchain
+- Digital Assets
+- Wallet Infrastructure
+- Wallet as a Service
+- Custody
+- Treasury Management
+- Tokenization
+- Compliance
+- Web3
+- Payments
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-account-api
+  name: BitPowr Technologies, Inc. Account API
+  description: The Account API from BitPowr Technologies, Inc. — 12 operation(s) for account.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-account-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-address-api
+  name: BitPowr Technologies, Inc. Address API
+  description: The Address API from BitPowr Technologies, Inc. — 9 operation(s) for address.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Address
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-address-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-assets-api
+  name: BitPowr Technologies, Inc. Assets API
+  description: The Assets API from BitPowr Technologies, Inc. — 5 operation(s) for assets.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-assets-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-customer-api
+  name: BitPowr Technologies, Inc. Customer API
+  description: The Customer API from BitPowr Technologies, Inc. — 3 operation(s) for customer.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Customer
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-customer-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-market-api
+  name: BitPowr Technologies, Inc. Market API
+  description: The Market API from BitPowr Technologies, Inc. — 3 operation(s) for market.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Market
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-market-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-others-api
+  name: BitPowr Technologies, Inc. Others API
+  description: The Others API from BitPowr Technologies, Inc. — 2 operation(s) for others.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Others
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-others-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-staking-api
+  name: BitPowr Technologies, Inc. Staking API
+  description: The Staking API from BitPowr Technologies, Inc. — 1 operation(s) for staking.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Staking
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-staking-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-swap-api
+  name: BitPowr Technologies, Inc. Swap API
+  description: The Swap API from BitPowr Technologies, Inc. — 3 operation(s) for swap.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Swap
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-swap-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-transaction-api
+  name: BitPowr Technologies, Inc. Transaction API
+  description: The Transaction API from BitPowr Technologies, Inc. — 4 operation(s) for transaction.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-transaction-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
+- aid: bitpowr-technologies-inc:bitpowr-technologies-inc-utils-api
+  name: BitPowr Technologies, Inc. Utils API
+  description: The Utils API from BitPowr Technologies, Inc. — 4 operation(s) for utils.
+  humanURL: https://docs.bitpowr.com/reference/api-reference
+  baseURL: https://developers.bitpowr.com/api/v1
+  tags:
+  - Utils
+  properties:
+  - type: OpenAPI
+    url: openapi/bitpowr-technologies-inc-utils-api-openapi.yml
+  - type: Webhooks
+    url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+  - type: ErrorCatalog
+    url: errors/bitpowr-technologies-inc-error-codes.yml
+  - type: DataModel
+    url: data-model/bitpowr-technologies-inc-data-model.yml
 common:
 - type: Website
   url: https://bitpowr.com
+- type: DeveloperPortal
+  url: https://docs.bitpowr.com
+- type: Documentation
+  url: https://docs.bitpowr.com
+- type: APIReference
+  url: https://docs.bitpowr.com/reference/api-reference
+- type: GettingStarted
+  url: https://docs.bitpowr.com/docs/getting-started-in-5-minutes
+- type: Authentication
+  url: authentication/bitpowr-technologies-inc-authentication.yml
+- type: Conventions
+  url: conventions/bitpowr-technologies-inc-conventions.yml
+- type: Lifecycle
+  url: lifecycle/bitpowr-technologies-inc-lifecycle.yml
+- type: StatusPage
+  url: https://bitpowr.betteruptime.com/
+- type: Sandbox
+  url: sandbox/bitpowr-technologies-inc-sandbox.yml
+- type: Webhooks
+  url: asyncapi/bitpowr-technologies-inc-webhooks.yml
+- type: MCPServer
+  url: mcp/bitpowr-technologies-inc-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/bitpowr-technologies-inc-agentic-access.yml
+- type: Conformance
+  url: conformance/bitpowr-technologies-inc-conformance.yml
+- type: DomainSecurity
+  url: security/bitpowr-technologies-inc-domain-security.yml
+- type: LLMsTxt
+  url: llms/bitpowr-technologies-inc-llms.txt
+- type: Packages
+  url: packages/bitpowr-technologies-inc-packages.yml
+- type: GitHubOrganization
+  url: https://github.com/bitpowr
+- type: Blog
+  url: https://bitpowr.com/blog
+- type: Support
+  url: https://bitpowr.com/contact-us
+- type: SignUp
+  url: https://dashboard.bitpowr.com
+- type: TermsOfService
+  url: https://bitpowr.com/terms
+- type: PrivacyPolicy
+  url: https://bitpowr.com/privacy-policy
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

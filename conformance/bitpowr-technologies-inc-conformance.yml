@@ -1,0 +1,46 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/bitpowr-technologies-inc-openapi.yml + docs.bitpowr.com
+standards:
+- id: rest
+  conforms: true
+  evidence: >-
+    Resource-oriented REST API over HTTPS with standard HTTP verbs and status
+    codes (docs "API Overview").
+- id: bearer-token-auth
+  conforms: true
+  evidence: openapi securityScheme type http/bearer; docs document Bearer + API-key auth
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 securityScheme; auth is bearer token / API key only
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    errors returned as JSON but not documented as application/problem+json; a
+    plain error envelope is used
+- id: rfc6585-429
+  conforms: true
+  evidence: >-
+    documents HTTP 429 with a Retry-After header for rate limiting (docs "API
+    Overview")
+- id: pagination
+  conforms: true
+  evidence: >-
+    documented page/perPage/orderBy query params with page/totalPage response
+    headers (docs "Pagination")
+- id: webhooks
+  conforms: true
+  evidence: >-
+    documented webhook event catalog (accounts/address/assets/customers/
+    transactions topics) with POST delivery and 72h retry
+- id: aml-kyt
+  conforms: true
+  evidence: >-
+    provider documents real-time AML / Know-Your-Transaction screening and
+    address flagging as product features
+notes: >-
+  Derived from the harvested OpenAPI and the published docs. No third-party
+  compliance certifications (SOC 2 / ISO 27001 / PCI) were found published on a
+  trust page, so no `Compliance` pointer is emitted.

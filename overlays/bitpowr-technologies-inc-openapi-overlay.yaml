@@ -1,0 +1,36 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for BitPowr Technologies
+  version: 1.0.0
+extends: openapi/bitpowr-technologies-inc-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-source: >-
+      Reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments
+      (2026-07-18); 55 operations across 10 resource tags merged into one spec.
+    x-apievangelist-artifacts:
+      authentication: authentication/bitpowr-technologies-inc-authentication.yml
+      conventions: conventions/bitpowr-technologies-inc-conventions.yml
+      errors: errors/bitpowr-technologies-inc-error-codes.yml
+      webhooks: asyncapi/bitpowr-technologies-inc-webhooks.yml
+      lifecycle: lifecycle/bitpowr-technologies-inc-lifecycle.yml
+      sandbox: sandbox/bitpowr-technologies-inc-sandbox.yml
+      data_model: data-model/bitpowr-technologies-inc-data-model.yml
+- target: $.servers
+  update:
+  - url: https://developers.bitpowr.com/api/v1
+    description: Production (v1). Environment (test vs live) is selected by API key, not host.
+- target: $.components.securitySchemes
+  update:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Dashboard API key sent as `Authorization: Basic <API_KEY>` — the scoped
+        alternative to the full public/secret Bearer token.
+notes: >-
+  Overlay captures API Evangelist enrichment (source provenance, artifact
+  cross-links, documented API-key scheme). The original harvested spec is not
+  mutated.

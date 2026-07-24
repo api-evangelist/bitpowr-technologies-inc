@@ -1,0 +1,60 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.bitpowr.com/docs/webhooks-overview
+spec_type: Webhooks
+delivery:
+  transport: HTTP POST
+  content_type: application/json
+  endpoint: consumer-defined URL configured on the Bitpowr dashboard Webhook page
+  ack: A 2xx response acknowledges receipt.
+  retry: >-
+    On any non-2xx response the event is re-sent every hour for the next 72
+    hours. Body/params are ignored on the receiving endpoint — only the status
+    code matters.
+topics:
+- topic: accounts
+  events:
+  - {event: accounts.created, description: A new account is created.}
+  - {event: accounts.updated, description: An existing account is updated.}
+  - {event: accounts.archived, description: An account is archived.}
+  - {event: accounts.frozen, description: An account is frozen.}
+  - {event: accounts.policy.updated, description: The policy associated with an account is updated.}
+- topic: address
+  events:
+  - {event: address.created, description: A new address is created.}
+  - {event: address.updated, description: An existing address is updated.}
+  - {event: address.flagged, description: An address is flagged for review.}
+  - {event: address.blocked, description: An address is blocked or disabled.}
+- topic: assets
+  events:
+  - {event: assets.created, description: A new asset is created.}
+- topic: customers
+  events:
+  - {event: customer.created, description: A new customer is created.}
+  - {event: customer.updated, description: An existing customer is updated.}
+  - {event: customer.deleted, description: A customer is deleted or deactivated.}
+  - {event: customer.attached_to_address, description: A customer is attached to an address.}
+- topic: transactions
+  events:
+  - {event: transaction.incoming, description: A transaction is incoming.}
+  - {event: transaction.new, description: A new transaction is created.}
+  - {event: transaction.success, description: A transaction is successfully processed.}
+  - {event: transaction.pending, description: A transaction is pending.}
+  - {event: transaction.failed, description: A transaction has failed.}
+  - {event: transaction.pending_approval, description: A transaction is pending approval.}
+  - {event: transaction.awaiting_confirmation, description: A transaction is awaiting confirmation.}
+  - {event: transaction.queue, description: A transaction is queued.}
+  - {event: transaction.processing, description: A transaction is processing.}
+  - {event: transaction.deposit.created, description: A deposit transaction is initiated.}
+  - {event: transaction.deposit.success, description: A deposit transaction is successfully processed.}
+  - {event: transaction.deposit.pending, description: A deposit transaction is pending.}
+  - {event: transaction.deposit.awaiting_confirmation, description: A deposit transaction is awaiting confirmation.}
+  - {event: transaction.deposit.aml_flagged, description: A deposit transaction is flagged for AML.}
+  - {event: transaction.transfer.created, description: A transfer transaction is initiated.}
+  - {event: transaction.transfer.success, description: A transfer transaction is successfully processed.}
+notes: >-
+  Bitpowr documents a webhook event surface but publishes no AsyncAPI document.
+  Captured as a Webhooks catalog (feeds the asyncapi_events agent-readiness
+  dimension via the Webhooks pointer). Transaction transfer events beyond
+  `created`/`success` (pending/failed/etc.) follow the same pattern documented on
+  the transactions webhook topic page.

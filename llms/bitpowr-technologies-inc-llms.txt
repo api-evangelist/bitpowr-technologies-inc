@@ -1,0 +1,126 @@
+# Bitpowr Technologies Documentation
+
+> Documentation for Bitpowr Technologies
+
+## Guides
+- [Overview](https://docs.bitpowr.com/docs/introduction-overview.md): Let's get you started working with Bitpowr Developer API
+- [Support](https://docs.bitpowr.com/docs/support-1.md)
+- [Glossary](https://docs.bitpowr.com/docs/glossary-1.md)
+- [FAQ](https://docs.bitpowr.com/docs/faq-1.md): Frequently Asked Questions
+- [Get your API Key](https://docs.bitpowr.com/docs/get-your-api-key.md)
+- [Get your Wallet or Account ID](https://docs.bitpowr.com/docs/get-your-wallet-or-account-id.md)
+- [Getting started in 5 minutes](https://docs.bitpowr.com/docs/getting-started-in-5-minutes.md): Quick start guide to Bitpowr! Learn how to create a Bitpowr key, make your first request, setup up Bitpowr as your client, and get to building!
+- [Authentication](https://docs.bitpowr.com/docs/authentication.md)
+- [Environment](https://docs.bitpowr.com/docs/environment.md)
+- [Supported Blockchains](https://docs.bitpowr.com/docs/supported-blockchains.md)
+- [Errors](https://docs.bitpowr.com/docs/errors.md): The Bitpowr Dev API has the following error codes
+- [Overview](https://docs.bitpowr.com/docs/wallets-overview.md): Bitpowr Wallet Infrastructure
+- [Overview](https://docs.bitpowr.com/docs/accounts-overview.md): This page explains everything that has to do with Vault Account/Wallet
+- [Assets](https://docs.bitpowr.com/docs/assets.md)
+- [Tokenization](https://docs.bitpowr.com/docs/tokenization.md): Create tokens
+- [How to Enable Stellar Trustline Asset](https://docs.bitpowr.com/docs/how-to-enable-stellar-trustline-asset.md): Enable Stellar Trustline
+- [Sub Accounts](https://docs.bitpowr.com/docs/sub-accounts.md): Learn more about sub accounts and how to manage users wallet
+- [Policies](https://docs.bitpowr.com/docs/policies.md): Create policies
+- [Gas Station Connection](https://docs.bitpowr.com/docs/gas-station-connection.md): Set up a gas station connection
+- [Account Statements](https://docs.bitpowr.com/docs/account-statements.md): Generate Account Statements
+- [Teams](https://docs.bitpowr.com/docs/teams.md): Managing Team Members
+- [Withdrawal Limit](https://docs.bitpowr.com/docs/withdrawal-limit.md): Set up a withdrawal limit
+- [Freeze/Archive](https://docs.bitpowr.com/docs/freezearchive.md): Freezing or Archiving Wallets/Accounts
+- [Address](https://docs.bitpowr.com/docs/addresses.md)
+- [Overview](https://docs.bitpowr.com/docs/address-overview.md)
+- [Generate Address](https://docs.bitpowr.com/docs/generate-address.md): Guide on generating and managing wallet address
+- [Address Book](https://docs.bitpowr.com/docs/address-book.md): Using the Address Book
+- [Overview](https://docs.bitpowr.com/docs/transaction-overview.md): Transactions are either deposits, transfer or contract interactions carried out on Bitpowr
+- [How it works](https://docs.bitpowr.com/docs/transaction-lifecycle.md)
+- [Transaction Guide](https://docs.bitpowr.com/docs/transaction-guide.md): This guide covers transaction management features in the BitPowr API that work across all supported blockchain networks. These features provide enhanced control over transaction processing, prevent duplicate transactions, enable complex workflows, and improve transaction organization.
+- [Create Transaction](https://docs.bitpowr.com/docs/create-transaction.md)
+- [Estimate Transaction](https://docs.bitpowr.com/docs/transaction-estimate-guide.md)
+- [Understanding Transaction Status](https://docs.bitpowr.com/docs/understanding-transaction-status.md): BitPowr transaction processing involves multiple stages from creation to final confirmation on the blockchain. This guide explains all transaction statuses and sub-statuses to help you monitor and handle transactions effectively.
+- [Transaction How To's](https://docs.bitpowr.com/docs/transaction-how-tos.md): The Transactions API enables you to create and send various types of cryptocurrency transactions across multiple blockchain networks. This guide covers all supported transaction types with detailed examples and parameter descriptions.
+- [Bitcoin & UTXO](https://docs.bitpowr.com/docs/bitcoin-utxo.md): This guide covers Bitcoin and UTXO-based transactions using the BitPowr API. Bitcoin transactions provide precise control over inputs (UTXOs) and outputs, enabling advanced transaction management including Replace-By-Fee (RBF), transaction acceleration, and custom fee control.
+- [Ethereum & EVM](https://docs.bitpowr.com/docs/ethereum-evm.md): This guide covers Ethereum and EVM-compatible blockchain transactions using the BitPowr API. EVM transactions support native ETH transfers, ERC20 token transfers, custom gas management, and advanced operations like approve/transferFrom workflows for delegated spending.
+- [Solana ](https://docs.bitpowr.com/docs/solana.md): This guide covers Solana blockchain transactions using the BitPowr API. Solana transactions support native SOL transfers, SPL token transfers, and advanced fee management with custom fee payer addresses for delegated transaction costs.
+- [Transaction Approval Webhook ](https://docs.bitpowr.com/docs/transaction-approval-webhook.md): BitPowr Transaction Approval Webhook Guide
+- [Market](https://docs.bitpowr.com/docs/market.md): Get current market data
+- [Overview](https://docs.bitpowr.com/docs/overview.md): Understand how to access API Keys, Webhooks, and Events.
+- [Two-Factor Authentication (2FA)](https://docs.bitpowr.com/docs/two-factor-authentication-2fa.md): Understand how 2FA works
+- [Contract](https://docs.bitpowr.com/docs/contract.md): Deploy a smart contract
+- [Overview](https://docs.bitpowr.com/docs/webhooks-overview.md): Learn how to listen to events whenever certain actions occur on your account.
+- [Setup](https://docs.bitpowr.com/docs/webhooks-setup.md)
+- [Event](https://docs.bitpowr.com/docs/webhooks-events.md): How to Enable Webhooks
+- [Webhooks](https://docs.bitpowr.com/docs/webhooks-request.md)
+- [Accounts](https://docs.bitpowr.com/docs/webhooks-topic-accounts.md)
+- [Address](https://docs.bitpowr.com/docs/webhooks-topic-address.md)
+- [Assets](https://docs.bitpowr.com/docs/webhooks-topic-assets.md)
+- [Customers](https://docs.bitpowr.com/docs/webhooks-topic-customers.md)
+- [Transactions](https://docs.bitpowr.com/docs/webhooks-topic-transactions.md)
+- [Webhook Best Practices](https://docs.bitpowr.com/docs/webhook-best-practices.md)
+- [Overview](https://docs.bitpowr.com/docs/customers-overview.md)
+
+## API Reference
+- [🎉 Bitpowr API reference](https://docs.bitpowr.com/reference/api-reference.md): We're really proud to show off our API reference documentation 🤩.
+- [🔐 API Overview](https://docs.bitpowr.com/reference/api-overview.md)
+- [📑Pagination](https://docs.bitpowr.com/reference/pagination.md)
+- [Errors](https://docs.bitpowr.com/reference/errors-1.md)
+- [Status Codes](https://docs.bitpowr.com/reference/status-codes.md)
+- [Get account](https://docs.bitpowr.com/reference/getaccount.md): This endpoint returns all user's accounts/wallets
+- [Create accounts](https://docs.bitpowr.com/reference/createaccounts.md): This endpoint creates an account
+- [Get account by id](https://docs.bitpowr.com/reference/getaccountbyid.md): This endpoint returns a user's accounts/wallets by it's `uid`
+- [Get Account Assets](https://docs.bitpowr.com/reference/getaccountassetsbyaccountid.md): This endpoint returns all assets associated with an account by the `uid` of the account.
+- [Add Assets to Account](https://docs.bitpowr.com/reference/createaccountsassetsbyid.md): This endpoint returns an asset for an account.
+- [Get Account Asset](https://docs.bitpowr.com/reference/getaccountsassetsbyassetsidandid.md): This endpoint returns an asset associated with an account by the `uid` of the account and the `assetId` of the asset.
+- [Get account balance](https://docs.bitpowr.com/reference/getaccountbalancebyid.md): This endpoint returns the balance of an account by the `uid` of the account.
+- [Get account transaction](https://docs.bitpowr.com/reference/getaccounttransactionbyid.md): This endpoint returns the transactions of an account by it's `uid`
+- [Get transaction](https://docs.bitpowr.com/reference/gettransactionbytxid.md): This endpoint returns an account's transaction by it's  `txid`
+- [Create Sub Accounts](https://docs.bitpowr.com/reference/createsub-accounts.md): This endpoint creates a sub account
+- [Get sub account](https://docs.bitpowr.com/reference/getsubaccountbyid.md): This endpoint gets the sub-account by it's `uid`
+- [Get account balance by accountId and subAccountId](https://docs.bitpowr.com/reference/getaccountbalancebyaccountidandsubaccountid.md): This endpoint returns an account's balance by it's `accountId` and `subaccounId`
+- [Get account crypto balance by accountId and subAccountId](https://docs.bitpowr.com/reference/getaccountcryptobalancebyaccountidandsubaccountid.md): This endpoint returns an account's crypto balance by it's `accountId` and `subaccounId`
+- [GET Sub Account Addressess](https://docs.bitpowr.com/reference/getaddresssub-accountsbyidandaddress.md): This endpoint returns details of a sub-account and its addresses using the account `uid` and sub account `uid`
+- [Create Sub Account Address](https://docs.bitpowr.com/reference/createsubaccountaddresses.md): This endpoint creates sub-account addresses using the account `uid` and sub accounts `uid`
+- [Create whitelist address](https://docs.bitpowr.com/reference/createwhitelistaddress.md): This endpoint creates a whitelist address
+- [Create addresses](https://docs.bitpowr.com/reference/createaddresses.md): This endpoint generates new addresses
+- [Get addresses](https://docs.bitpowr.com/reference/getaddresses.md): This endpoint gets details of an address
+- [Get addresses by addressId](https://docs.bitpowr.com/reference/getaddressesbyaddressid.md): This endpoint returns details of an address by using the `addressId`
+- [Get addresses transactions](https://docs.bitpowr.com/reference/getaddressestransactions.md): This endpoint returns all transactions of an address
+- [Get addresses balance](https://docs.bitpowr.com/reference/getaddressesbalance.md): This endpoint returns the balance of an address
+- [Check if an address is powered by Bitpowr](https://docs.bitpowr.com/reference/isbitpowraddress.md): This endpoint checks if an address is powered by Bitpowr for a specific asset type.
+- [Add Trustline Assets](https://docs.bitpowr.com/reference/addtrustlineassets.md): This endpoint enables trustline assets on Stellar blockchains
+- [Stacking](https://docs.bitpowr.com/reference/stacking.md): This endpoint performs stacking operations on a specific address.
+- [Generate XLM Authentication](https://docs.bitpowr.com/reference/generatexlmauth.md): This endpoint generates XLM authentication information.
+- [Add assets](https://docs.bitpowr.com/reference/addassets.md): This endpoint adds assets
+- [Get assets accounts](https://docs.bitpowr.com/reference/getassetsaccounts.md): This endpoint returns all assets in an account/wallet
+- [Get assets by accountId](https://docs.bitpowr.com/reference/getassetsbyaccountid.md): This endpoint returns details of an address by using the `accountId`
+- [Get assets](https://docs.bitpowr.com/reference/getassets.md): This endpoint returns an asset
+- [Get assets balance](https://docs.bitpowr.com/reference/getassetsbalance.md): This endpoint returns an asset's balance
+- [Get assets transaction](https://docs.bitpowr.com/reference/getassetstransaction.md): This endpoint gets an asset's transactions
+- [Create customer](https://docs.bitpowr.com/reference/createcustomer.md): This endpoint creates a new customer
+- [Get customers](https://docs.bitpowr.com/reference/getcustomers.md): This endpoint returns customers
+- [Update Customer info.](https://docs.bitpowr.com/reference/updatecustomer.md): This endpoint updates a customer's information.
+- [Get customer by id](https://docs.bitpowr.com/reference/getcustomer.md): This endpoint fetches a customer by it `uid`
+- [Get customer's transactions](https://docs.bitpowr.com/reference/getcustomerstransactions.md): This endpoint returns a customer's transactions.
+- [List transactions](https://docs.bitpowr.com/reference/listtransactions.md): This endpoint returns and filters transactions in your account by `accountId`,`assetId`, `address`, `hash`, `asset`.
+- [Create transactions](https://docs.bitpowr.com/reference/createtransactions.md): This endpoint creates transactions
+- [Get transaction](https://docs.bitpowr.com/reference/gettransaction.md): This endpoint retrieves transactions by `id`
+- [Create estimate](https://docs.bitpowr.com/reference/createestimate.md): This endpoint returns transaction estimates
+- [Fetch Unspent Transactions for UTXO chains](https://docs.bitpowr.com/reference/fetchutxos.md): This endpoint fetches available UTXO
+- [Market](https://docs.bitpowr.com/reference/market-1.md)
+- [Get market index](https://docs.bitpowr.com/reference/getmarketindex.md): This endpoint returns the volatility of a certain asset over a specified period of time. For example, you can get BTC's gain/loss in the last 24 hours.
+- [Get market price](https://docs.bitpowr.com/reference/getmarketprice.md): This endpoint returns the current market price of crypto currencies
+- [Get market ticker](https://docs.bitpowr.com/reference/getmarketticker.md): This endpoint gets the market ticker of a coin pair
+- [Create a new stake](https://docs.bitpowr.com/reference/createstake.md): This endpoint creates a new stake on any supported chain. Currently we only support tron
+- [Get all stakes](https://docs.bitpowr.com/reference/getstakes.md): This endpoints gets all staking accounts and stakes
+- [Initiate swap request](https://docs.bitpowr.com/reference/createswap.md): This endpoint swaps from one crypto currency to another
+- [Get swap rates](https://docs.bitpowr.com/reference/getswaprates.md): This endpoint returns swap rates
+- [Get minimum exchange amount](https://docs.bitpowr.com/reference/minimumexchangeamount.md): This endpoint retrieves the minimum exchange amount required for swapping operations.
+- [Get supported assets](https://docs.bitpowr.com/reference/supportedassets.md): This endpoint provides information about various supported cryptocurrencies and tokens.
+- [Get authentication info](https://docs.bitpowr.com/reference/auth.md): This endpoint returns information about your authentication status.
+- [Generate Token](https://docs.bitpowr.com/reference/generatetoken.md): This endpoint generates a token for authentication purposes.
+- [Validate address](https://docs.bitpowr.com/reference/validateaddress.md): This endpoint validates the given address for a specific network and asset.
+- [Get raw internal transaction](https://docs.bitpowr.com/reference/getrawinternaltx.md): This endpoint retrieves raw internal transaction details based on the provided transaction ID and hash.
+- [Validate transaction](https://docs.bitpowr.com/reference/validatetransaction.md): This endpoint validates a transaction by providing essential details such as hash, address, etc.
+
+## Recipes
+- [Initiate Approve and Transfer From Transaction](https://docs.bitpowr.com/recipes/initiate-approve-and-transfer-from-transaction.md)
+- [Send Bitcoin UTXO Transaction](https://docs.bitpowr.com/recipes/recipe-title.md)
+- [Send Bitcoin Transaction](https://docs.bitpowr.com/recipes/send-bitcoin-transaction.md)

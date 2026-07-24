@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/bitpowr-technologies-inc-openapi.yml + docs.bitpowr.com
+skills:
+- file: bitpowr-technologies-inc-create-wallet-and-address.md
+  name: Create a Bitpowr wallet and generate a deposit address
+  api: openapi/bitpowr-technologies-inc-openapi.yml
+  operations: [Createaccounts, Addassets, Createaddresses, Getaddressesbalance]
+- file: bitpowr-technologies-inc-estimate-and-send-transaction.md
+  name: Estimate and send a Bitpowr transaction
+  api: openapi/bitpowr-technologies-inc-openapi.yml
+  operations: [Createestimate, Createtransactions, Gettransaction, Listtransactions, Createwhitelistaddress]

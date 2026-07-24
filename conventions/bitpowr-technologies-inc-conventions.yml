@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: docs.bitpowr.com (api-overview, authentication, pagination, environment, webhooks)
+authentication:
+  style: bearer-token-and-api-key
+  transport: HTTPS only (plain HTTP rejected)
+  detail: >-
+    Authorization header on every request. Bearer = base64(`public:secret`); or
+    API key sent as `Authorization: Basic <API_KEY>`.
+  ref: authentication/bitpowr-technologies-inc-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented for write/transaction
+    operations. Not emitting an Idempotency pointer (no idempotency contract to
+    claim).
+pagination:
+  style: page-number
+  params:
+    page: Page number to view.
+    perPage: Records per page (default 10).
+    orderBy: "'asc' or 'desc' ordering."
+  response_headers:
+    page: Current active page.
+    totalPage: Total number of pages available.
+  applies_to: All list endpoints are paginated by default.
+  ref: https://docs.bitpowr.com/reference/pagination
+versioning:
+  style: uri-path
+  current: v1
+  ref: lifecycle/bitpowr-technologies-inc-lifecycle.yml
+rate_limiting:
+  signal: HTTP 429 with Retry-After header indicating wait time before retry.
+  ref: errors/bitpowr-technologies-inc-error-codes.yml
+error_envelope:
+  format: JSON message + HTTP status code (not RFC 9457 problem+json)
+  ref: errors/bitpowr-technologies-inc-error-codes.yml
+webhooks:
+  delivery: HTTP POST JSON to a configured URL; expects a 2xx ack; retries hourly for 72h on non-2xx.
+  ref: asyncapi/bitpowr-technologies-inc-webhooks.yml
+environments:
+  separation: test (`test_` key prefix, testnet) vs live (mainnet); keys environment-bound.
+  ref: sandbox/bitpowr-technologies-inc-sandbox.yml

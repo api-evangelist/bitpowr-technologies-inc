@@ -1,0 +1,13 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  npm, PyPI, GitHub org (github.com/bitpowr) and docs.bitpowr.com searched
+  2026-07-18
+packages: []
+notes: >-
+  No first-party Bitpowr client SDK was found on npm, PyPI, or the public GitHub
+  org (github.com/bitpowr — 6 repos, none an API client library). The docs
+  present the REST API with raw HTTP / language snippets (JavaScript, PHP,
+  Python) rather than a published, installable client. No official package to
+  catalog at this time; re-check on future runs. No `type: SDKs` pointer is
+  emitted because no official client library exists.

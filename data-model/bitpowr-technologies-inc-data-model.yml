@@ -1,0 +1,56 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/bitpowr-technologies-inc-openapi.yml + docs.bitpowr.com object references
+notes: >-
+  Entity graph derived from OpenAPI path structure, id path-parameters
+  (accountId, subAccountId, assetId, addressId, customerId, txId) and the docs
+  object model. Field-level schemas are largely inline/undeclared in the harvested
+  ReadMe spec, so relationships are derived from resource nesting.
+entities:
+- name: Account
+  aka: Vault Account / Wallet
+  id_param: uid
+  description: A wallet / vault account holding assets across supported blockchains.
+  relationships:
+  - {type: has_many, target: Asset, via: accountId}
+  - {type: has_many, target: SubAccount, via: accountId}
+  - {type: has_many, target: Address, via: accountId}
+  - {type: has_many, target: Transaction, via: accountId}
+  - {type: has_one, target: Policy, via: account}
+- name: SubAccount
+  id_param: subAccountId
+  description: A sub-account under an Account, used to manage per-user wallets.
+  relationships:
+  - {type: belongs_to, target: Account, via: accountId}
+  - {type: has_many, target: Address, via: subAccountId}
+- name: Asset
+  id_param: assetId
+  description: A blockchain asset (coin/token) attached to an account.
+  relationships:
+  - {type: belongs_to, target: Account, via: accountId}
+  - {type: has_many, target: Transaction, via: assetId}
+- name: Address
+  id_param: addressId
+  description: A deposit/receive address generated for an account or sub-account.
+  relationships:
+  - {type: belongs_to, target: Account, via: accountId}
+  - {type: belongs_to, target: SubAccount, via: subAccountId}
+  - {type: has_many, target: Transaction, via: address}
+  - {type: has_one, target: Customer, via: customerId}
+- name: Customer
+  id_param: customerId
+  description: An end customer attached to addresses for KYT/compliance and tracking.
+  relationships:
+  - {type: has_many, target: Address, via: customerId}
+  - {type: has_many, target: Transaction, via: customerId}
+- name: Transaction
+  id_param: txId
+  description: A deposit, transfer, or contract interaction on a supported chain.
+  relationships:
+  - {type: belongs_to, target: Account, via: accountId}
+  - {type: belongs_to, target: Asset, via: assetId}
+  - {type: belongs_to, target: Address, via: address}
+- name: Policy
+  description: Governance rules (withdrawal limits, approvals) bound to an account.
+  relationships:
+  - {type: belongs_to, target: Account, via: account}

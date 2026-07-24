@@ -1,0 +1,32 @@
+{
+  "provider": "bitpowr-technologies-inc",
+  "sources": [
+    "bitpowr-technologies-inc-account-api-openapi.yml",
+    "bitpowr-technologies-inc-address-api-openapi.yml",
+    "bitpowr-technologies-inc-assets-api-openapi.yml",
+    "bitpowr-technologies-inc-customer-api-openapi.yml",
+    "bitpowr-technologies-inc-market-api-openapi.yml",
+    "bitpowr-technologies-inc-others-api-openapi.yml",
+    "bitpowr-technologies-inc-staking-api-openapi.yml",
+    "bitpowr-technologies-inc-swap-api-openapi.yml",
+    "bitpowr-technologies-inc-transaction-api-openapi.yml",
+    "bitpowr-technologies-inc-utils-api-openapi.yml"
+  ],
+  "outputs": [
+    "bitpowr-technologies-inc-account-api-openapi.yml",
+    "bitpowr-technologies-inc-address-api-openapi.yml",
+    "bitpowr-technologies-inc-assets-api-openapi.yml",
+    "bitpowr-technologies-inc-customer-api-openapi.yml",
+    "bitpowr-technologies-inc-market-api-openapi.yml",
+    "bitpowr-technologies-inc-others-api-openapi.yml",
+    "bitpowr-technologies-inc-staking-api-openapi.yml",
+    "bitpowr-technologies-inc-swap-api-openapi.yml",
+    "bitpowr-technologies-inc-transaction-api-openapi.yml",
+    "bitpowr-technologies-inc-utils-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

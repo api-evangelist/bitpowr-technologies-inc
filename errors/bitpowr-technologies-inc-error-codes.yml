@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.bitpowr.com/docs/errors
+envelope: >-
+  Errors are returned as JSON with a descriptive message; clients should branch on
+  the HTTP status code and the error description. Not RFC 9457 problem+json.
+status_codes:
+- {code: 200, name: OK, meaning: The request succeeded.}
+- {code: 201, name: Created, meaning: The request succeeded and a new resource was created.}
+- {code: 202, name: Accepted, meaning: The request was accepted for processing but processing is not complete.}
+- {code: 400, name: Bad Request, meaning: Malformed request syntax; the server could not understand the request.}
+- {code: 401, name: Unauthorized, meaning: Your API key is wrong / missing.}
+- {code: 403, name: Forbidden, meaning: The requested endpoint is restricted (administrators only).}
+- {code: 404, name: Not Found, meaning: The specified endpoint / resource could not be found.}
+- {code: 405, name: Method Not Allowed, meaning: The endpoint was accessed with an invalid HTTP method.}
+- {code: 406, name: Not Acceptable, meaning: A non-JSON response format was requested.}
+- {code: 429, name: Too Many Requests, meaning: Rate limit exceeded; slow down. Honor the Retry-After header.}
+- {code: 500, name: Internal Server Error, meaning: A server-side problem occurred; retry later.}
+- {code: 503, name: Service Unavailable, meaning: Temporarily offline for maintenance; retry later.}
+notes: >-
+  Status-code table captured verbatim from the docs Errors and Status Codes
+  pages. The docs additionally publish a narrative table of authentication /
+  authorization / resource-constraint error messages. The harvested OpenAPI only
+  declares 2xx (and a single 400) responses per operation, so this searched
+  catalog is the authoritative error surface.
