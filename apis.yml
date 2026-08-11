@@ -214,6 +214,8 @@ apis:
   - type: DataModel
     url: data-model/bitpowr-technologies-inc-data-model.yml
 common:
+- type: Overlay
+  url: overlays/bitpowr-technologies-inc-openapi-overlay.yaml
 - type: Website
   url: https://bitpowr.com
 - type: DeveloperPortal
