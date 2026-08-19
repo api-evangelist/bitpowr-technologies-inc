@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Assets API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get assets accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/assets",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "The uid of the account/wallet you want to get assets."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of assets per request."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort assets by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns all assets in an account/wallet"
+        },
+        {
+          "info": {
+            "name": "Add assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/assets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint adds assets"
+        },
+        {
+          "info": {
+            "name": "Get assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/assets/:assetId",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want to get assets."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns an asset"
+        },
+        {
+          "info": {
+            "name": "Get assets balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/assets/:assetId/balance",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This endpoint returns an asset's balance"
+        },
+        {
+          "info": {
+            "name": "Get assets by accountId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/assets/:accountId",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The accountId of the account/wallet you want to get assets."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns details of an address by using the `accountId`"
+        },
+        {
+          "info": {
+            "name": "Get assets transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/assets/:assetId/transactions",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of transactions per request."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort transactions by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint gets an asset's transactions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

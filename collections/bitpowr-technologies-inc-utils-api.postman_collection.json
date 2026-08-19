@@ -1,0 +1,469 @@
+{
+  "item": [
+    {
+      "id": "4b32ad57-65df-4bc0-9a1f-581971565dd3",
+      "name": "Utils",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c25f9aea-7a09-43ad-a4cc-f4eaf80fcf43",
+          "name": "Generate Token",
+          "request": {
+            "name": "Generate Token",
+            "description": {
+              "content": "This endpoint generates a token for authentication purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "utils",
+                "generateToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"public_key\": \"<string>\",\n  \"secret_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a68a9fe9-754c-4eaa-9817-2f0bd80c8326",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utils",
+                    "generateToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"public_key\": \"pk_test_gAArHE6Z1LAljAIgAXi1zbsNQvlCcNryFMWH4LYUBW1tlkY4bx\",\n  \"secret_key\": \"sk_test_pIdvBw7l8qIKMAQG4VhfFh44Lsp5PAETieRJM9cIiQ7vN0aak0.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"cGtfdGVzdF9ngAXilCcN1zbsQUFyHE6W1LAljAINQvryFMWH4LYUBW1tlkY4bx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c179664b-7e5b-4355-9e9b-941b3efac265",
+          "name": "Get raw internal transaction",
+          "request": {
+            "name": "Get raw internal transaction",
+            "description": {
+              "content": "This endpoint retrieves raw internal transaction details based on the provided transaction ID and hash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "utils",
+                "raw-internal-tx"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "txId",
+                  "value": "<string>",
+                  "description": "(Required) The transaction ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The transaction hash"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "18fc07f5-73e2-4cea-9833-bf27958f6c50",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utils",
+                    "raw-internal-tx"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "txId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"event\": \"transaction.success\",\n  \"data\": {\n    \"amount\": \"0\",\n    \"fee\": \"0\",\n    \"hash\": \"a834591c77de0e65826f5409a4520bccad0c1a55a18ec98f3d1fe0d394f8270e\",\n    \"block_height\": \"43147540\",\n    \"block_hash\": \"dbd179d2b1089579\",\n    \"network\": \"testnet\",\n    \"to\": [\n      {\n        \"value\": \"0\",\n        \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\"\n      }\n    ],\n    \"from\": [\n      {\n        \"chain\": \"TRON\",\n        \"index\": 0,\n        \"value\": \"0\",\n        \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n        \"context\": {\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"asset_id\": \"adc69483-1ae6-4157-816c-ebcda87401c5\",\n          \"address_id\": \"db46d148-73d8-46e0-8b91-927cbe69db24\",\n          \"address_index\": 0\n        },\n        \"asset_id\": \"adc69483-1ae6-4157-816c-ebcda87401c5\",\n        \"currency\": \"TRON\",\n        \"account_id\": \"9746586c-25f2-4c39-b3fd-e12836f731e0\",\n        \"charge_type\": \"transfer\"\n      },\n      {\n        \"chain\": \"TRON\",\n        \"index\": 0,\n        \"value\": \"0\",\n        \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n        \"context\": {\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"asset_id\": \"adc69483-1ae6-4157-816c-ebcda87401c5\",\n          \"address_id\": \"db46d148-73d8-46e0-8b91-927cbe69db24\",\n          \"address_index\": 0\n        },\n        \"asset_id\": \"adc69483-1ae6-4157-816c-ebcda87401c5\",\n        \"currency\": \"TRON\",\n        \"account_id\": \"9746586c-25f2-4c39-b3fd-e12836f731e0\",\n        \"charge_type\": \"fee\"\n      }\n    ],\n    \"fromUTXO\": null,\n    \"currency\": \"TRON\",\n    \"chain\": \"TRON\",\n    \"status\": \"SUCCESS\",\n    \"subStatus\": \"SUCCESS\",\n    \"confirmations\": \"1\",\n    \"confirmation\": \"1\",\n    \"gas_price\": null,\n    \"raw_fee\": {\n      \"fee\": 0,\n      \"netUsage\": 253,\n      \"energyFee\": 0,\n      \"energyUsage\": 0,\n      \"energyUsageTotal\": 0\n    },\n    \"broadcastedAt\": \"2024-04-12T15:37:09.855Z\",\n    \"gas_limit\": null,\n    \"cause\": null,\n    \"errorReason\": null,\n    \"trxRef\": \"186db262-2290-40ab-96e4-6c9452962b6d\",\n    \"nonce\": null,\n    \"txRef\": \"186db262-2290-40ab-96e4-6c9452962b6d\",\n    \"operation\": \"withdrawFrozenAsset\",\n    \"flush\": null,\n    \"fee_address\": {\n      \"fee_address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"fee_address_id\": \"db46d148-73d8-46e0-8b91-927cbe69db24\",\n      \"fee_asset_id\": \"adc69483-1ae6-4157-816c-ebcda87401c5\",\n      \"fee_address_index\": \"0\",\n      \"fee_currency\": \"TRON\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8f1d93f-3e82-40d2-ac20-5bcc20979ba8",
+          "name": "Validate address",
+          "request": {
+            "name": "Validate address",
+            "description": {
+              "content": "This endpoint validates the given address for a specific network and asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "utils",
+                "validate-address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"network\": \"<string>\",\n  \"asset\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b3442dc2-0484-4fe1-ac03-6453c79c59fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utils",
+                    "validate-address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"0x71aa91309607050952b085f252209f2e1f18eda2\",\n  \"network\": \"mainnet\",\n  \"asset\": \"ETH\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"'0x71aa91309607050952b085f252209f2e1f18eda2' is valid ETHEREUM address\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "706c18ee-4605-4de0-b208-57c624dce6b4",
+          "name": "Validate transaction",
+          "request": {
+            "name": "Validate transaction",
+            "description": {
+              "content": "This endpoint validates a transaction by providing essential details such as hash, address, etc.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "utils",
+                "validate-transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"network\": \"<string>\",\n  \"hash\": \"<string>\",\n  \"chain\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"contractAddress\": \"<string>\",\n  \"transactionIndex\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ee3b7d6-235b-499a-838a-94ecd7d27717",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "utils",
+                    "validate-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"0x71aa91309607050952b085f252209f2e1f18eda2\",\n  \"network\": \"mainnet\",\n  \"hash\": \"0x123abc...\",\n  \"chain\": \"ethereum\",\n  \"amount\": \"1.5\",\n  \"currency\": \"USD\",\n  \"contractAddress\": \"0x456def...\",\n  \"transactionIndex\": \"123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e04c5ce4-234a-4612-a313-c8a5ff9a1043",
+    "name": "Bitpowr Reference Account Utils API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Swap API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Swap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate swap request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/integration/swap/exchange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint swaps from one crypto currency to another"
+        },
+        {
+          "info": {
+            "name": "Get swap rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/integration/swap/rates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns swap rates"
+        },
+        {
+          "info": {
+            "name": "Get minimum exchange amount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/integration/swap/mininum_exchange_amount",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves the minimum exchange amount required for swapping operations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

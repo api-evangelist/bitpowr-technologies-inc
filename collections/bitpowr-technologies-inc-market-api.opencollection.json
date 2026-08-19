@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Market API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get market index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/market/",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the volatility of a certain asset over a specified period of time. For example, you can get BTC's gain/loss in the last 24 hours."
+        },
+        {
+          "info": {
+            "name": "Get market price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/market/price",
+            "params": [
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "The default currency is usdt"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the current market price of crypto currencies "
+        },
+        {
+          "info": {
+            "name": "Get market ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/market/ticker",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint gets the market ticker of a coin pair"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

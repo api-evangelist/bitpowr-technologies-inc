@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "17212c11-8991-4123-8b0f-3cd4a5055093",
+      "name": "Staking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c81edb01-2dbb-489f-8b28-f800338748fc",
+          "name": "Create a new stake",
+          "request": {
+            "name": "Create a new stake",
+            "description": {
+              "content": "This endpoint creates a new stake on any supported chain. Currently we only support tron",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "staking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAddress\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"chain\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"receiverAddress\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f24a7884-ce04-4776-9cc9-f9922d820256",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fromAddress\": \"Tvweer....\",\n  \"accountId\": \"12883-23833-\",\n  \"chain\": \"TRON\",\n  \"amount\": \"200\",\n  \"operation\": \"freezeTron\",\n  \"resource\": \"BANDWIDTH\",\n  \"receiverAddress\": \"Tvweer....\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"transaction\": {},\n    \"stake\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54b8eeb8-3e1d-4050-9587-4f78b09d0bc1",
+          "name": "Get all stakes",
+          "request": {
+            "name": "Get all stakes",
+            "description": {
+              "content": "This endpoints gets all staking accounts and stakes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "staking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of staking per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort customers by asc or desc."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "908cc0ad-61e4-4a38-9577-0926dc3c4380",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "staking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": \"1\",\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"id\": 21,\n      \"uid\": \"978f61c2-9875-4e96-aa18-fbfcb811cb25\",\n      \"guid\": \"9ec59c3b-1bf8-497e-9838-dba378e3df46\",\n      \"label\": \"Stake Account - TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF\",\n      \"chain\": \"TRON\",\n      \"activeStakeAmount\": null,\n      \"accountAddress\": \"TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF\",\n      \"mode\": \"TEST\",\n      \"resources\": {\n        \"tron\": \"1.430846\",\n        \"energy\": 0,\n        \"bandwidth\": 0,\n        \"energyTrxWeight\": 0,\n        \"bandwidthTrxWeight\": 0\n      },\n      \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"createdAt\": \"2024-04-03T11:48:42.980Z\",\n      \"updatedAt\": \"2024-04-16T20:35:29.177Z\",\n      \"Stake\": [\n        {\n          \"id\": 103,\n          \"uid\": \"e119219f-14b8-43fe-bf51-1ed92a0a8778\",\n          \"guid\": \"ed898291-30c5-490e-a858-ce6ca0c6cb4a\",\n          \"status\": \"STAKED\",\n          \"action\": \"STAKE\",\n          \"amount\": \"1\",\n          \"address\": \"TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF\",\n          \"chain\": \"TRON\",\n          \"resource\": \"BANDWIDTH\",\n          \"withdrawalAvailableAt\": \"2024-04-17T11:48:47.746Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"f84d7b1a-30d1-4e8d-bf56-2a0f0bafcebc\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"978f61c2-9875-4e96-aa18-fbfcb811cb25\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-04-03T11:48:47.748Z\",\n          \"updatedAt\": \"2024-04-03T11:51:00.799Z\"\n        }\n      ]\n    },\n    {\n      \"id\": 20,\n      \"uid\": \"e4667205-3cf3-4448-8d2b-9ea9a3d629c9\",\n      \"guid\": \"945e7e7f-8a27-4970-8572-b244b08fc406\",\n      \"label\": \"Stake Account - TVEfg5ni5YwDqYk2DRkJUvthGRfEXhZAdf\",\n      \"chain\": \"TRON\",\n      \"activeStakeAmount\": null,\n      \"accountAddress\": \"TVEfg5ni5YwDqYk2DRkJUvthGRfEXhZAdf\",\n      \"mode\": \"TEST\",\n      \"resources\": {\n        \"tron\": \"0.00019\",\n        \"energy\": 0,\n        \"bandwidth\": 0,\n        \"energyTrxWeight\": 0,\n        \"bandwidthTrxWeight\": 0\n      },\n      \"accountId\": \"35908ae4-9bdf-44df-877a-c2d14f30e28f\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"createdAt\": \"2024-03-22T06:15:20.459Z\",\n      \"updatedAt\": \"2024-04-16T20:33:28.455Z\",\n      \"Stake\": []\n    },\n    {\n      \"id\": 17,\n      \"uid\": \"fec7da7a-bb43-46f2-88eb-9393be4a410f\",\n      \"guid\": \"233b7f4a-6ef9-4e07-89f0-1658cd6fb80e\",\n      \"label\": \"Stake Account - TGmsd9SQdDoMamkzKAAgJe77zoxcEuXdyz\",\n      \"chain\": \"TRON\",\n      \"activeStakeAmount\": null,\n      \"accountAddress\": \"TGmsd9SQdDoMamkzKAAgJe77zoxcEuXdyz\",\n      \"mode\": \"TEST\",\n      \"resources\": {\n        \"tron\": \"1.090777\",\n        \"energy\": 0,\n        \"bandwidth\": 0,\n        \"energyTrxWeight\": 0,\n        \"bandwidthTrxWeight\": 0\n      },\n      \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"createdAt\": \"2024-03-08T09:17:08.165Z\",\n      \"updatedAt\": \"2024-04-16T20:33:27.720Z\",\n      \"Stake\": [\n        {\n          \"id\": 53,\n          \"uid\": \"d3104545-3134-43b3-9f7b-ef5d12549b21\",\n          \"guid\": \"78355a6a-3bb1-4cdb-ab69-c4e513a3233f\",\n          \"status\": \"PENDING\",\n          \"action\": \"STAKE\",\n          \"amount\": \"0.72674419\",\n          \"address\": \"TGmsd9SQdDoMamkzKAAgJe77zoxcEuXdyz\",\n          \"chain\": \"TRON\",\n          \"resource\": \"BANDWIDTH\",\n          \"withdrawalAvailableAt\": \"2024-03-22T09:17:12.661Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"9ab5ccac-5767-4c0b-a27f-69a7664074ad\",\n          \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n          \"stakeAccountId\": \"fec7da7a-bb43-46f2-88eb-9393be4a410f\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-08T09:17:12.663Z\",\n          \"updatedAt\": \"2024-03-08T09:17:12.664Z\"\n        },\n        {\n          \"id\": 62,\n          \"uid\": \"6654460f-2b3b-4f2e-9a72-e31a005c4f3c\",\n          \"guid\": \"760155d6-ba62-45f1-be3d-2687cabb623f\",\n          \"status\": \"FAILED\",\n          \"action\": \"STAKE\",\n          \"amount\": \"0.75815011\",\n          \"address\": \"TGmsd9SQdDoMamkzKAAgJe77zoxcEuXdyz\",\n          \"chain\": \"TRON\",\n          \"resource\": \"BANDWIDTH\",\n          \"withdrawalAvailableAt\": \"2024-03-26T09:23:57.073Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"9e20ab91-405e-44d0-9fc3-2f70354409ea\",\n          \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n          \"stakeAccountId\": \"fec7da7a-bb43-46f2-88eb-9393be4a410f\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-12T09:23:57.076Z\",\n          \"updatedAt\": \"2024-03-12T09:24:07.396Z\"\n        }\n      ]\n    },\n    {\n      \"id\": 12,\n      \"uid\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n      \"guid\": \"a7ace9a6-a316-4138-b173-6498cdf780f1\",\n      \"label\": \"Stake Account - TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"chain\": \"TRON\",\n      \"activeStakeAmount\": null,\n      \"accountAddress\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"mode\": \"TEST\",\n      \"resources\": {\n        \"tron\": \"1.125261\",\n        \"energy\": 211,\n        \"bandwidth\": 0,\n        \"energyTrxWeight\": 2.38318414900526,\n        \"bandwidthTrxWeight\": 0\n      },\n      \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"createdAt\": \"2024-03-07T09:13:55.692Z\",\n      \"updatedAt\": \"2024-04-16T20:37:29.826Z\",\n      \"Stake\": [\n        {\n          \"id\": 44,\n          \"uid\": \"82f379b5-acf2-4e38-9ea3-10f8e4dac029\",\n          \"guid\": \"813a6a1a-2cc0-45ad-b30c-81aed084e43e\",\n          \"status\": \"PENDING\",\n          \"action\": \"STAKE\",\n          \"amount\": \" 0.72568940\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"BANDWIDTH\",\n          \"withdrawalAvailableAt\": \"2024-03-07T09:14:02.216Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"4da689db-9aec-41ff-b5d6-de4b2c7fee60\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-07T09:14:02.218Z\",\n          \"updatedAt\": \"2024-03-07T09:14:02.219Z\"\n        },\n        {\n          \"id\": 63,\n          \"uid\": \"dc00de0e-c5b4-43ea-bf03-918e8f16c5fc\",\n          \"guid\": \"c2cf31d0-ff8f-42bc-9dea-c249d3050201\",\n          \"status\": \"FAILED\",\n          \"action\": \"STAKE\",\n          \"amount\": \"0.75642965\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"BANDWIDTH\",\n          \"withdrawalAvailableAt\": \"2024-03-26T09:29:09.128Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"69b17bdd-6095-47e3-86df-7f350f2d92c1\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-12T09:29:09.131Z\",\n          \"updatedAt\": \"2024-03-12T09:29:12.804Z\"\n        },\n        {\n          \"id\": 81,\n          \"uid\": \"ede0df85-9f4a-4e44-84a9-8d25ba1f4c09\",\n          \"guid\": \"e61e5fd7-9a91-401f-98c7-adc005403ad4\",\n          \"status\": \"STAKED\",\n          \"action\": \"STAKE\",\n          \"amount\": \"2.38473768\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"ENERGY\",\n          \"withdrawalAvailableAt\": \"2024-04-01T11:39:03.630Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"69916e8a-190c-4fcc-a971-5ca39ba87d90\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-18T11:39:03.637Z\",\n          \"updatedAt\": \"2024-03-18T11:41:17.605Z\"\n        },\n        {\n          \"id\": 85,\n          \"uid\": \"27edf6e0-efa1-415e-821e-af31c1b6b97b\",\n          \"guid\": \"f4e03252-37ab-4b05-8dc1-94181e6d3136\",\n          \"status\": \"STAKED\",\n          \"action\": \"STAKE\",\n          \"amount\": \"1\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"ENERGY\",\n          \"withdrawalAvailableAt\": \"2024-04-02T10:05:23.848Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"3e568d41-dcd5-4c8a-b37e-c78a1429a1bb\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-19T10:05:23.850Z\",\n          \"updatedAt\": \"2024-03-19T10:05:39.741Z\"\n        },\n        {\n          \"id\": 86,\n          \"uid\": \"07ed70d8-74fa-46d3-9271-4b0ff865c465\",\n          \"guid\": \"226b420b-6349-434e-86f8-a33ca7757857\",\n          \"status\": \"UNSTAKING\",\n          \"action\": \"UNSTAKE\",\n          \"amount\": \"1\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"ENERGY\",\n          \"withdrawalAvailableAt\": \"2024-04-02T10:06:10.249Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"701e96e8-c340-428c-9003-8867195fd04d\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-19T10:06:10.252Z\",\n          \"updatedAt\": \"2024-03-19T10:06:19.544Z\"\n        },\n        {\n          \"id\": 87,\n          \"uid\": \"d05240f3-12e9-45a3-9b20-e5aea209a176\",\n          \"guid\": \"9e4da10c-a334-45b8-92c7-ac7a88301619\",\n          \"status\": \"FAILED\",\n          \"action\": \"UNSTAKE\",\n          \"amount\": \"1\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"ENERGY\",\n          \"withdrawalAvailableAt\": \"2024-04-02T10:06:52.740Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"07443a2d-18ef-4993-b98d-bbf705faa0d3\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-19T10:06:52.741Z\",\n          \"updatedAt\": \"2024-03-19T10:06:56.892Z\"\n        },\n        {\n          \"id\": 100,\n          \"uid\": \"386913b7-ad3a-4f46-bcef-bd208faacaf3\",\n          \"guid\": \"12e21c32-7bd6-4c2b-b99e-b9753b68bb9f\",\n          \"status\": \"FAILED\",\n          \"action\": \"UNSTAKE\",\n          \"amount\": \"0.75642965\",\n          \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n          \"chain\": \"TRON\",\n          \"resource\": \"BANDWIDTH\",\n          \"withdrawalAvailableAt\": \"2024-04-12T11:39:09.760Z\",\n          \"mode\": \"TEST\",\n          \"transactionId\": \"e581e92a-d097-42dd-beb5-2eef802e1b49\",\n          \"accountId\": \"f422f7f8-23d5-4dd9-8a62-46c851ddddde\",\n          \"stakeAccountId\": \"babdd6c0-5883-4db7-9b53-fb175e3f9c8a\",\n          \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n          \"createdAt\": \"2024-03-29T11:39:09.761Z\",\n          \"updatedAt\": \"2024-03-29T11:39:17.695Z\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "64286967-7fa3-4385-91cc-b19a563ae259",
+    "name": "Bitpowr Reference Account Staking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

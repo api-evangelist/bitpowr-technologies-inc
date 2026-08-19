@@ -1,0 +1,1231 @@
+{
+  "item": [
+    {
+      "id": "8090317f-d21a-45b5-9d56-9ac2729af6fc",
+      "name": "Address",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "228a1bc2-4f7d-4b99-a925-71fd33d0c737",
+          "name": "Add Trustline Assets",
+          "request": {
+            "name": "Add Trustline Assets",
+            "description": {
+              "content": "This endpoint enables trustline assets on Stellar blockchains",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "add_trustline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"assetCode\": \"<string>\",\n  \"feePayer\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de385e36-0ebe-4574-aaf8-464551f26941",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "add_trustline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"GD....\",\n  \"assetCode\": \"USDC_XLM\",\n  \"feePayer\": \"GD......\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc9e1eee-54d6-4525-9939-4c65450b3a78",
+          "name": "Create addresses",
+          "request": {
+            "name": "Create addresses",
+            "description": {
+              "content": "This endpoint generates new addresses",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"<string>\",\n  \"asset\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"addressType\": \"<string>\",\n  \"derivationIndex\": \"<number>\",\n  \"enableNativeToken\": \"<boolean>\",\n  \"isContract\": \"<boolean>\",\n  \"isChangeAddress\": \"<boolean>\",\n  \"customerId\": \"<string>\",\n  \"deploymentParams\": {\n    \"autoDeploy\": \"<boolean>\",\n    \"autoFlush\": \"<boolean>\",\n    \"autoFlushErc20\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "976aac50-ae72-4846-8bf3-b6bc3b539681",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"label\": \"My BTC\",\n  \"asset\": \"BTC\",\n  \"accountId\": \"eiie-12ijee-jedff-1eri\",\n  \"addressType\": \"legacy\",\n  \"derivationIndex\": 1,\n  \"enableNativeToken\": false,\n  \"isContract\": false,\n  \"isChangeAddress\": false,\n  \"customerId\": \"102jdc-9we2j\",\n  \"deploymentParams\": {\n    \"autoDepoy\": true,\n    \"autoFlush\": true,\n    \"autoFlushErc20\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"uid\": \"ead79668-4fd3-4000-b40e-b18551c16fac\",\n    \"guid\": \"6ba48fb6-3ec0-4740-953e-aef3f0b00fa4\",\n    \"address\": \"bchtest:qrjyhe8k8dvzgdug4tml36gxqvlf56w6wykdd6qf7x\",\n    \"addressRef\": \"uQUAoVJbEj\",\n    \"mode\": \"TEST\",\n    \"network\": \"TESTNET\",\n    \"assetType\": \"BCH\",\n    \"addressType\": \"BCH\",\n    \"isContract\": false,\n    \"isChangeAddress\": false,\n    \"derivationIndex\": 1,\n    \"label\": \"My BCH\",\n    \"chain\": \"BITCOINCASH\",\n    \"assetId\": \"3bf73934-1e21-4ed1-ab15-eb74fb4eab5f\",\n    \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n    \"accountId\": \"e95836d1-f496-447a-bbc0-d975d85a1c13\",\n    \"subAccountId\": null,\n    \"used\": false,\n    \"addressContractIdentifier\": null,\n    \"deploymentParams\": null,\n    \"lastUsedAt\": null,\n    \"createdAt\": \"2024-04-16T18:36:18.292Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a153759e-9e92-4201-82a7-027525e461d3",
+          "name": "Get addresses",
+          "request": {
+            "name": "Get addresses",
+            "description": {
+              "content": "This endpoint gets details of an address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>",
+                  "description": "The assetId of the addresses you want to get."
+                },
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<string>",
+                  "description": "The accountId of the addresses you want to get."
+                },
+                {
+                  "disabled": false,
+                  "key": "subAccountId",
+                  "value": "<string>",
+                  "description": "The subAccountId of the addresses you want to get."
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<string>",
+                  "description": "The customerId of the addresses you want to get."
+                },
+                {
+                  "disabled": false,
+                  "key": "minBalance",
+                  "value": "<number>",
+                  "description": "Minimum balance of the addresses."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxBalance",
+                  "value": "<number>",
+                  "description": "Maximum balance of the addresses."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Specific address you want to get details for."
+                },
+                {
+                  "disabled": false,
+                  "key": "derivationIndex",
+                  "value": "<number>",
+                  "description": "The derivation index of the address you want query"
+                },
+                {
+                  "disabled": false,
+                  "key": "asset",
+                  "value": "<string>",
+                  "description": "Asset type of the addresses."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of addresses per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort addresses by asc or desc."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a444a56f-c6a0-4aeb-b150-45e760a75bb7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetId",
+                      "value": "jkhsuy87879898"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "uy87879jkhghs898"
+                    },
+                    {
+                      "key": "subAccountId",
+                      "value": "jkh8787suy9898"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "hsjkuy87898fhj987"
+                    },
+                    {
+                      "key": "minBalance",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxBalance",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "address",
+                      "value": "TU72q8M35TYbUm8uTPEVWZ1PizYZRiB8uF"
+                    },
+                    {
+                      "key": "derivationIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "asset",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": \"1\",\n  \"totalPages\": 22,\n  \"data\": [\n    {\n      \"uid\": \"60c5a1ba-adb4-42bd-a7af-cc9a56962c1f\",\n      \"guid\": \"c461062e-1cb8-47be-958e-d7eeffe459bf\",\n      \"address\": \"Fp1XnA91fXkj538ZxcsNnJBpZJXNtVy1EJuwJu74nBXA\",\n      \"addressRef\": \"c461062e-1cb8-47be-958e-d7eeffe459bf\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"SOL\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"SOLANA\",\n      \"assetId\": \"19e2c390-2867-4e79-a271-e2cafbabcd1c\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": null,\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2023-08-17T16:36:51.359Z\"\n    },\n    {\n      \"uid\": \"c7b20e0c-4790-42f2-bdda-9e4a8938d5cd\",\n      \"guid\": \"23af6af1-bf1c-4d0e-963d-5fd5faef9d62\",\n      \"address\": \"bchtest:qpkjgtm8gdh64ghqew9hxddcywg508h7nqr077afc3\",\n      \"addressRef\": \"23af6af1-bf1c-4d0e-963d-5fd5faef9d62\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"BCH\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"BITCOINCASH\",\n      \"assetId\": \"43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2021-12-14T07:07:27.153Z\"\n    },\n    {\n      \"uid\": \"5ddeb1d6-9e91-44fa-b9f4-dd016614a11b\",\n      \"guid\": \"8e64b628-c018-44f7-be79-98bca1fe4c2b\",\n      \"address\": \"bchtest:qr7hws40nlfvgj7d5znx9ecllkf3c4a3rvuk6us4kz\",\n      \"addressRef\": \"8e64b628-c018-44f7-be79-98bca1fe4c2b\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"BCH\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"BITCOINCASH\",\n      \"assetId\": \"3bf73934-1e21-4ed1-ab15-eb74fb4eab5f\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"e95836d1-f496-447a-bbc0-d975d85a1c13\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2021-12-15T13:42:19.246Z\"\n    },\n    {\n      \"uid\": \"aed76504-a749-449b-8c09-9a3b83c1e4de\",\n      \"guid\": \"53e3240b-5e09-4cb5-a4ba-7d3c23254cac\",\n      \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n      \"addressRef\": \"53e3240b-5e09-4cb5-a4ba-7d3c23254cac\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"LTC\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"LITECOIN\",\n      \"assetId\": \"208423b4-ad4f-4146-84f0-e1982192b1c8\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2021-12-17T12:33:42.774Z\"\n    },\n    {\n      \"uid\": \"09005c44-dfe1-4fc5-ad86-298482c14309\",\n      \"guid\": \"c6b51c4e-841c-417d-9882-1034cc8e6e58\",\n      \"address\": \"0xc9ae7379ecc90b4c2acbd5920bbb644078d1ea49\",\n      \"addressRef\": \"dRYI1V7SW4\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"MATIC\",\n      \"addressType\": \"contract\",\n      \"isContract\": true,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 6,\n      \"label\": \"mtLTWgqqul\",\n      \"chain\": \"POLYGON\",\n      \"assetId\": \"45808193-fbc7-48eb-9379-66eb2953fecc\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"35908ae4-9bdf-44df-877a-c2d14f30e28f\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": \"wal_Lvid48A8x1MDOQqfrsTc_EVM_6\",\n      \"deploymentParams\": {\n        \"autoFlush\": false,\n        \"autoDeploy\": false,\n        \"autoFlushErc20\": true\n      },\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2023-02-03T08:08:07.219Z\"\n    },\n    {\n      \"uid\": \"04695a5e-4b68-4e8c-ab2a-c486b9da15fd\",\n      \"guid\": \"903ea2f7-f413-4709-87f8-c75fe1e6d99a\",\n      \"address\": \"miRjZpcf1975dXYGJsmS6gE9pQgqnaqPrx\",\n      \"addressRef\": \"GyvIiIp4WH\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"BTC\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": true,\n      \"derivationIndex\": 3,\n      \"label\": \"Change Address - BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#\",\n      \"chain\": \"BITCOIN\",\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2022-02-16T18:31:08.458Z\"\n    },\n    {\n      \"uid\": \"dd1e691d-49d4-4f8a-8f36-4514e1073660\",\n      \"guid\": \"686c495d-5046-465a-831e-d15bc4f0144e\",\n      \"address\": \"ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD\",\n      \"addressRef\": \"686c495d-5046-465a-831e-d15bc4f0144e\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"BTC\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"BITCOIN\",\n      \"assetId\": \"8a22109a-d1a4-4819-89fb-6449e4739292\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"6f830f92-32d9-4cd3-a564-28f2ab7e4709\",\n      \"subAccountId\": null,\n      \"used\": true,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2021-12-22T10:42:27.061Z\"\n    },\n    {\n      \"uid\": \"43c25ac3-26bc-4cc7-8c5d-0c33b07cac5e\",\n      \"guid\": \"dce06195-1073-48b1-9f31-2de0aa442dba\",\n      \"address\": \"bchtest:qzjq29qjhrs8vtp06tecjc4v0u8n5jampg0rxelgs2\",\n      \"addressRef\": \"dce06195-1073-48b1-9f31-2de0aa442dba\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"BCH\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"BITCOINCASH\",\n      \"assetId\": \"cff0e044-2b60-422f-95a9-8990b7b446a8\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"6f830f92-32d9-4cd3-a564-28f2ab7e4709\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2021-12-22T10:42:48.442Z\"\n    },\n    {\n      \"uid\": \"b9327466-be66-490a-98f1-2136580d16d7\",\n      \"guid\": \"5ba602bb-4bf6-40a3-8699-4fb181be0742\",\n      \"address\": \"mmphTzHH4LkLEakcjY5XzckwDR2EUTLqWA\",\n      \"addressRef\": \"dXtFYjNNTl\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"BTC\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": true,\n      \"derivationIndex\": 4,\n      \"label\": \"Change Address - BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO\",\n      \"chain\": \"BITCOIN\",\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"d2acaff2-554d-4a7e-8c60-a3f8105c9f32\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2022-02-17T05:22:58.470Z\"\n    },\n    {\n      \"uid\": \"684c5130-44f8-459e-85f6-93ea81d005cc\",\n      \"guid\": \"ab3cefe8-7e56-47a4-8d0f-748118293908\",\n      \"address\": \"7s2nPiQ1S5meSvaBgmMhX94Vo8J6UXn51dF9zVXJpfdC\",\n      \"addressRef\": \"ab3cefe8-7e56-47a4-8d0f-748118293908\",\n      \"mode\": \"TEST\",\n      \"network\": \"TESTNET\",\n      \"assetType\": \"SOL\",\n      \"addressType\": \"legacy\",\n      \"isContract\": false,\n      \"isChangeAddress\": false,\n      \"derivationIndex\": 0,\n      \"label\": null,\n      \"chain\": \"SOLANA\",\n      \"assetId\": \"e7a327f3-e6f2-4b68-ab4b-52a236fb6fc9\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"accountId\": \"68ecb89f-5aae-4f10-a6af-800b0b5b3c28\",\n      \"subAccountId\": null,\n      \"used\": false,\n      \"addressContractIdentifier\": null,\n      \"deploymentParams\": null,\n      \"lastUsedAt\": null,\n      \"createdAt\": \"2022-09-23T15:01:08.586Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bba43479-a33e-4038-b201-4611a9198994",
+          "name": "Create whitelist address",
+          "request": {
+            "name": "Create whitelist address",
+            "description": {
+              "content": "This endpoint creates a whitelist address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "whitelist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d301d2d4-84f4-4327-8655-b4cbaf045dd3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "whitelist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"50ec9b81-ad6c-4db2-98b8-e88025ceabf8\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "360b14b4-fcb9-4fd1-b427-4289da7ce748",
+          "name": "Generate XLM Authentication",
+          "request": {
+            "name": "Generate XLM Authentication",
+            "description": {
+              "content": "This endpoint generates XLM authentication information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "generate_xlm_auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"serverInfo\": {\n    \"homeDomain\": \"<string>\",\n    \"signingKey\": \"<string>\",\n    \"authEndpoint\": \"<string>\"\n  },\n  \"testnet\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "798f39df-f738-4ef4-8514-cba4011c0793",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "generate_xlm_auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"GD....\",\n  \"serverInfo\": {\n    \"homeDomain\": \"example.com\",\n    \"signingKey\": \"abcdefg123456\",\n    \"authEndpoint\": \"https://example.com/auth\"\n  },\n  \"testnet\": \"true\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8863460b-64f2-4e0d-8102-33ef4e223741",
+          "name": "Get addresses balance",
+          "request": {
+            "name": "Get addresses balance",
+            "description": {
+              "content": "This endpoint returns the balance of an address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                ":addressId",
+                "balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "addressId",
+                  "description": "(Required) The addressId of the balance you want to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2e478f7d-f0d6-44ae-bdd8-6c224bc15292",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":addressId",
+                    "balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "addressId",
+                      "description": "(Required) The addressId of the balance you want to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"received\": \"27.83\",\n    \"sent\": \"0.00\",\n    \"balance\": \"27.83\",\n    \"pending\": \"0.00\",\n    \"blocked\": \"0.00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "036adbf4-8825-423c-8f53-04372852582a",
+          "name": "Get addresses by addressId",
+          "request": {
+            "name": "Get addresses by addressId",
+            "description": {
+              "content": "This endpoint returns details of an address by using the `addressId`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                ":addressId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "addressId",
+                  "description": "(Required) The uid of the address you want to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d52343f9-1349-4b3d-b5ee-7150995a499f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":addressId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "addressId",
+                      "description": "(Required) The uid of the address you want to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"uid\": \"5ddeb1d6-9e91-44fa-b9f4-dd016614a11b\",\n    \"guid\": \"8e64b628-c018-44f7-be79-98bca1fe4c2b\",\n    \"address\": \"bchtest:qr7hws40nlfvgj7d5znx9ecllkf3c4a3rvuk6us4kz\",\n    \"addressRef\": \"8e64b628-c018-44f7-be79-98bca1fe4c2b\",\n    \"mode\": \"TEST\",\n    \"network\": \"TESTNET\",\n    \"assetType\": \"BCH\",\n    \"addressType\": \"legacy\",\n    \"isContract\": false,\n    \"isChangeAddress\": false,\n    \"derivationIndex\": 0,\n    \"label\": null,\n    \"chain\": \"BITCOINCASH\",\n    \"assetId\": \"3bf73934-1e21-4ed1-ab15-eb74fb4eab5f\",\n    \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n    \"accountId\": \"e95836d1-f496-447a-bbc0-d975d85a1c13\",\n    \"subAccountId\": null,\n    \"used\": false,\n    \"addressContractIdentifier\": null,\n    \"deploymentParams\": null,\n    \"lastUsedAt\": null,\n    \"createdAt\": \"2021-12-15T13:42:19.246Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4144dd7c-773a-402e-af84-d1ea41e19221",
+          "name": "Get addresses transactions",
+          "request": {
+            "name": "Get addresses transactions",
+            "description": {
+              "content": "This endpoint returns all transactions of an address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                ":addressId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of transactions per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort transactions by asc or desc."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "addressId",
+                  "description": "(Required) The addressId of the transaction you want to get."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b1742001-3097-4c58-aa98-3bda4c7ddb6b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":addressId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "7"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "addressId",
+                      "description": "(Required) The addressId of the transaction you want to get."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"uid\": \"ae866891-9629-4bbf-85c0-9753ebbf57c9\",\n            \"guid\": \"e109d264-77d3-4a9e-93c9-df287c6a5ad1\",\n            \"status\": \"PENDING\",\n            \"type\": \"DEPOSIT\",\n            \"hash\": \"00000000b7a97b9b783bafa7df0847d8473256509c5d7054a3d006e8640b59be\",\n            \"confirmation\": 0,\n            \"depositId\": \"a445054b-c3ea-42d2-8127-42c417b84c4a\",\n            \"transferId\": null,\n            \"address\": \"mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN\",\n            \"transactionRef\": \"TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#\",\n            \"fromAddress\": null,\n            \"mode\": \"TEST\",\n            \"description\": null,\n            \"amount\": \"0.45\",\n            \"dollarRate\": \"33715.32\",\n            \"dollarAmount\": \"15171.894\",\n            \"assetId\":             \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n            \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n            \"createdAt\": \"2021-06-23T21:17:08.761Z\",\n            \"updatedAt\": \"2021-06-23T21:17:08.769Z\",\n            \"completedAt\": null,\n            \"cancelledAt\": null\n        }\n    ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54946916-9717-4dd5-a9b5-4995af999008",
+          "name": "Check if an address is powered by Bitpowr",
+          "request": {
+            "name": "Check if an address is powered by Bitpowr",
+            "description": {
+              "content": "This endpoint checks if an address is powered by Bitpowr for a specific asset type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "isbitpowr_addresss"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) The address to check."
+                },
+                {
+                  "disabled": false,
+                  "key": "assetType",
+                  "value": "<string>",
+                  "description": "(Required) The type of asset associated with the address."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b4670bd3-7085-4bc7-9e55-353250157ba6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "isbitpowr_addresss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "0xabhgjhshfjhsfsjhfsjhf"
+                    },
+                    {
+                      "key": "assetType",
+                      "value": "BTC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcf2bfa0-2a46-42ca-ad1e-4f00201788c7",
+          "name": "Stacking",
+          "request": {
+            "name": "Stacking",
+            "description": {
+              "content": "This endpoint performs stacking operations on a specific address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "stacking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"assetCode\": \"<string>\",\n  \"resource\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c5d77d3-e8b8-4668-b85a-b0115b2a733a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "stacking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": \"GD....\",\n  \"amount\": \"100\",\n  \"operation\": \"freezeTron\",\n  \"assetCode\": \"USDC_XLM\",\n  \"resource\": \"BANDWIDTH\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8bc5439e-35fb-4e69-97ab-6ef2395fdb87",
+    "name": "Bitpowr Reference Account Address API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

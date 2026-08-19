@@ -1,0 +1,491 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of accounts per request."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort accounts by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns all user's accounts/wallets"
+        },
+        {
+          "info": {
+            "name": "Create accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates an account"
+        },
+        {
+          "info": {
+            "name": "Add Assets to Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/assets",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns an asset for an account."
+        },
+        {
+          "info": {
+            "name": "Get sub account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/sub-accounts",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of sub-accounts per request."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort sub-accounts by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint gets the sub-account by it's `uid`"
+        },
+        {
+          "info": {
+            "name": "Create Sub Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/sub-accounts",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a sub account"
+        },
+        {
+          "info": {
+            "name": "GET Sub Account Addressess",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/sub-accounts/:subId/addresses",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              },
+              {
+                "name": "subId",
+                "value": "",
+                "type": "path",
+                "description": "The subId of the sub-account you want to get."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of addresses per request."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort addresses by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns details of a sub-account and its addresses using the account `uid` and sub account `uid`"
+        },
+        {
+          "info": {
+            "name": "Create Sub Account Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/sub-accounts/:subId/addresses",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want to work with."
+              },
+              {
+                "name": "subId",
+                "value": "",
+                "type": "path",
+                "description": "The subId of the account you want to generate address for."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates sub-account addresses using the account `uid` and sub accounts `uid`"
+        },
+        {
+          "info": {
+            "name": "Get Account Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:id/assets",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of assets per request."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort assets by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns all assets associated with an account by the `uid` of the account."
+        },
+        {
+          "info": {
+            "name": "Get account balance by accountId and subAccountId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:accountId/sub-accounts/:subAccountId/balance",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account Id of the account/wallet you want to get assets."
+              },
+              {
+                "name": "subAccountId",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want to get assets."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns an account's balance by it's `accountId` and `subaccounId`"
+        },
+        {
+          "info": {
+            "name": "Get account balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/balance",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the balance of an account by the `uid` of the account."
+        },
+        {
+          "info": {
+            "name": "Get account by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns a user's accounts/wallets by it's `uid`"
+        },
+        {
+          "info": {
+            "name": "Get account crypto balance by accountId and subAccountId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:accountId/sub-accounts/:subAccountId/crypto-balance",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account Id of the account/wallet you want to get assets."
+              },
+              {
+                "name": "subAccountId",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want to get assets."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns an account's crypto balance by it's `accountId` and `subaccounId`"
+        },
+        {
+          "info": {
+            "name": "Get Account Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/assets/:assetId",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "The assetId of the account/wallet you want retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns an asset associated with an account by the `uid` of the account and the `assetId` of the asset."
+        },
+        {
+          "info": {
+            "name": "Get account transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/transactions",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of transactions per request."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort transactions by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the transactions of an account by it's `uid`"
+        },
+        {
+          "info": {
+            "name": "Get transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/accounts/:uid/transactions/:txId",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the account/wallet you want retrieve."
+              },
+              {
+                "name": "txId",
+                "value": "",
+                "type": "path",
+                "description": "The transaction Id of the account/wallet you want retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns an account's transaction by it's  `txid`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

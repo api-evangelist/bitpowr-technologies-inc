@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "275a2779-7a44-467e-b3dc-c96a06d251d1",
+      "name": "Customer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6fcdcbc2-0761-4b1b-ba04-100f95b7b837",
+          "name": "Create customer",
+          "request": {
+            "name": "Create customer",
+            "description": {
+              "content": "This endpoint creates a new customer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zipcode\": \"<number>\"\n  },\n  \"description\": \"<string>\",\n  \"emailUnique\": \"<boolean>\",\n  \"metaData\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6e6ae36-d39b-41b6-8f89-90d69206be90",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Samuel\",\n  \"email\": \"name@domain.com\",\n  \"phone\": \"+243912345678\",\n  \"address\": {\n    \"city\": \"Wilmington\",\n    \"country\": \"US\",\n    \"state\": \"Delaware\",\n    \"street\": \"1a swew\",\n    \"zipcode\": 19221\n  },\n  \"description\": \"Customer signed up via Twitter\",\n  \"emailUnique\": false,\n  \"metaData\": {\n    \"product\": \"wimy\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"id\": 41,\n    \"uid\": \"e310fd55-4ebd-4cd1-b42a-a3ed096de10e\",\n    \"guid\": \"c5d82d84-6f77-49f9-9023-f1fc9eb6d263\",\n    \"name\": \"Samuale\",\n    \"email\": null,\n    \"customerRef\": null,\n    \"externalId\": \"c321de14-be49-47a5-a92c-32fc4c4bf18c\",\n    \"description\": null,\n    \"metaData\": null,\n    \"address\": null,\n    \"phone\": null,\n    \"deletedAt\": null,\n    \"createdAt\": \"2024-04-16T19:26:39.684Z\",\n    \"updatedAt\": \"2024-04-16T19:26:39.685Z\",\n    \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n    \"mode\": \"TEST\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "979d1894-e807-470a-babc-726172f9da97",
+          "name": "Get customers",
+          "request": {
+            "name": "Get customers",
+            "description": {
+              "content": "This endpoint returns customers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of customers per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort customers by asc or desc."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bc7a6aec-12fb-44bb-9685-71d5a248a861",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"id\": 16,\n      \"uid\": \"af9b347c-ca39-4bf1-a581-6f07fbfb7afc\",\n      \"guid\": \"f77b6d9a-a0e2-44d2-a2d1-d928a95936b9\",\n      \"name\": \"Peter Olawuyi\",\n      \"email\": \"olawuyipeter19@gmail.com\",\n      \"customerRef\": null,\n      \"externalId\": \"3da69e34-08fd-47ff-9173-fe17872bc3cb\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": 7037228579,\n      \"deletedAt\": null,\n      \"createdAt\": \"2023-01-18T12:24:53.257Z\",\n      \"updatedAt\": \"2023-01-18T12:24:53.257Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    },\n    {\n      \"id\": 17,\n      \"uid\": \"034066b7-b98e-41ff-9453-c65221ddaa5c\",\n      \"guid\": \"24279076-97fa-490f-865f-e45edb41fc2b\",\n      \"name\": \"Temi\",\n      \"email\": \"olawuyipeter900@gmail.com\",\n      \"customerRef\": null,\n      \"externalId\": \"13bd25d8-980e-40af-82a8-740bd7446da0\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": 814014086034,\n      \"deletedAt\": null,\n      \"createdAt\": \"2023-01-18T12:28:18.306Z\",\n      \"updatedAt\": \"2023-01-18T12:28:18.307Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    },\n    {\n      \"id\": 37,\n      \"uid\": \"39cd5806-7b04-45c3-811d-6f9ff9d5b8c4\",\n      \"guid\": \"a5010920-1d72-4dcc-ab46-c35b3172bf58\",\n      \"name\": \"Features\",\n      \"email\": \"willow@mailinator.com\",\n      \"customerRef\": null,\n      \"externalId\": \"21d3f0ee-f3c8-4a11-af96-8d92400a9bed\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": 8140140860,\n      \"deletedAt\": null,\n      \"createdAt\": \"2024-03-22T10:26:25.847Z\",\n      \"updatedAt\": \"2024-03-22T10:26:25.848Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    },\n    {\n      \"id\": 38,\n      \"uid\": \"a830fcbe-6c00-470e-8e27-7875ed285434\",\n      \"guid\": \"b4a315fc-968a-428e-9854-ca3ebb65166e\",\n      \"name\": \"Peter Olawuyi\",\n      \"email\": \"olawuyipeter18@gmail.com\",\n      \"customerRef\": null,\n      \"externalId\": \"90bce4b4-a7a6-4f4b-8111-de263b2c927d\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": 7037228579,\n      \"deletedAt\": null,\n      \"createdAt\": \"2024-03-22T16:59:38.434Z\",\n      \"updatedAt\": \"2024-03-22T16:59:38.434Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    },\n    {\n      \"id\": 39,\n      \"uid\": \"15ab6492-290b-4eb2-bd02-f02ed86be671\",\n      \"guid\": \"731fe40d-b84c-4230-8835-b6a038b915ff\",\n      \"name\": \"Address BTC\",\n      \"email\": \"teju@mailinator.com\",\n      \"customerRef\": null,\n      \"externalId\": \"6f9843a0-e532-4c97-8900-311a7a5ee9bf\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": 8140140860,\n      \"deletedAt\": null,\n      \"createdAt\": \"2024-03-25T10:32:24.739Z\",\n      \"updatedAt\": \"2024-03-25T10:32:24.740Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    },\n    {\n      \"id\": 40,\n      \"uid\": \"62e78fff-9c21-46e4-b1f6-66a09bf2012f\",\n      \"guid\": \"31464213-068c-43f1-bf4c-8517f49fcf2c\",\n      \"name\": \"Features\",\n      \"email\": \"dami@mailinator.com\",\n      \"customerRef\": null,\n      \"externalId\": \"a8e3c92d-08ae-45a9-81b0-1a38eb026f14\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": 8140140860,\n      \"deletedAt\": null,\n      \"createdAt\": \"2024-04-03T18:10:43.857Z\",\n      \"updatedAt\": \"2024-04-03T18:10:43.857Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    },\n    {\n      \"id\": 41,\n      \"uid\": \"e310fd55-4ebd-4cd1-b42a-a3ed096de10e\",\n      \"guid\": \"c5d82d84-6f77-49f9-9023-f1fc9eb6d263\",\n      \"name\": \"Samuale\",\n      \"email\": null,\n      \"customerRef\": null,\n      \"externalId\": \"c321de14-be49-47a5-a92c-32fc4c4bf18c\",\n      \"description\": null,\n      \"metaData\": null,\n      \"address\": null,\n      \"phone\": null,\n      \"deletedAt\": null,\n      \"createdAt\": \"2024-04-16T19:26:39.684Z\",\n      \"updatedAt\": \"2024-04-16T19:26:39.685Z\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"mode\": \"TEST\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1695ca8-b215-479c-a0f4-97d624462b55",
+          "name": "Get customer by id",
+          "request": {
+            "name": "Get customer by id",
+            "description": {
+              "content": "This endpoint fetches a customer by it `uid`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) The uid of the customer you want retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "209d95ee-730d-48a7-a7eb-24d5543076b2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) The uid of the customer you want retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"id\": 17,\n    \"uid\": \"034066b7-b98e-41ff-9453-c65221ddaa5c\",\n    \"guid\": \"24279076-97fa-490f-865f-e45edb41fc2b\",\n    \"name\": \"Temi\",\n    \"email\": \"olawuyipeter900@gmail.com\",\n    \"customerRef\": null,\n    \"externalId\": \"13bd25d8-980e-40af-82a8-740bd7446da0\",\n    \"description\": null,\n    \"metaData\": null,\n    \"address\": null,\n    \"phone\": 814014086034,\n    \"deletedAt\": null,\n    \"createdAt\": \"2023-01-18T12:28:18.306Z\",\n    \"updatedAt\": \"2024-04-16T19:32:10.290Z\",\n    \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n    \"mode\": \"TEST\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7275798f-d8f5-417a-8180-5c3e3cd4eb0a",
+          "name": "Update Customer info.",
+          "request": {
+            "name": "Update Customer info.",
+            "description": {
+              "content": "This endpoint updates a customer's information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) The uid of the customer you want to work with."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"state\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zipcode\": \"<number>\"\n  },\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91dbb23b-1698-4bf8-a23e-8b866506a133",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) The uid of the customer you want to work with."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Samuel\",\n  \"email\": \"name@domain.com\",\n  \"phone\": \"+243912345678\",\n  \"address\": {\n    \"city\": \"Wilmington\",\n    \"country\": \"US\",\n    \"state\": \"Delaware\",\n    \"street\": \"1a swew\",\n    \"zipcode\": 19221\n  },\n  \"description\": \"Customer signed up via Twitter\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"id\": 17,\n    \"uid\": \"034066b7-b98e-41ff-9453-c65221ddaa5c\",\n    \"guid\": \"24279076-97fa-490f-865f-e45edb41fc2b\",\n    \"name\": \"Temi\",\n    \"email\": \"olawuyipeter900@gmail.com\",\n    \"customerRef\": null,\n    \"externalId\": \"13bd25d8-980e-40af-82a8-740bd7446da0\",\n    \"description\": null,\n    \"metaData\": null,\n    \"address\": null,\n    \"phone\": 814014086034,\n    \"deletedAt\": null,\n    \"createdAt\": \"2023-01-18T12:28:18.306Z\",\n    \"updatedAt\": \"2024-04-16T19:32:10.290Z\",\n    \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n    \"mode\": \"TEST\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d3e1333-4117-491b-9ffb-6bd69a892890",
+          "name": "Get customer's transactions",
+          "request": {
+            "name": "Get customer's transactions",
+            "description": {
+              "content": "This endpoint returns a customer's transactions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                ":customerId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of customers per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort customers by asc or desc."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) The uid of the customer you want retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8efff79f-0ac3-4962-8f66-aaff95bec457",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) The uid of the customer you want retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": 1,\n  \"totalPages\": 1,\n  \"data\": [\n    {\n      \"uid\": \"ae866891-9629-4bbf-85c0-9753ebbf57c9\",\n      \"status\": \"PENDING\",\n      \"type\": \"DEPOSIT\",\n      \"walletId\": \"ae866891-9629-4bbf-85c0-9753ebbf57c9\",\n      \"depositId\": \"a445054b-c3ea-42d2-8127-42c417b84c4a\",\n      \"transferId\": null,\n      \"address\": \"mzkmRQ92ocHhMEsdBnFsTd9sV7po9NeWfN\",\n      \"hash\": \"1b6dff5b430a8b0b4bc604a23dda5aa4d7979dd11dbc25d9345bd88889ad8297\",\n      \"confirmation\": 0,\n      \"transactionRef\": \"TRX-E8qVYTYAZm$16qaBcFL4qjgD7k9Su#\",\n      \"description\": null,\n      \"amount\": \"0.45\",\n      \"dollarRate\": \"33715.32\",\n      \"dollarAmount\": \"15171.894\",\n      \"assetId\": \"7bc33e73-5fd8-4647-aaef-75ca793cc35d\",\n      \"accountId\": \"326b47a1-da25-45e9-af9f-ae3e440ea7f4\",\n      \"createdAt\": \"2021-06-23T21:17:08.761Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "13d34c4d-d44c-4ab5-8361-10d7c03b18a3",
+    "name": "Bitpowr Reference Account Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

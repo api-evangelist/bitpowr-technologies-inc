@@ -5,284 +5,288 @@ source: openapi/bitpowr-technologies-inc-openapi.yml
 server:
   name: bitpowr
   transport: http
-  note: >-
-    No official hosted/remote Bitpowr MCP server was found (docs, npm
-    @modelcontextprotocol, MCP registries searched 2026-07-18). The tools below
-    are a candidate surface derived one-per-operation from the OpenAPI so an MCP
-    server can be generated; not an endorsed provider server.
+  note: No official hosted/remote Bitpowr MCP server was found (docs, npm @modelcontextprotocol, MCP registries
+    searched 2026-07-18). The tools below are a candidate surface derived one-per-operation from the OpenAPI
+    so an MCP server can be generated; not an endorsed provider server.
 tools:
 - name: addassets
-  description: 'Add assets'
+  description: Add assets
   method: post
   path: /assets
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Addassets
 - name: getassetsaccounts
-  description: 'Get assets accounts'
+  description: Get assets accounts
   method: get
   path: /assets
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getassetsaccounts
 - name: addtrustlineassets
-  description: 'Add Trustline Assets'
+  description: Add Trustline Assets
   method: post
   path: /addresses/add_trustline
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#addtrustlineassets
 - name: auth
-  description: 'Get authentication info'
+  description: Get authentication info
   method: get
   path: /auth
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#auth
 - name: createaccounts
-  description: 'Create accounts'
+  description: Create accounts
   method: post
   path: /accounts
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createaccounts
 - name: getaccount
-  description: 'Get account'
+  description: Get account
   method: get
   path: /accounts
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaccount
 - name: createaccountsassetsbyid
-  description: 'Add Assets to Account'
+  description: Add Assets to Account
   method: post
   path: /accounts/{uid}/assets
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createaccountsassetsbyid
 - name: createaddresses
-  description: 'Create addresses'
+  description: Create addresses
   method: post
   path: /addresses
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createaddresses
 - name: getaddresses
-  description: 'Get addresses'
+  description: Get addresses
   method: get
   path: /addresses
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaddresses
 - name: createcustomer
-  description: 'Create customer'
+  description: Create customer
   method: post
   path: /customers
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#createcustomer
 - name: getcustomers
-  description: 'Get customers'
+  description: Get customers
   method: get
   path: /customers
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#getcustomers
 - name: createestimate
-  description: 'Create estimate'
+  description: Create estimate
   method: post
   path: /transactions/estimate
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createestimate
 - name: createstake
-  description: 'Create a new stake'
+  description: Create a new stake
   method: post
   path: /staking
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#createstake
 - name: getstakes
-  description: 'Get all stakes'
+  description: Get all stakes
   method: get
   path: /staking
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#getstakes
 - name: createsub_accounts
-  description: 'Create Sub Accounts'
+  description: Create Sub Accounts
   method: post
   path: /accounts/{uid}/sub-accounts
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createsub-accounts
 - name: getsubaccountbyid
-  description: 'Get sub account'
+  description: Get sub account
   method: get
   path: /accounts/{uid}/sub-accounts
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getsubaccountbyid
 - name: createsubaccountaddresses
-  description: 'Create Sub Account Address'
+  description: Create Sub Account Address
   method: post
   path: /accounts/{uid}/sub-accounts/{subId}/addresses
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#createsubaccountaddresses
 - name: getaddresssub_accountsby_idandaddress
-  description: 'GET Sub Account Addressess'
+  description: GET Sub Account Addressess
   method: get
   path: /accounts/{uid}/sub-accounts/{subId}/addresses
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaddresssub-accountsbyIdandaddress
 - name: createswap
-  description: 'Initiate swap request'
+  description: Initiate swap request
   method: post
   path: /integration/swap/exchange
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#createswap
 - name: createtransactions
-  description: 'Create transactions'
+  description: Create transactions
   method: post
   path: /transactions
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createtransactions
 - name: listtransactions
-  description: 'List transactions'
+  description: List transactions
   method: get
   path: /transactions
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Listtransactions
 - name: createwhitelistaddress
-  description: 'Create whitelist address'
+  description: Create whitelist address
   method: post
   path: /addresses/whitelist
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Createwhitelistaddress
 - name: fetchutxos
-  description: 'Fetch Unspent Transactions for UTXO chains'
+  description: Fetch Unspent Transactions for UTXO chains
   method: post
   path: /transactions/utxos
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#fetchutxos
 - name: generate_token
-  description: 'Generate Token'
+  description: Generate Token
   method: post
   path: /utils/generateToken
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#generateToken
 - name: generate_xlm_auth
-  description: 'Generate XLM Authentication'
+  description: Generate XLM Authentication
   method: post
   path: /addresses/generate_xlm_auth
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#generateXlmAuth
 - name: getaccountassetsbyaccount_id
-  description: 'Get Account Assets'
+  description: Get Account Assets
   method: get
   path: /accounts/{id}/assets
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GetaccountassetsbyaccountId
 - name: getaccountbalancebyaccount_idandsub_account_id
-  description: 'Get account balance by accountId and subAccountId'
+  description: Get account balance by accountId and subAccountId
   method: get
   path: /accounts/{accountId}/sub-accounts/{subAccountId}/balance
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GetaccountbalancebyaccountIdandsubAccountId
 - name: getaccountbalancebyid
-  description: 'Get account balance'
+  description: Get account balance
   method: get
   path: /accounts/{uid}/balance
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaccountbalancebyid
 - name: getaccountbyid
-  description: 'Get account by id'
+  description: Get account by id
   method: get
   path: /accounts/{uid}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaccountbyid
 - name: getaccountcryptobalancebyaccount_idandsub_account_id
-  description: 'Get account crypto balance by accountId and subAccountId'
+  description: Get account crypto balance by accountId and subAccountId
   method: get
   path: /accounts/{accountId}/sub-accounts/{subAccountId}/crypto-balance
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GetaccountcryptobalancebyaccountIdandsubAccountId
 - name: getaccountsassetsbyassets_idand_id
-  description: 'Get Account Asset'
+  description: Get Account Asset
   method: get
   path: /accounts/{uid}/assets/{assetId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GetaccountsassetsbyassetsIdandId
 - name: getaccounttransactionbyid
-  description: 'Get account transaction'
+  description: Get account transaction
   method: get
   path: /accounts/{uid}/transactions
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaccounttransactionbyid
 - name: getaddressesbalance
-  description: 'Get addresses balance'
+  description: Get addresses balance
   method: get
   path: /addresses/{addressId}/balance
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaddressesbalance
 - name: getaddressesbyaddress_id
-  description: 'Get addresses by addressId'
+  description: Get addresses by addressId
   method: get
   path: /addresses/{addressId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GetaddressesbyaddressId
 - name: getaddressestransactions
-  description: 'Get addresses transactions'
+  description: Get addresses transactions
   method: get
   path: /addresses/{addressId}/transactions
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getaddressestransactions
 - name: getassets
-  description: 'Get assets'
+  description: Get assets
   method: get
   path: /assets/{assetId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getassets
 - name: getassetsbalance
-  description: 'Get assets balance'
+  description: Get assets balance
   method: get
   path: /assets/{assetId}/balance
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getassetsbalance
 - name: getassetsbyaccount_id
-  description: 'Get assets by accountId'
+  description: Get assets by accountId
   method: get
   path: /assets/{accountId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GetassetsbyaccountId
 - name: getassetstransaction
-  description: 'Get assets transaction'
+  description: Get assets transaction
   method: get
   path: /assets/{assetId}/transactions
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getassetstransaction
 - name: getcustomer
-  description: 'Get customer by id'
+  description: Get customer by id
   method: get
   path: /customers/{customerId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getcustomer
 - name: updatecustomer
-  description: 'Update Customer info.'
+  description: Update Customer info.
   method: post
   path: /customers/{customerId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Updatecustomer
 - name: getcustomerstransactions
-  description: "Get customer's transactions"
+  description: Get customer's transactions
   method: get
   path: /customers/{customerId}/transactions
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#getcustomerstransactions
 - name: getmarketindex
-  description: 'Get market index'
+  description: Get market index
   method: get
   path: /market/
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getmarketindex
 - name: getmarketprice
-  description: 'Get market price'
+  description: Get market price
   method: get
   path: /market/price
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getmarketprice
 - name: getmarketticker
-  description: 'Get market ticker'
+  description: Get market ticker
   method: get
   path: /market/ticker
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Getmarketticker
 - name: get_raw_internal_tx
-  description: 'Get raw internal transaction'
+  description: Get raw internal transaction
   method: get
   path: /utils/raw-internal-tx
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#getRawInternalTx
 - name: getswaprates
-  description: 'Get swap rates'
+  description: Get swap rates
   method: post
   path: /integration/swap/rates
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#getswaprates
 - name: gettransaction
-  description: 'Get transaction'
+  description: Get transaction
   method: get
   path: /transactions/{transaction_id}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#Gettransaction
 - name: gettransactionbytx_id
-  description: 'Get transaction'
+  description: Get transaction
   method: get
   path: /accounts/{uid}/transactions/{txId}
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#GettransactionbytxId
 - name: is_bitpowr_address
-  description: 'Check if an address is powered by Bitpowr'
+  description: Check if an address is powered by Bitpowr
   method: get
   path: /addresses/isbitpowr_addresss
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#isBitpowrAddress
 - name: minimumexchangeamount
-  description: 'Get minimum exchange amount'
+  description: Get minimum exchange amount
   method: post
   path: /integration/swap/mininum_exchange_amount
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#minimumexchangeamount
 - name: stacking
-  description: 'Stacking'
+  description: Stacking
   method: post
   path: /addresses/stacking
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#stacking
 - name: supportedassets
-  description: 'Get supported assets'
+  description: Get supported assets
   method: get
   path: /supported-assets
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#supportedassets
 - name: validate_address
-  description: 'Validate address'
+  description: Validate address
   method: post
   path: /utils/validate-address
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#validateAddress
 - name: validate_transaction
-  description: 'Validate transaction'
+  description: Validate transaction
   method: post
   path: /utils/validate-transaction
   source_operation: openapi/bitpowr-technologies-inc-openapi.yml#validateTransaction
+deployment:
+  mode: none
+  verified: derived
+  tools: 55
+  checked: '2026-08-12'
+  source: catalog MCP census

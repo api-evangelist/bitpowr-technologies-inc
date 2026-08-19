@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Utils API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utils",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/utils/generateToken",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint generates a token for authentication purposes."
+        },
+        {
+          "info": {
+            "name": "Get raw internal transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/utils/raw-internal-tx",
+            "params": [
+              {
+                "name": "txId",
+                "value": "",
+                "type": "query",
+                "description": "The transaction ID"
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The transaction hash"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves raw internal transaction details based on the provided transaction ID and hash."
+        },
+        {
+          "info": {
+            "name": "Validate address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/utils/validate-address",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint validates the given address for a specific network and asset."
+        },
+        {
+          "info": {
+            "name": "Validate transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/utils/validate-transaction",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint validates a transaction by providing essential details such as hash, address, etc."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

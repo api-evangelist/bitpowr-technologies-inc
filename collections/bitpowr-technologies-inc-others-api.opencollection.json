@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Others API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Others",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get authentication info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/auth",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns information about your authentication status."
+        },
+        {
+          "info": {
+            "name": "Get supported assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/supported-assets",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint provides information about various supported cryptocurrencies and tokens."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

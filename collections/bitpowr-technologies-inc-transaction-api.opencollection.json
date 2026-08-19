@@ -1,0 +1,226 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Transaction API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create estimate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/transactions/estimate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns transaction estimates"
+        },
+        {
+          "info": {
+            "name": "List transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/transactions",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of transactions per request."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort transactions by asc or desc."
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by accountId."
+              },
+              {
+                "name": "subAccountId",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by sub account Id."
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by assetId."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by address."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by hash."
+              },
+              {
+                "name": "asset",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by asset."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by type."
+              },
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by assetType."
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by chain."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by status."
+              },
+              {
+                "name": "subStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by subStatus."
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions by category."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns and filters transactions in your account by `accountId`,`assetId`, `address`, `hash`, `asset`."
+        },
+        {
+          "info": {
+            "name": "Create transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/transactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates transactions"
+        },
+        {
+          "info": {
+            "name": "Fetch Unspent Transactions for UTXO chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/transactions/utxos",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "accountId",
+                  "value": ""
+                },
+                {
+                  "name": "subAccountId",
+                  "value": ""
+                },
+                {
+                  "name": "chain",
+                  "value": ""
+                },
+                {
+                  "name": "fromAddresses",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint fetches available UTXO"
+        },
+        {
+          "info": {
+            "name": "Get transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path",
+                "description": "The transaction Id of the account/wallet you want retrieve."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves transactions by `id`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

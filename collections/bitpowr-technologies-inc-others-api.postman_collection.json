@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "9f04e9d9-1dee-4d11-ae79-a7ec61c4e992",
+      "name": "Others",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a9cc911-46c0-4429-a5ad-3a297fad4947",
+          "name": "Get authentication info",
+          "request": {
+            "name": "Get authentication info",
+            "description": {
+              "content": "This endpoint returns information about your authentication status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c3ed7b41-7ac8-4506-a167-8184ad1ac3a5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"mode\": \"TEST\",\n  \"data\": {\n    \"orgId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n    \"mode\": \"TEST\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f50b25a0-a785-4ea0-802b-9934f570041a",
+          "name": "Get supported assets",
+          "request": {
+            "name": "Get supported assets",
+            "description": {
+              "content": "This endpoint provides information about various supported cryptocurrencies and tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "supported-assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json; charset=utf-8"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8c9f13d7-c269-4378-8f32-14e20bfdc87a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "supported-assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json; charset=utf-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"currency\": \"USD\",\n  \"data\": [\n    {\n      \"name\": \"Arbitrum - ARB\",\n      \"symbol\": \"ETH_ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/arbitrum.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Arb (ARB)\",\n      \"symbol\": \"ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/arbitrum.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"Avalanche\",\n      \"symbol\": \"AVAX\",\n      \"chain\": \"AVALANCHE\",\n      \"image\": \"/static/img/crypto/avalanche.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Base\",\n      \"symbol\": \"BASE\",\n      \"chain\": \"BASE\",\n      \"image\": \"/static/img/crypto/base.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Bitcoin\",\n      \"symbol\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"image\": \"/static/img/crypto/bitcoin.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Bitcoin Cash\",\n      \"symbol\": \"BCH\",\n      \"chain\": \"BITCOINCASH\",\n      \"image\": \"/static/img/crypto/bitcoin-cash.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"BNB (BSC)\",\n      \"symbol\": \"BSC\",\n      \"chain\": \"BSC\",\n      \"image\": \"/static/img/crypto/bsc.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ],\n      \"contractNetwork\": [\n        \"testnet\"\n      ],\n      \"hasContract\": true\n    },\n    {\n      \"name\": \"Bantu\",\n      \"symbol\": \"XBN\",\n      \"chain\": \"BANTU\",\n      \"image\": \"/static/img/crypto/xbn.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"BUSD\",\n      \"symbol\": \"BUSD\",\n      \"chain\": \"ETHEREUM\",\n      \"image\": \"/static/img/crypto/busd-ethereum.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"BUSD (BSC)\",\n      \"symbol\": \"BUSD_BSC\",\n      \"chain\": \"BSC\",\n      \"image\": \"/static/img/crypto/busd-bsc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"Celo\",\n      \"symbol\": \"CELO\",\n      \"chain\": \"CELO\",\n      \"image\": \"/static/img/crypto/celo.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"cUSD\",\n      \"symbol\": \"CUSD\",\n      \"chain\": \"CELO\",\n      \"image\": \"/static/img/crypto/cusd.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"cEUR\",\n      \"symbol\": \"CEUR\",\n      \"chain\": \"CELO\",\n      \"image\": \"/static/img/crypto/ceur.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"CLDX (ARB)\",\n      \"symbol\": \"CLDX_ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/arbitrum.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"CLDX Test (ARB)\",\n      \"symbol\": \"CLDXT_ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/arbitrum.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"Ethereum\",\n      \"symbol\": \"ETH\",\n      \"chain\": \"ETHEREUM\",\n      \"image\": \"/static/img/crypto/eth.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ],\n      \"contractNetwork\": [\n        \"testnet\"\n      ],\n      \"hasContract\": true\n    },\n    {\n      \"name\": \"EUROC\",\n      \"symbol\": \"EUROC\",\n      \"chain\": \"ETHEREUM\",\n      \"image\": \"/static/img/crypto/euroc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"Litecoin\",\n      \"symbol\": \"LTC\",\n      \"chain\": \"LITECOIN\",\n      \"image\": \"/static/img/crypto/litecoin.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Matic\",\n      \"symbol\": \"MATIC\",\n      \"chain\": \"POLYGON\",\n      \"image\": \"/static/img/crypto/polygon.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ],\n      \"contractNetwork\": [\n        \"testnet\"\n      ],\n      \"hasContract\": true\n    },\n    {\n      \"name\": \"Optimisim - ETH\",\n      \"symbol\": \"ETH_OP\",\n      \"chain\": \"OPTIMISM\",\n      \"image\": \"/static/img/crypto/optimism.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Op (OP)\",\n      \"symbol\": \"OP\",\n      \"chain\": \"OPTIMISM\",\n      \"image\": \"/static/img/crypto/optimism.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"Solana\",\n      \"symbol\": \"SOL\",\n      \"chain\": \"SOLANA\",\n      \"image\": \"/static/img/crypto/solana.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Stellar\",\n      \"symbol\": \"XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/xlm.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"Tron (TRX)\",\n      \"symbol\": \"TRON\",\n      \"chain\": \"TRON\",\n      \"image\": \"/static/img/crypto/tron.svg\",\n      \"network\": [\n        \"mainnet\",\n        \"testnet\"\n      ],\n      \"contractNetwork\": [\n        \"testnet\"\n      ],\n      \"hasContract\": true\n    },\n    {\n      \"name\": \"TUSDC (MATIC)\",\n      \"symbol\": \"TUSDC_MATIC\",\n      \"chain\": \"POLYGON\",\n      \"image\": \"/static/img/crypto/usdc-matic.svg\",\n      \"network\": [\n        \"testnet\"\n      ],\n      \"contractNetwork\": [\n        \"testnet\"\n      ],\n      \"hasContract\": true\n    },\n    {\n      \"name\": \"TUSDC (ETH)\",\n      \"symbol\": \"TUSDC_ETH\",\n      \"chain\": \"ETHEREUM\",\n      \"image\": \"/static/img/crypto/usdc-ethereum.svg\",\n      \"network\": [\n        \"testnet\"\n      ],\n      \"contractNetwork\": [\n        \"testnet\"\n      ],\n      \"hasContract\": true\n    },\n    {\n      \"name\": \"USDT\",\n      \"symbol\": \"USDT\",\n      \"chain\": \"ETHEREUM\",\n      \"image\": \"/static/img/crypto/usdt.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDT (TRX)\",\n      \"symbol\": \"USDT_TRON\",\n      \"chain\": \"TRON\",\n      \"image\": \"/static/img/crypto/usdt-tron.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDT (MATIC)\",\n      \"symbol\": \"USDT_MATIC\",\n      \"chain\": \"POLYGON\",\n      \"image\": \"/static/img/crypto/usdt-matic.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC\",\n      \"symbol\": \"USDC\",\n      \"chain\": \"ETHEREUM\",\n      \"image\": \"/static/img/crypto/usdc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (ARB)\",\n      \"symbol\": \"USDC_ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/usdc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (ARBe)\",\n      \"symbol\": \"USDCe_ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/usdc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (MATIC)\",\n      \"symbol\": \"USDC_MATIC\",\n      \"chain\": \"POLYGON\",\n      \"image\": \"/static/img/crypto/usdc-matic.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"NGNC (MATIC)\",\n      \"symbol\": \"NGNC_MATIC\",\n      \"chain\": \"POLYGON\",\n      \"image\": \"/static/img/crypto/ngnc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (TRX)\",\n      \"symbol\": \"USDC_TRON\",\n      \"chain\": \"TRON\",\n      \"image\": \"/static/img/crypto/usdc-tron.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"TUSDC (TRX)\",\n      \"symbol\": \"TUSDC_TRON\",\n      \"chain\": \"TRON\",\n      \"image\": \"/static/img/crypto/usdc-tron.svg\",\n      \"network\": [\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"TUSDC (SOL)\",\n      \"symbol\": \"TUSDC_SOL\",\n      \"chain\": \"SOLANA\",\n      \"image\": \"/static/img/crypto/usdc-solana.svg\",\n      \"network\": [\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (SOL)\",\n      \"symbol\": \"USDC_SOL\",\n      \"chain\": \"SOLANA\",\n      \"image\": \"/static/img/crypto/usdc-solana.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"CMEUR (SOL)\",\n      \"symbol\": \"CMEUR_SOL\",\n      \"chain\": \"SOLANA\",\n      \"image\": \"/static/img/crypto/cauri-money-logo+(2).svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDT (SOL)\",\n      \"symbol\": \"USDT_SOL\",\n      \"chain\": \"SOLANA\",\n      \"image\": \"/static/img/crypto/usdt-solana.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"NGNC (SOL)\",\n      \"symbol\": \"NGNC_SOL\",\n      \"chain\": \"SOLANA\",\n      \"image\": \"/static/img/crypto/ngnc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDT (ARB)\",\n      \"symbol\": \"USDT_ARB\",\n      \"chain\": \"ARBITRUM\",\n      \"image\": \"/static/img/crypto/usdt.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDT (BSC)\",\n      \"symbol\": \"USDT_BSC\",\n      \"chain\": \"BSC\",\n      \"image\": \"/static/img/crypto/usdt-bsc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (BSC)\",\n      \"symbol\": \"USDC_BSC\",\n      \"chain\": \"BSC\",\n      \"image\": \"/static/img/crypto/usdc-bsc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (XLM)\",\n      \"symbol\": \"USDC_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/usdc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"EURC (XLM)\",\n      \"symbol\": \"EURC_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/euroc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"NGNC (XLM)\",\n      \"symbol\": \"NGNC_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/ngnc.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"TEURC (XLM)\",\n      \"symbol\": \"TEURC_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/euroc.svg\",\n      \"network\": [\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"TUSDC (XLM)\",\n      \"symbol\": \"TUSDC_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/usdc.svg\",\n      \"network\": [\n        \"testnet\"\n      ]\n    },\n    {\n      \"name\": \"USDC (BASE)\",\n      \"symbol\": \"USDC_BASE\",\n      \"chain\": \"BASE\",\n      \"image\": \"/static/img/crypto/usdc-base.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"DBTK (XLM)\",\n      \"symbol\": \"DBTK_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/dbtk.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    },\n    {\n      \"name\": \"BUCK (XLM)\",\n      \"symbol\": \"BUCK_XLM\",\n      \"chain\": \"STELLAR\",\n      \"image\": \"/static/img/crypto/buck.svg\",\n      \"network\": [\n        \"mainnet\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b5b4aabb-02f6-47a6-b88a-51b76e29f827",
+    "name": "Bitpowr Reference Account Others API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

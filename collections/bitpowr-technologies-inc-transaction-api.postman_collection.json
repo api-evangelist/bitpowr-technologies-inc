@@ -1,0 +1,772 @@
+{
+  "item": [
+    {
+      "id": "9aacd9d6-405b-4cbb-83bb-83919e3374c9",
+      "name": "Transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "247f2f74-2dfc-4ae0-96cb-ef2fcd46d0be",
+          "name": "Create estimate",
+          "request": {
+            "name": "Create estimate",
+            "description": {
+              "content": "This endpoint returns transaction estimates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "estimate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chain\": \"<string>\",\n  \"tos\": [\n    {\n      \"address\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"address\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"accountId\": \"<string>\",\n  \"subAccountId\": \"<string>\",\n  \"assetId\": \"<string>\",\n  \"token\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"from\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fromUtxo\": [\n    {\n      \"txHash\": \"<string>\",\n      \"address\": \"<string>\",\n      \"index\": \"<number>\"\n    },\n    {\n      \"txHash\": \"<string>\",\n      \"address\": \"<string>\",\n      \"index\": \"<number>\"\n    }\n  ],\n  \"feeAddress\": \"<string>\",\n  \"spenderAddress\": \"<string>\",\n  \"changeAddress\": \"<string>\",\n  \"minUtxoValue\": \"<string>\",\n  \"maxUtxoValue\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6aab4b28-9430-4e42-bcbe-692cb419efe4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "estimate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chain\": \"BSC\",\n  \"tos\": [\n    {\n      \"address\": \"0xaTYU9876hgjhku76tyujhj9\",\n      \"value\": \"0.001\"\n    }\n  ],\n  \"accountId\": \"0xhjds89s89d\",\n  \"subAccountId\": \"0xhjds89s89d\",\n  \"assetId\": \"0xajhfgsufis\",\n  \"token\": \"shib\",\n  \"operation\": \"0xF845f557b16F2399b9807129f40773F5c804fcf8\",\n  \"from\": [\n    \"0xaTYU9876hgjhku76tyujhj9\"\n  ],\n  \"fromUtxo\": [\n    {\n      \"address\": \"bc13p3ijh4iu5r5u\",\n      \"index\": 1,\n      \"txHash\": \"12444\"\n    }\n  ],\n  \"feeAddress\": \"bc1eieieiee\",\n  \"spenderAddress\": \"bc1eieieiee\",\n  \"changeAddress\": \"bc1eieieiee\",\n  \"minUtxoValue\": \"0.0001\",\n  \"maxUtxoValue\": \"0.0001\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"fee\": {\n    \"gasLimit\": 21000,\n    \"gasPrice\": 46.373333333\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "528168ab-adaa-40f6-a60d-0ec407f25372",
+          "name": "Create transactions",
+          "request": {
+            "name": "Create transactions",
+            "description": {
+              "content": "This endpoint creates transactions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"walletId\": \"<string>\",\n  \"assetType\": \"<string>\",\n  \"cryptoAmount\": \"<double>\",\n  \"address\": \"<string>\",\n  \"fee\": \"<string>\",\n  \"fromAddress\": \"<string>\",\n  \"from\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"fromUtxo\": [\n    {\n      \"txHash\": \"<string>\",\n      \"address\": \"<string>\",\n      \"index\": \"<number>\"\n    },\n    {\n      \"txHash\": \"<string>\",\n      \"address\": \"<string>\",\n      \"index\": \"<number>\"\n    }\n  ],\n  \"tos\": [\n    {\n      \"address\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"address\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"satsPerByte\": \"<number>\",\n  \"minUtxoValue\": \"<string>\",\n  \"maxUtxoValue\": \"<string>\",\n  \"doubleSpend\": \"<boolean>\",\n  \"gasLimit\": \"<string>\",\n  \"gasPrice\": \"<string>\",\n  \"feeLimit\": \"<number>\",\n  \"description\": \"<string>\",\n  \"idempotencyKey\": \"<string>\",\n  \"memo\": \"<string>\",\n  \"operation\": \"<string>\",\n  \"queued\": \"<boolean>\",\n  \"feeAddress\": \"<string>\",\n  \"spenderAddress\": \"<string>\",\n  \"changeAddress\": \"<string>\",\n  \"changeAddressType\": \"<string>\",\n  \"subAccountId\": \"<string>\",\n  \"customerId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e119fe58-dc6d-4c5b-84d4-8681fb4d9845",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"walletId\": \"8be77454-cf2d-48d3-8703-a144de90bc58\",\n  \"assetType\": \"BTC\",\n  \"cryptoAmount\": 0.000002,\n  \"address\": \"0xF845f557b16F2399b9807129f40773F5c804fcf8\",\n  \"fee\": \"50\",\n  \"fromAddress\": \"0xF845f557b16F2399b9807129f40773F5c804fcf8\",\n  \"from\": [\n    \"0xaTYU9876hgjhku76tyujhj9\"\n  ],\n  \"fromUtxo\": [\n    {\n      \"address\": \"bc13p3ijh4iu5r5u\",\n      \"index\": 1,\n      \"txHash\": \"12444\"\n    }\n  ],\n  \"tos\": [\n    {\n      \"address\": \"0xaTYU9876hgjhku76tyujhj9\",\n      \"value\": \"0.001\"\n    }\n  ],\n  \"satsPerByte\": 4,\n  \"minUtxoValue\": \"0.0001\",\n  \"maxUtxoValue\": \"0.0001\",\n  \"doubleSpend\": false,\n  \"gasLimit\": \"\",\n  \"gasPrice\": \"\",\n  \"feeLimit\": 100,\n  \"description\": \"\",\n  \"idempotencyKey\": \"\",\n  \"memo\": \"The quick brown fox jumps over a lazy dog\",\n  \"operation\": \"0xF845f557b16F2399b9807129f40773F5c804fcf8\",\n  \"queued\": false,\n  \"feeAddress\": \"bc1eieieiee\",\n  \"spenderAddress\": \"bc1eieieiee\",\n  \"changeAddress\": \"bc1eieieiee\",\n  \"changeAddressType\": \"segwit\",\n  \"subAccountId\": \"1922-j223\",\n  \"customerId\": \"1922-j223\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"status\": \"PENDING\",\n    \"amount\": \"0.000002\",\n    \"uid\": \"cab694fd-91d1-403a-bf2b-2d71c1ab64da\",\n    \"assetType\": \"ETH\",\n    \"chain\": \"ETHEREUM\",\n    \"network\": \"TESTNET\",\n    \"fee\": \"0.00001051124865\",\n    \"gasLimit\": \"21000\",\n    \"gasPrice\": \"500535650\",\n    \"description\": null,\n    \"ref\": \"BTP-SdNDmm6yPkbI3wPst0GZD#FWaqMHVG\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcbf2808-699b-4c97-83de-cf521eb958cd",
+          "name": "List transactions",
+          "request": {
+            "name": "List transactions",
+            "description": {
+              "content": "This endpoint returns and filters transactions in your account by `accountId`,`assetId`, `address`, `hash`, `asset`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of transactions per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort transactions by asc or desc."
+                },
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<string>",
+                  "description": "Filter transactions by accountId."
+                },
+                {
+                  "disabled": false,
+                  "key": "subAccountId",
+                  "value": "<string>",
+                  "description": "Filter transactions by sub account Id."
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>",
+                  "description": "Filter transactions by assetId."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Filter transactions by address."
+                },
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "Filter transactions by hash."
+                },
+                {
+                  "disabled": false,
+                  "key": "asset",
+                  "value": "<string>",
+                  "description": "Filter transactions by asset."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter transactions by type."
+                },
+                {
+                  "disabled": false,
+                  "key": "assetType",
+                  "value": "<string>",
+                  "description": "Filter transactions by assetType."
+                },
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "Filter transactions by chain."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter transactions by status."
+                },
+                {
+                  "disabled": false,
+                  "key": "subStatus",
+                  "value": "<string>",
+                  "description": "Filter transactions by subStatus."
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter transactions by category."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f9e90fd0-c174-4cae-a77a-e0706448f3d3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "4"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "accountId",
+                      "value": "gjhsj-nbsjbhsk-kjbhgshjs"
+                    },
+                    {
+                      "key": "subAccountId",
+                      "value": "e412-4e30-aa7eb222..."
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "a2888c03-e412-4e30-aa7eb222-dfd3c6a6"
+                    },
+                    {
+                      "key": "address",
+                      "value": "n3TdwXSTaBuVrun8hcpubjAKoJusPt4sq4"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "00000000b7a97b9b783bafa7df0854a3d006e8647d8473256509c5d7040b59be"
+                    },
+                    {
+                      "key": "asset",
+                      "value": ""
+                    },
+                    {
+                      "key": "type",
+                      "value": "DEPOSIT"
+                    },
+                    {
+                      "key": "assetType",
+                      "value": "BTC"
+                    },
+                    {
+                      "key": "chain",
+                      "value": "BITCOIN"
+                    },
+                    {
+                      "key": "status",
+                      "value": "SUCCESS"
+                    },
+                    {
+                      "key": "subStatus",
+                      "value": "SUCCESS"
+                    },
+                    {
+                      "key": "category",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": \"1\",\n  \"totalPages\": 86,\n  \"data\": [\n    {\n      \"uid\": \"4b567837-7bed-4e1a-bdde-035100aa0e6e\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"TRANSFER\",\n      \"hash\": \"a834591c77de0e65826f5409a4520bccad0c1a55a18ec98f3d1fe0d394f8270e\",\n      \"confirmation\": 1,\n      \"depositId\": null,\n      \"transferId\": \"14e97ad1-ae15-4aa5-8aa0-aa17ce79961a\",\n      \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"fromAddress\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"transactionRef\": \"BTP-9852n1C6b3MVbju9D0gIDXEy1irBen\",\n      \"description\": \"Operation withdrawFrozenAsset for ENERGY. Amount (1)\",\n      \"amount\": 0,\n      \"dollarRate\": 0.1205,\n      \"dollarAmount\": 0,\n      \"assetId\": \"d7ccdc3f-9660-4ef7-8307-1ec7eef689b1\",\n      \"assetType\": \"TRON\",\n      \"chain\": \"TRON\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2024-04-12T15:36:54.565Z\",\n      \"updatedAt\": \"2024-04-12T15:39:15.380Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"7956d820-0b65-45ea-98d7-aa9e96befe34\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"TRANSFER\",\n      \"hash\": \"0xac18e904677098f5e1fe08f33058326cbafdb658ca7cad99c36479d83f355acd\",\n      \"confirmation\": 1,\n      \"depositId\": null,\n      \"transferId\": \"c1c0394b-43a6-404d-989c-57e454d850c0\",\n      \"address\": \"0x71aa91309607050952b085f252209f2e1f18eda2\",\n      \"fromAddress\": \"0xed29be90b97ffcf89bfbe2a1321dd0a8c7413549\",\n      \"transactionRef\": \"BTP-Ldbm5YgcVjKILjKdfQFxNLg6iaCY68\",\n      \"description\": null,\n      \"amount\": 0.02999761,\n      \"dollarRate\": 3333.265,\n      \"dollarAmount\": 99.99,\n      \"assetId\": \"b4949eed-d19d-46c5-9153-8f5e3d3c39c4\",\n      \"assetType\": \"ETH\",\n      \"chain\": \"ETHEREUM\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2024-04-04T10:19:13.945Z\",\n      \"updatedAt\": \"2024-04-04T10:22:45.799Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"79f5d3f9-0973-418b-b6ee-1147b385c2f3\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"TRANSFER\",\n      \"hash\": \"7eceb4485e94c1c3ca573780385fad2a41c254eb78876f7a8d075b2048efdd98\",\n      \"confirmation\": 1,\n      \"depositId\": null,\n      \"transferId\": \"ee7fe3ef-4178-42d7-895b-99b3c6a5226a\",\n      \"address\": \"2N35FKTBaEAJ8TJA98B4h7tfmLoVUfp2qNY\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-lBGKGJEqOwr7gRXTqFTSiepSiyQVYW\",\n      \"description\": null,\n      \"amount\": 0.00030145,\n      \"dollarRate\": 66246.295,\n      \"dollarAmount\": 19.97,\n      \"assetId\": \"8a22109a-d1a4-4819-89fb-6449e4739292\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2024-04-04T10:12:47.314Z\",\n      \"updatedAt\": \"2024-04-04T11:48:07.668Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"58486c89-127a-4713-a958-2c93300c3e97\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"2N35FKTBaEAJ8TJA98B4h7tfmLoVUfp2qNY\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-4zKvJtHRD9DzYTxeXJviIVb9CFYIdj\",\n      \"description\": null,\n      \"amount\": 0.00030175,\n      \"dollarRate\": 66246.295,\n      \"dollarAmount\": 19.99,\n      \"assetId\": \"794b7c46-b9ea-4467-bf13-e4b985c294c1\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"errorMessage\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"createdAt\": \"2024-04-04T10:10:19.784Z\",\n      \"updatedAt\": \"2024-04-04T10:10:21.669Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"d3fdee60-2a2d-48bc-a39b-6906628064df\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"2N35FKTBaEAJ8TJA98B4h7tfmLoVUfp2qNY\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-Er4boNc6SpjVoMJMPxngRJSegvCpiB\",\n      \"description\": null,\n      \"amount\": 0.00030175,\n      \"dollarRate\": 66246.295,\n      \"dollarAmount\": 19.99,\n      \"assetId\": \"794b7c46-b9ea-4467-bf13-e4b985c294c1\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"errorMessage\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"createdAt\": \"2024-04-04T10:06:47.135Z\",\n      \"updatedAt\": \"2024-04-04T10:06:51.408Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"f84d7b1a-30d1-4e8d-bf56-2a0f0bafcebc\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"TRANSFER\",\n      \"hash\": \"e834a5a7d9a1baedde2c692f3f2f12a2acc82f4affd845aaefc522d61b70a249\",\n      \"confirmation\": 1,\n      \"depositId\": null,\n      \"transferId\": \"7b31f83d-cb89-47c6-aeb7-c82432d2b63b\",\n      \"address\": \"TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF\",\n      \"fromAddress\": \"TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF\",\n      \"transactionRef\": \"BTP-LLE3Bxzk7ghLhftN90UufQTmax5Vqu\",\n      \"description\": \"Operation freezeTron for BANDWIDTH. Amount (1)\",\n      \"amount\": 1,\n      \"dollarRate\": 0.1179,\n      \"dollarAmount\": 0.12,\n      \"assetId\": \"d7ccdc3f-9660-4ef7-8307-1ec7eef689b1\",\n      \"assetType\": \"TRON\",\n      \"chain\": \"TRON\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2024-04-03T11:48:43.635Z\",\n      \"updatedAt\": \"2024-04-03T11:51:00.508Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"c28fd6ac-cba0-4eee-b447-8be3ad2a4cd6\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"DEPOSIT\",\n      \"hash\": \"d2ae3e6f43ae2bc317a938a9345399343cca56bf9ee25d5d31ec3b62a266c838\",\n      \"confirmation\": 1630570,\n      \"depositId\": \"7da48753-eedd-45b3-b061-31da215f4427\",\n      \"transferId\": null,\n      \"address\": \"TU72q8M35izYZRTYbUm8uTPEVWZ1PiB8uF\",\n      \"fromAddress\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"transactionRef\": \"TRX-eXDiJ7tKE1GgOZ3S99H1OTSLGJ2Q87\",\n      \"description\": null,\n      \"amount\": 2.430846,\n      \"dollarRate\": 0.1164,\n      \"dollarAmount\": 0.2829504744,\n      \"assetId\": \"d7ccdc3f-9660-4ef7-8307-1ec7eef689b1\",\n      \"assetType\": \"TRON\",\n      \"chain\": \"TRON\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2024-04-02T15:47:54.639Z\",\n      \"updatedAt\": \"2024-04-02T15:48:02.667Z\",\n      \"completedAt\": \"2024-04-02T15:48:02.667Z\",\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"c07ebb3b-cd59-45a0-b3c4-630b20aaf1fc\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"GBMXMO5BLWI6WLMQXVNNNDGBLASPX2RRBI4RT2EFHHPLRYQMDPACXTRM\",\n      \"fromAddress\": \"GB2MJWWKL24RXUGSS6TWNGSD42PLPHDAM46EPR56HETQSZUVXQS4KITY\",\n      \"transactionRef\": \"BTP-n59bAft2UPcQGRFr953F7HYhtqFtdp\",\n      \"description\": null,\n      \"amount\": 39.03866314,\n      \"dollarRate\": 0.127822,\n      \"dollarAmount\": 4.99,\n      \"assetId\": \"f7893ba3-b92d-4cf4-9cca-f2062406de34\",\n      \"assetType\": \"XLM\",\n      \"chain\": \"STELLAR\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"errorMessage\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"createdAt\": \"2024-04-02T14:04:07.296Z\",\n      \"updatedAt\": \"2024-04-02T14:04:09.012Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"5aa166a6-0dff-40ec-abc2-370c8dbbaa56\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"GBMXMO5BLWI6WLMQXVNNNDGBLASPX2RRBI4RT2EFHHPLRYQMDPACXTRM\",\n      \"fromAddress\": \"GB2MJWWKL24RXUGSS6TWNGSD42PLPHDAM46EPR56HETQSZUVXQS4KITY\",\n      \"transactionRef\": \"BTP-U99QnKhMpgy8c13jXdGgxw8lEBdzNm\",\n      \"description\": null,\n      \"amount\": 39.03866314,\n      \"dollarRate\": 0.127822,\n      \"dollarAmount\": 4.99,\n      \"assetId\": \"f7893ba3-b92d-4cf4-9cca-f2062406de34\",\n      \"assetType\": \"XLM\",\n      \"chain\": \"STELLAR\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"errorMessage\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"createdAt\": \"2024-04-02T14:00:41.478Z\",\n      \"updatedAt\": \"2024-04-02T14:00:45.661Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"d7027bc4-b3ea-48d7-8df5-2446b4b96ad3\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"GBMXMO5BLWI6WLMQXVNNNDGBLASPX2RRBI4RT2EFHHPLRYQMDPACXTRM\",\n      \"fromAddress\": \"GB2MJWWKL24RXUGSS6TWNGSD42PLPHDAM46EPR56HETQSZUVXQS4KITY\",\n      \"transactionRef\": \"BTP-EVsT30QHxBTscJ2pOapSP5z1TXqbf1\",\n      \"description\": null,\n      \"amount\": 93.88055264,\n      \"dollarRate\": 0.127822,\n      \"dollarAmount\": 12,\n      \"assetId\": \"f7893ba3-b92d-4cf4-9cca-f2062406de34\",\n      \"assetType\": \"XLM\",\n      \"chain\": \"STELLAR\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"errorMessage\": \"\\\"Invalid Wallet Authorization\\\"\",\n      \"createdAt\": \"2024-04-02T13:58:56.745Z\",\n      \"updatedAt\": \"2024-04-02T13:59:00.839Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ac13089-fff6-471e-8743-69f76466dd19",
+          "name": "Fetch Unspent Transactions for UTXO chains",
+          "request": {
+            "name": "Fetch Unspent Transactions for UTXO chains",
+            "description": {
+              "content": "This endpoint fetches available UTXO",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "utxos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<string>",
+                  "description": "(Required) The chain you want to fetch UTXO from"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<string>",
+                  "description": "(Required) The uid of the account you want to fetch UTXO from"
+                },
+                {
+                  "disabled": false,
+                  "key": "subAccountId",
+                  "value": "<string>",
+                  "description": "The uid of the sub account you are trying to fetch UTXO from"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromAddresses",
+                  "value": "<string>",
+                  "description": "The addresses you want to fetch UTXO from"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromAddresses",
+                  "value": "<string>",
+                  "description": "The addresses you want to fetch UTXO from"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<string>",
+                  "description": "The minimum amount you want to fetch UTXO for"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "028893a5-f87c-467c-980f-814ce06a15e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "utxos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The chain you want to fetch UTXO from",
+                        "type": "text/plain"
+                      },
+                      "key": "chain",
+                      "value": "BITCOIN"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The uid of the account you want to fetch UTXO from",
+                        "type": "text/plain"
+                      },
+                      "key": "accountId",
+                      "value": "2333-33"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The uid of the sub account you are trying to fetch UTXO from",
+                        "type": "text/plain"
+                      },
+                      "key": "subAccountId",
+                      "value": "2233-33"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The addresses you want to fetch UTXO from",
+                        "type": "text/plain"
+                      },
+                      "key": "fromAddresses",
+                      "value": "bc1...."
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The minimum amount you want to fetch UTXO for",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "0.0001"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"txHash\": \"9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1\",\n      \"hash\": \"9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1\",\n      \"index\": 1,\n      \"address\": \"tb1qe92jn2a75zkkvmxj5ynp2sy6zapuj4hcpvyww8\",\n      \"amount\": 0.00033825\n    },\n    {\n      \"txHash\": \"5d3c0e049cd9d43c136b479f4c26f49582df74b34894ed2b88313232b7fdfe18\",\n      \"hash\": \"5d3c0e049cd9d43c136b479f4c26f49582df74b34894ed2b88313232b7fdfe18\",\n      \"index\": 0,\n      \"address\": \"tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv\",\n      \"amount\": 0.00001\n    },\n    {\n      \"txHash\": \"ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66\",\n      \"hash\": \"ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66\",\n      \"index\": 0,\n      \"address\": \"tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv\",\n      \"amount\": 0.0002\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ccfe512-dcf8-413c-93dc-edf1d611d3d3",
+          "name": "Get transaction",
+          "request": {
+            "name": "Get transaction",
+            "description": {
+              "content": "This endpoint retrieves transactions by `id`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transaction_id",
+                  "description": "(Required) The transaction Id of the account/wallet you want retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "52f65b9d-fa49-44c2-a6e7-f00d6458a1bb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) The transaction Id of the account/wallet you want retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": [\n    {\n      \"uid\": \"4b567837-7bed-4e1a-bdde-035100aa0e6e\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"TRANSFER\",\n      \"hash\": \"a834591c77de0e65826f5409a4520bccad0c1a55a18ec98f3d1fe0d394f8270e\",\n      \"confirmation\": 1,\n      \"depositId\": null,\n      \"transferId\": \"14e97ad1-ae15-4aa5-8aa0-aa17ce79961a\",\n      \"address\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"fromAddress\": \"TH3Svsj96ktiARDEE4mPybypoFaugXbjLG\",\n      \"transactionRef\": \"BTP-9852n1C6b3MVbju9D0gIDXEy1irBen\",\n      \"description\": \"Operation withdrawFrozenAsset for ENERGY. Amount (1)\",\n      \"amount\": 0,\n      \"dollarRate\": 0.1205,\n      \"dollarAmount\": 0,\n      \"assetId\": \"d7ccdc3f-9660-4ef7-8307-1ec7eef689b1\",\n      \"assetType\": \"TRON\",\n      \"chain\": \"TRON\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2024-04-12T15:36:54.565Z\",\n      \"updatedAt\": \"2024-04-12T15:39:15.380Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5bb6f820-152e-410a-aa97-71481e33639a",
+    "name": "Bitpowr Reference Account Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

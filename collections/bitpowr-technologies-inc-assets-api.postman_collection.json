@@ -1,0 +1,703 @@
+{
+  "item": [
+    {
+      "id": "c7006d18-1f13-4f72-9bd3-44fcdeb2e5af",
+      "name": "Assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23fd768f-952c-4ce9-adff-34f401b35011",
+          "name": "Add assets",
+          "request": {
+            "name": "Add assets",
+            "description": {
+              "content": "This endpoint adds assets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"<string>\",\n  \"asset\": \"<string>\",\n  \"accountId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e50c22d0-14d7-458e-a7ab-06fcbd843e27",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"label\": \"ioetdf0isd08\",\n  \"asset\": \"ETH\",\n  \"accountId\": \"e96a5c42-4374-4e6e-9e52-021fc1f65d99\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"BTC already added to this wallet\",\n  \"data\": {\n    \"uid\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n    \"guid\": \"5da79336-49a6-4cf0-b056-f8c9e38a0b63\",\n    \"label\": \"Bitcoin\",\n    \"isDeleted\": false,\n    \"isArchived\": false,\n    \"isContract\": false,\n    \"chain\": \"BITCOIN\",\n    \"network\": \"TESTNET\",\n    \"mode\": \"TEST\",\n    \"assetType\": \"BTC\",\n    \"autoForwardAddress\": null,\n    \"createdAt\": \"2021-12-12T15:15:56.266Z\",\n    \"Transaction\": [\n      {\n        \"uid\": \"ba0baa6a-329f-486f-be13-fbcbfa1766f3\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"DEPOSIT\",\n        \"hash\": \"4a9f7116ebd04f039999b8c6b36fb616f29863c42df686aef8d0f07016133dd3\",\n        \"confirmation\": 1,\n        \"depositId\": \"3342d64c-b9a5-4cb9-93ea-d6f46ed928ec\",\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"TRX-bqDHNLH4NfivfZcAppiuilOpFGzp$g\",\n        \"description\": null,\n        \"amount\": 0.001,\n        \"dollarRate\": 49730.11,\n        \"dollarAmount\": 49.73011,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2021-12-12T15:19:17.899Z\",\n        \"updatedAt\": \"2021-12-12T15:19:17.985Z\",\n        \"completedAt\": \"2021-12-12T15:19:17.985Z\",\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"7dbac6f1-53b0-46ed-b950-50f3f8a187f9\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"DEPOSIT\",\n        \"hash\": \"97fe9f8fcd1e3b8779e269b824f0cb48723adb61d1c2780960830850429d9bb5\",\n        \"confirmation\": 1,\n        \"depositId\": \"17f49099-dc63-4dac-b284-dbdc6b9fbb9b\",\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"TRX-atJnrcDbzERah1VpcPbWIGAi4B#Myo\",\n        \"description\": null,\n        \"amount\": 0.001,\n        \"dollarRate\": 47484.26,\n        \"dollarAmount\": 47.48426,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2021-12-15T13:24:08.248Z\",\n        \"updatedAt\": \"2021-12-15T13:24:08.326Z\",\n        \"completedAt\": \"2021-12-15T13:24:08.326Z\",\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"581f86e5-9d2a-4b9c-a526-bfc114d79e0e\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"DEPOSIT\",\n        \"hash\": \"45bc88b56e7c0100a0f6a7b9c97149a4bff2c44a92f0acf9bfb2adce85c00cb1\",\n        \"confirmation\": 1,\n        \"depositId\": \"ef093edc-bfb0-4544-a1f8-da4d97a12bf7\",\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"TRX-jAS0HsfNGjv1ml5FsV5xBnXeoMNtGe\",\n        \"description\": null,\n        \"amount\": 0.00077549,\n        \"dollarRate\": 42053.99,\n        \"dollarAmount\": 32.6124487051,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-01-19T17:41:17.507Z\",\n        \"updatedAt\": \"2022-01-19T17:41:17.606Z\",\n        \"completedAt\": \"2022-01-19T17:41:17.606Z\",\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"2da31740-b1dc-486d-a576-4e5fadd43034\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-8mpR1vgpCez6kU6uv9m9nAZAg3LNt8\",\n        \"description\": null,\n        \"amount\": 0.00045885,\n        \"dollarRate\": 43572.01,\n        \"dollarAmount\": 19.99,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": \"Request failed with status code 403\",\n        \"createdAt\": \"2022-02-16T18:08:38.289Z\",\n        \"updatedAt\": \"2022-02-16T18:09:25.220Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"3a2b75ae-042d-4da1-8044-904cb0443b87\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#\",\n        \"description\": null,\n        \"amount\": 0.00043494,\n        \"dollarRate\": 43704.24,\n        \"dollarAmount\": 19.01,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": \"Request failed with status code 403\",\n        \"createdAt\": \"2022-02-16T18:31:07.981Z\",\n        \"updatedAt\": \"2022-02-16T18:31:29.340Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"4832a346-625f-44f0-990f-54ab0856e2b5\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO\",\n        \"description\": null,\n        \"amount\": 0.00041202,\n        \"dollarRate\": 43681.31,\n        \"dollarAmount\": 18,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": \"Request failed with status code 403\",\n        \"createdAt\": \"2022-02-17T05:22:57.971Z\",\n        \"updatedAt\": \"2022-02-17T05:24:02.119Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"b08bd0f8-f911-4732-b1da-4ee2ae84576f\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-YINqm$0WZFPQSxG8$fGX17bXb8RdpY\",\n        \"description\": null,\n        \"amount\": 0.00077299,\n        \"dollarRate\": 38795.81,\n        \"dollarAmount\": 29.99,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": \"Request failed with status code 403\",\n        \"createdAt\": \"2022-04-25T13:18:31.220Z\",\n        \"updatedAt\": \"2022-04-25T13:19:09.582Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"320c60b4-af18-4ebd-b8ac-f3b6e9fcd435\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"DEPOSIT\",\n        \"hash\": \"ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66\",\n        \"confirmation\": 6,\n        \"depositId\": \"552325ab-6771-40e5-aa3e-cfd00fef0578\",\n        \"transferId\": null,\n        \"address\": \"tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"TRX-pymDGTnjJTN4tGNRInvs6DPerodGKV\",\n        \"description\": null,\n        \"amount\": 0.0002,\n        \"dollarRate\": 21429.15,\n        \"dollarAmount\": 4.28583,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-21T16:23:47.359Z\",\n        \"updatedAt\": \"2022-06-21T16:36:15.217Z\",\n        \"completedAt\": \"2022-06-21T16:36:15.217Z\",\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"743828cf-9636-4053-8ceb-81e15e6aa182\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"tb1ql0rvausepq4v9vg9h33aac435c3lf0k8y3syuz\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-b9cPqmtP$gbzH#OOgAbbjjfVmYBLmk\",\n        \"description\": null,\n        \"amount\": 0.00023331,\n        \"dollarRate\": 21431.12,\n        \"dollarAmount\": 5,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-21T16:26:54.873Z\",\n        \"updatedAt\": \"2022-06-21T16:27:11.272Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"7478e9ff-064e-4d8c-bb29-3b7a89060805\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"tb1ql0rvausepq4v9vg9h33aac435c3lf0k8y3syuz\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-U$d52jsPEEyTwsr3ivYWRDSbbkyY8T\",\n        \"description\": null,\n        \"amount\": 0.00014001,\n        \"dollarRate\": 21474.98,\n        \"dollarAmount\": 3.01,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-21T16:30:12.335Z\",\n        \"updatedAt\": \"2022-06-21T16:31:13.389Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"70d07356-0d1d-4f67-8dad-e6c8fe74d550\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mtgGLPJU1s5YoQVBJ42amge6nLRaXndhXQ\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-bbeSUuvejw2vICdo#GDhuLxIiN4hZe\",\n        \"description\": \"test\",\n        \"amount\": 0.00294337,\n        \"dollarRate\": 19354.25,\n        \"dollarAmount\": 56.97,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-10-24T13:09:16.369Z\",\n        \"updatedAt\": \"2022-10-24T13:57:02.529Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"af6065c5-6979-49fe-bea3-e65522c07a70\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mkMhn8jvXWowRgaZfwPqPmSj5CAgXWSpao\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-YWDSgDnOaDiu5XqFCwXzoz6HRDRnX#\",\n        \"description\": null,\n        \"amount\": 0.00014466,\n        \"dollarRate\": 20779.35,\n        \"dollarAmount\": 3.01,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-21T20:25:21.468Z\",\n        \"updatedAt\": \"2022-06-21T20:26:24.733Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"c556c088-4e1d-45b1-a97b-aa94ded805fe\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mkMhn8jvXWowRgaZfwPqPmSj5CAgXWSpao\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-2LBq2RR$KgfuW1onqQJSEzXR2WxzKM\",\n        \"description\": null,\n        \"amount\": 0.00014378,\n        \"dollarRate\": 20822.19,\n        \"dollarAmount\": 2.99,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-21T20:49:29.800Z\",\n        \"updatedAt\": \"2022-06-21T20:50:28.887Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"3794fc1f-9bdd-472c-82c0-25c58e3dd8e8\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mtgGLPJU1s5YoQVBJ42amge6nLRaXndhXQ\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-ys6ThGynp#ADq#wJC2P1ty8xyxhXuw\",\n        \"description\": null,\n        \"amount\": 0.00099783,\n        \"dollarRate\": 20043.51,\n        \"dollarAmount\": 20,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-22T16:05:51.253Z\",\n        \"updatedAt\": \"2022-06-22T16:06:19.764Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"57aa1c1c-01bf-4546-942e-c496069d1656\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mtgGLPJU1s5YoQVBJ42amge6nLRaXndhXQ\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-I#X$EFHMsmzH9gAmqXFy1bo9U1XTO8\",\n        \"description\": \"wrghrigr\",\n        \"amount\": 0.00100567,\n        \"dollarRate\": 19887.26,\n        \"dollarAmount\": 20,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-22T16:07:36.375Z\",\n        \"updatedAt\": \"2022-06-22T16:08:22.124Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"21486d8d-30bd-48b8-b1de-cc345f056d07\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"tb1qehflylquqg45u8syg9253x3l4485u5zf3w5yex\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-qgFwSAzbttxd90i5VQzKNbw6V28BrC\",\n        \"description\": \"fwhfuwhfguwhgh\",\n        \"amount\": 0.00105694,\n        \"dollarRate\": 19874.53,\n        \"dollarAmount\": 21.01,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-06-22T16:09:26.007Z\",\n        \"updatedAt\": \"2022-06-22T16:10:24.011Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"d31fc1f5-8e1c-496d-b4fb-750895c8b94b\",\n        \"status\": \"PENDING\",\n        \"subStatus\": \"BLOCKED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-8C2806KxUYggQ#KQSSjY0gKRF0b2FL\",\n        \"description\": null,\n        \"amount\": 0.00289479,\n        \"dollarRate\": 19347.14,\n        \"dollarAmount\": 56.01,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-10-24T13:21:30.481Z\",\n        \"updatedAt\": \"2022-10-24T13:21:31.884Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"00ddf5e4-8621-4cd7-877b-94ebc7c78c06\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"DEPOSIT\",\n        \"hash\": \"69059e96abe4015942eeec2ab0898f0a02a69b1fd6fc65b5b4db2e3d6854f1e8\",\n        \"confirmation\": 6,\n        \"depositId\": \"8b4794fb-b803-4df5-b5b3-34ec83da75ce\",\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": \"\",\n        \"transactionRef\": \"TRX-P8W2SCEp7emJzSfBQ4Gp7kNX$FyGdi\",\n        \"description\": null,\n        \"amount\": 0.00035517,\n        \"dollarRate\": 20711.17,\n        \"dollarAmount\": 7.3559862489,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-10-31T09:50:50.793Z\",\n        \"updatedAt\": \"2022-10-31T10:44:55.315Z\",\n        \"completedAt\": \"2022-10-31T10:44:55.315Z\",\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"6a829991-c5ed-4abf-9aa0-b96c92318f14\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"DEPOSIT\",\n        \"hash\": \"5d3c0e049cd9d43c136b479f4c26f49582df74b34894ed2b88313232b7fdfe18\",\n        \"confirmation\": 6,\n        \"depositId\": \"fa34656c-f37c-4519-ad98-2aba656082c3\",\n        \"transferId\": null,\n        \"address\": \"tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv\",\n        \"fromAddress\": \"\",\n        \"transactionRef\": \"TRX-2Ezphvzv$R9A2zCgafqFYKDkk3Cj#R\",\n        \"description\": null,\n        \"amount\": 0.00001,\n        \"dollarRate\": 16638.67,\n        \"dollarAmount\": 0.1663867,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-11-17T20:06:52.799Z\",\n        \"updatedAt\": \"2022-11-17T20:34:57.895Z\",\n        \"completedAt\": \"2022-11-17T20:34:57.895Z\",\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"1b334602-694d-4939-83d9-8af00f9cc687\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"FEE\",\n        \"hash\": \"590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517\",\n        \"confirmation\": 1,\n        \"depositId\": null,\n        \"transferId\": \"95323f3c-2de8-48ba-9438-4a98b89dc130\",\n        \"address\": \"n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo-fee\",\n        \"description\": \"Transaction fee\",\n        \"amount\": 0.00008125,\n        \"dollarRate\": 44043.52,\n        \"dollarAmount\": 3.578536,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-02-09T18:25:23.605Z\",\n        \"updatedAt\": \"2022-02-11T00:04:15.420Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"fa40afaa-c4e1-462c-b19e-a4642dc5ff33\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"TRANSFER\",\n        \"hash\": \"590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517\",\n        \"confirmation\": 1,\n        \"depositId\": null,\n        \"transferId\": \"95323f3c-2de8-48ba-9438-4a98b89dc130\",\n        \"address\": \"n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo\",\n        \"description\": null,\n        \"amount\": 0.00015885,\n        \"dollarRate\": 44043.52,\n        \"dollarAmount\": 7,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2022-02-09T18:25:23.605Z\",\n        \"updatedAt\": \"2023-05-04T11:12:38.241Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"4a7a21a8-693b-4085-8af6-f549ceaddb01\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"FEE\",\n        \"hash\": \"9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1\",\n        \"confirmation\": 0,\n        \"depositId\": null,\n        \"transferId\": \"ee33e2df-f0f8-450b-b8d6-fdebb7ddd108\",\n        \"address\": \"ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-RjPoWYymQU2mNePfJCYuz5VIO01KDV-fee\",\n        \"description\": \"Transaction fee\",\n        \"amount\": 0.00001145,\n        \"dollarRate\": 36576.84,\n        \"dollarAmount\": 0.418804818,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2023-11-22T10:32:22.470Z\",\n        \"updatedAt\": \"2023-11-22T11:15:16.906Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"1c3ae573-d01c-45ed-9f7e-8b1f502a04c2\",\n        \"status\": \"SUCCESS\",\n        \"subStatus\": \"SUCCESS\",\n        \"type\": \"TRANSFER\",\n        \"hash\": \"9065bafa0973b67aac7de3d4bda561e2f2812a8b6aadbbe71092f4c1cf6be5d1\",\n        \"confirmation\": 1,\n        \"depositId\": null,\n        \"transferId\": \"ee33e2df-f0f8-450b-b8d6-fdebb7ddd108\",\n        \"address\": \"ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-RjPoWYymQU2mNePfJCYuz5VIO01KDV\",\n        \"description\": null,\n        \"amount\": 0.00000547,\n        \"dollarRate\": 36576.84,\n        \"dollarAmount\": 0.2,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": null,\n        \"errorMessage\": null,\n        \"createdAt\": \"2023-11-22T10:32:22.470Z\",\n        \"updatedAt\": \"2023-11-22T11:15:16.886Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"6cad6ded-159a-409a-a8a2-ca8693779f46\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"FAILED\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": null,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD\",\n        \"fromAddress\": null,\n        \"transactionRef\": \"BTP-posnoaioyIbG3YbLGy5pIHKULH676n\",\n        \"description\": null,\n        \"amount\": 0.00008894,\n        \"dollarRate\": 33731.0300000468,\n        \"dollarAmount\": 3,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": \"Could not complete the transaction\",\n        \"errorMessage\": \"Could not complete the transaction\",\n        \"createdAt\": \"2023-10-24T15:30:03.385Z\",\n        \"updatedAt\": \"2023-10-24T15:30:07.491Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"c3041537-35cb-4b07-bebb-239ad56d92fa\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"ERROR\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": 0,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"transactionRef\": \"BTP-86U9V2nrdcgIzIpyns7rc3esPADI#6\",\n        \"description\": \"Testing Here\",\n        \"amount\": 0.00001,\n        \"dollarRate\": 68889.35,\n        \"dollarAmount\": 0.69,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": \"\\\"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 \\\"\",\n        \"errorMessage\": \"\\\"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 \\\"\",\n        \"createdAt\": \"2024-03-05T15:10:07.113Z\",\n        \"updatedAt\": \"2024-03-05T15:10:11.857Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      },\n      {\n        \"uid\": \"dc01d799-cae0-49fa-bba8-b0428839fe09\",\n        \"status\": \"FAILED\",\n        \"subStatus\": \"ERROR\",\n        \"type\": \"TRANSFER\",\n        \"hash\": null,\n        \"confirmation\": 0,\n        \"depositId\": null,\n        \"transferId\": null,\n        \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"fromAddress\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n        \"transactionRef\": \"BTP-zq4ULe5TXivNv8DO$EzLXe0ntlV7Bf\",\n        \"description\": \"Testing Here\",\n        \"amount\": 0.00001,\n        \"dollarRate\": 68454.075,\n        \"dollarAmount\": 0.68,\n        \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n        \"assetType\": \"BTC\",\n        \"chain\": \"BITCOIN\",\n        \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n        \"errorReason\": \"\\\"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 \\\"\",\n        \"errorMessage\": \"\\\"Transaction signature process failed with error: Amount available is lower than amount to send out: Available 0 Sending:0.00001 \\\"\",\n        \"createdAt\": \"2024-03-08T23:28:34.107Z\",\n        \"updatedAt\": \"2024-03-08T23:28:54.494Z\",\n        \"completedAt\": null,\n        \"cancelledAt\": null\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e836c01-cc89-43ae-99ba-5483593e5e33",
+          "name": "Get assets accounts",
+          "request": {
+            "name": "Get assets accounts",
+            "description": {
+              "content": "This endpoint returns all assets in an account/wallet",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountId",
+                  "value": "<string>",
+                  "description": "(Required) The uid of the account/wallet you want to get assets."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of assets per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort assets by asc or desc."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "18cb9fa6-65b4-46a7-b4ca-fc4283b44c76",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountId",
+                      "value": "gjhsj-nbsjbhsk-kjbhgshjs"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "6"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": 1,\n  \"totalPages\": 2,\n  \"data\": [\n    {\n      \"uid\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"guid\": \"5da79336-49a6-4cf0-b056-f8c9e38a0b63\",\n      \"label\": \"Bitcoin\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"BITCOIN\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"BTC\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2021-12-12T15:15:56.266Z\",\n      \"balance\": {\n        \"received\": \"0.00334066\",\n        \"sent\": \"0.00001692\",\n        \"balance\": \"0.00332374\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"43c6b802-cd3d-4ccc-acbc-cbd0d5c956d4\",\n      \"guid\": \"3d897193-aeca-4280-a3de-a4e70df98e5a\",\n      \"label\": \"Bitcoin Cash\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"BITCOINCASH\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"BCH\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2021-12-14T07:07:27.129Z\",\n      \"balance\": {\n        \"received\": \"0.0\",\n        \"sent\": \"0.0\",\n        \"balance\": \"0.0\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0.0\"\n      }\n    },\n    {\n      \"uid\": \"208423b4-ad4f-4146-84f0-e1982192b1c8\",\n      \"guid\": \"2df525d7-f15c-41ca-ace4-4b03ee79b59e\",\n      \"label\": \"Litecoin\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"LITECOIN\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"LTC\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2021-12-17T12:33:42.754Z\",\n      \"balance\": {\n        \"received\": \"0.133702\",\n        \"sent\": \"0.06763646\",\n        \"balance\": \"0.06606554\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"d8653877-fb96-4523-81b1-e51c0d161d23\",\n      \"guid\": \"e95e95b8-cd23-43e3-b40b-a5298c82b27b\",\n      \"label\": \"Ethereum\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"ETHEREUM\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"ETH\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2021-12-17T12:37:25.636Z\",\n      \"balance\": {\n        \"received\": \"0.23543357\",\n        \"sent\": \"0.235370895066691006\",\n        \"balance\": \"0.000062674933308994\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"85ebb683-7f17-4098-89f2-683e4bb8dd6f\",\n      \"guid\": \"ae790f48-7434-4112-8021-7a4e6bfe8c81\",\n      \"label\": \"BNB (BSC)\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"BSC\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"BSC\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2022-01-26T17:28:34.290Z\",\n      \"balance\": {\n        \"received\": \"0.0\",\n        \"sent\": \"0.0\",\n        \"balance\": \"0.0\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0.0\"\n      }\n    },\n    {\n      \"uid\": \"ce5d4fe0-407c-4d39-80bd-07c9027ceaca\",\n      \"guid\": \"e012a523-0236-41d2-b5bd-2316fb88bcc5\",\n      \"label\": \"Tron (TRX)\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"TRON\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"TRON\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2022-01-26T17:28:51.711Z\",\n      \"balance\": {\n        \"received\": \"55.422050\",\n        \"sent\": \"54.331273\",\n        \"balance\": \"1.090777\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"62123e6d-dfe5-4ca9-8fcd-653ead5938f1\",\n      \"guid\": \"4643099f-5e2b-47bf-b7ab-29dbab53954b\",\n      \"label\": \"Matic\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"POLYGON\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"MATIC\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2022-01-26T17:29:08.155Z\",\n      \"balance\": {\n        \"received\": \"0.32947691\",\n        \"sent\": \"0.326090521763289924\",\n        \"balance\": \"0.003386388236710076\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"770d2ea6-2d6b-4b08-aa35-ea2358e77ba9\",\n      \"guid\": \"78878a41-b59b-4878-a2ec-35570c084ad2\",\n      \"label\": \"TUSDC (MATIC)\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"POLYGON\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"TUSDC_MATIC\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2022-07-04T09:53:54.238Z\",\n      \"balance\": {\n        \"received\": \"24391.98\",\n        \"sent\": \"22211.09340773\",\n        \"balance\": \"2180.88659227\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"f49f0653-68e5-42f5-b57a-12c0d5779f30\",\n      \"guid\": \"7368a132-726c-4f1f-8ab0-155a27bc8031\",\n      \"label\": \"Celo\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"CELO\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"CELO\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2022-08-23T09:09:04.886Z\",\n      \"balance\": {\n        \"received\": \"3.24393581\",\n        \"sent\": \"1.38923151\",\n        \"balance\": \"1.85470430\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0\"\n      }\n    },\n    {\n      \"uid\": \"c88e0db3-9015-4cdb-81ab-e62b8e64a49c\",\n      \"guid\": \"fe360001-3833-4937-aa1e-ada4bdb667e8\",\n      \"label\": \"Solana\",\n      \"isDeleted\": false,\n      \"isArchived\": false,\n      \"isContract\": false,\n      \"chain\": \"SOLANA\",\n      \"network\": \"TESTNET\",\n      \"mode\": \"TEST\",\n      \"assetType\": \"SOL\",\n      \"autoForwardAddress\": null,\n      \"createdAt\": \"2022-09-02T02:57:30.433Z\",\n      \"balance\": {\n        \"received\": \"0.0\",\n        \"sent\": \"0.0\",\n        \"balance\": \"0.0\",\n        \"pending\": \"0.0\",\n        \"blocked\": \"0.0\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4406979e-52ca-4de4-b301-afea04698b70",
+          "name": "Get assets",
+          "request": {
+            "name": "Get assets",
+            "description": {
+              "content": "This endpoint returns an asset",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) The uid of the account/wallet you want to get assets."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46464607-19d5-4bbe-ba31-d903346ac5aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The uid of the account/wallet you want to get assets."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"uid\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n    \"guid\": \"5da79336-49a6-4cf0-b056-f8c9e38a0b63\",\n    \"label\": \"Bitcoin\",\n    \"isDeleted\": false,\n    \"isArchived\": false,\n    \"isContract\": false,\n    \"chain\": \"BITCOIN\",\n    \"network\": \"TESTNET\",\n    \"mode\": \"TEST\",\n    \"assetType\": \"BTC\",\n    \"autoForwardAddress\": null,\n    \"createdAt\": \"2021-12-12T15:15:56.266Z\",\n    \"balance\": {\n      \"received\": \"0.00334066\",\n      \"sent\": \"0.00001692\",\n      \"balance\": \"0.00332374\",\n      \"pending\": \"0.0\",\n      \"blocked\": \"0\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d92b87c-8228-44ba-90b4-96258b9a9d9b",
+          "name": "Get assets balance",
+          "request": {
+            "name": "Get assets balance",
+            "description": {
+              "content": "This endpoint returns an asset's balance",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                ":assetId",
+                "balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80ad7bbe-a3df-4740-8f2f-83f57997e284",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"received\": \"2087.82\",\n    \"sent\": \"0.00\",\n    \"balance\": \"2087.82\",\n    \"pending\": \"48.21\",\n    \"blocked\": \"0.00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d947692-9426-4350-a30b-4ce28b3e7801",
+          "name": "Get assets by accountId",
+          "request": {
+            "name": "Get assets by accountId",
+            "description": {
+              "content": "This endpoint returns details of an address by using the `accountId`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                ":accountId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId of the account/wallet you want to get assets."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91cdde21-2707-45d5-9941-75c54bf64147",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":accountId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId of the account/wallet you want to get assets."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"uid\": \"c88e0db3-9015-4cdb-81ab-e62b8e64a49c\",\n    \"guid\": \"fe360001-3833-4937-aa1e-ada4bdb667e8\",\n    \"label\": \"Solana\",\n    \"isDeleted\": false,\n    \"isArchived\": false,\n    \"isContract\": false,\n    \"chain\": \"SOLANA\",\n    \"network\": \"TESTNET\",\n    \"mode\": \"TEST\",\n    \"assetType\": \"SOL\",\n    \"autoForwardAddress\": null,\n    \"createdAt\": \"2022-09-02T02:57:30.433Z\",\n    \"balance\": {\n      \"received\": \"0.0\",\n      \"sent\": \"0.0\",\n      \"balance\": \"0.0\",\n      \"pending\": \"0.0\",\n      \"blocked\": \"0.0\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "945ca10c-8f7a-4ccd-9125-243b850a29e5",
+          "name": "Get assets transaction",
+          "request": {
+            "name": "Get assets transaction",
+            "description": {
+              "content": "This endpoint gets an asset's transactions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "assets",
+                ":assetId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "The page offset"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<number>",
+                  "description": "The number of transactions per request."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Sort transactions by asc or desc."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ad3dea15-a007-42d2-b51a-27a959fcaff4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "assets",
+                    ":assetId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "8"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"page\": 1,\n  \"totalPages\": 3,\n  \"data\": [\n    {\n      \"uid\": \"ba0baa6a-329f-486f-be13-fbcbfa1766f3\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"DEPOSIT\",\n      \"hash\": \"4a9f7116ebd04f039999b8c6b36fb616f29863c42df686aef8d0f07016133dd3\",\n      \"confirmation\": 1,\n      \"depositId\": \"3342d64c-b9a5-4cb9-93ea-d6f46ed928ec\",\n      \"transferId\": null,\n      \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"TRX-bqDHNLH4NfivfZcAppiuilOpFGzp$g\",\n      \"description\": null,\n      \"amount\": 0.001,\n      \"dollarRate\": 49730.11,\n      \"dollarAmount\": 49.73011,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2021-12-12T15:19:17.899Z\",\n      \"updatedAt\": \"2021-12-12T15:19:17.985Z\",\n      \"completedAt\": \"2021-12-12T15:19:17.985Z\",\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"7dbac6f1-53b0-46ed-b950-50f3f8a187f9\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"DEPOSIT\",\n      \"hash\": \"97fe9f8fcd1e3b8779e269b824f0cb48723adb61d1c2780960830850429d9bb5\",\n      \"confirmation\": 1,\n      \"depositId\": \"17f49099-dc63-4dac-b284-dbdc6b9fbb9b\",\n      \"transferId\": null,\n      \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"TRX-atJnrcDbzERah1VpcPbWIGAi4B#Myo\",\n      \"description\": null,\n      \"amount\": 0.001,\n      \"dollarRate\": 47484.26,\n      \"dollarAmount\": 47.48426,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2021-12-15T13:24:08.248Z\",\n      \"updatedAt\": \"2021-12-15T13:24:08.326Z\",\n      \"completedAt\": \"2021-12-15T13:24:08.326Z\",\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"581f86e5-9d2a-4b9c-a526-bfc114d79e0e\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"DEPOSIT\",\n      \"hash\": \"45bc88b56e7c0100a0f6a7b9c97149a4bff2c44a92f0acf9bfb2adce85c00cb1\",\n      \"confirmation\": 1,\n      \"depositId\": \"ef093edc-bfb0-4544-a1f8-da4d97a12bf7\",\n      \"transferId\": null,\n      \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"TRX-jAS0HsfNGjv1ml5FsV5xBnXeoMNtGe\",\n      \"description\": null,\n      \"amount\": 0.00077549,\n      \"dollarRate\": 42053.99,\n      \"dollarAmount\": 32.6124487051,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2022-01-19T17:41:17.507Z\",\n      \"updatedAt\": \"2022-01-19T17:41:17.606Z\",\n      \"completedAt\": \"2022-01-19T17:41:17.606Z\",\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"fa40afaa-c4e1-462c-b19e-a4642dc5ff33\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"TRANSFER\",\n      \"hash\": \"590a1eed4234471897402019a352676099ffc33f048617bf5a740f408fbfc517\",\n      \"confirmation\": 1,\n      \"depositId\": null,\n      \"transferId\": \"95323f3c-2de8-48ba-9438-4a98b89dc130\",\n      \"address\": \"n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-QFG87evrwFuqBzZa$jw2l4H4xryFFo\",\n      \"description\": null,\n      \"amount\": 0.00015885,\n      \"dollarRate\": 44043.52,\n      \"dollarAmount\": 7,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2022-02-09T18:25:23.605Z\",\n      \"updatedAt\": \"2023-05-04T11:12:38.241Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"2da31740-b1dc-486d-a576-4e5fadd43034\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"mjnG5NQmA1YPdK2xBzBrBKgpHxFb2obQSm\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-8mpR1vgpCez6kU6uv9m9nAZAg3LNt8\",\n      \"description\": null,\n      \"amount\": 0.00045885,\n      \"dollarRate\": 43572.01,\n      \"dollarAmount\": 19.99,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": \"Request failed with status code 403\",\n      \"createdAt\": \"2022-02-16T18:08:38.289Z\",\n      \"updatedAt\": \"2022-02-16T18:09:25.220Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"3a2b75ae-042d-4da1-8044-904cb0443b87\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"ms9KK3br5kSYtHxsK1FXfkDHQT6imQ9iyD\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-PSEk5JKEAIHPO1nr0rqsZ4RBWNmsF#\",\n      \"description\": null,\n      \"amount\": 0.00043494,\n      \"dollarRate\": 43704.24,\n      \"dollarAmount\": 19.01,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": \"Request failed with status code 403\",\n      \"createdAt\": \"2022-02-16T18:31:07.981Z\",\n      \"updatedAt\": \"2022-02-16T18:31:29.340Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"4832a346-625f-44f0-990f-54ab0856e2b5\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"n4ZhTVfiUUn9uSgDg5RA28wMT3EJ3fJ2pp\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-$CEtJjCeJb2ONpELXmOv7j1fRrwfAO\",\n      \"description\": null,\n      \"amount\": 0.00041202,\n      \"dollarRate\": 43681.31,\n      \"dollarAmount\": 18,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": \"Request failed with status code 403\",\n      \"createdAt\": \"2022-02-17T05:22:57.971Z\",\n      \"updatedAt\": \"2022-02-17T05:24:02.119Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"b08bd0f8-f911-4732-b1da-4ee2ae84576f\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"mpnb2LDU9qxU9xQPPSq7fdEFjrmcC7LmQw\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-YINqm$0WZFPQSxG8$fGX17bXb8RdpY\",\n      \"description\": null,\n      \"amount\": 0.00077299,\n      \"dollarRate\": 38795.81,\n      \"dollarAmount\": 29.99,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": \"Request failed with status code 403\",\n      \"createdAt\": \"2022-04-25T13:18:31.220Z\",\n      \"updatedAt\": \"2022-04-25T13:19:09.582Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"320c60b4-af18-4ebd-b8ac-f3b6e9fcd435\",\n      \"status\": \"SUCCESS\",\n      \"subStatus\": \"SUCCESS\",\n      \"type\": \"DEPOSIT\",\n      \"hash\": \"ffeb91556fb5af32d15aa1c0d3244ebf2e6b6d7cd8371e13bc2de442bc36fc66\",\n      \"confirmation\": 6,\n      \"depositId\": \"552325ab-6771-40e5-aa3e-cfd00fef0578\",\n      \"transferId\": null,\n      \"address\": \"tb1qsjrjq7y8k47uc3ts7073h3s8empxzwf55gs6uv\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"TRX-pymDGTnjJTN4tGNRInvs6DPerodGKV\",\n      \"description\": null,\n      \"amount\": 0.0002,\n      \"dollarRate\": 21429.15,\n      \"dollarAmount\": 4.28583,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2022-06-21T16:23:47.359Z\",\n      \"updatedAt\": \"2022-06-21T16:36:15.217Z\",\n      \"completedAt\": \"2022-06-21T16:36:15.217Z\",\n      \"cancelledAt\": null\n    },\n    {\n      \"uid\": \"743828cf-9636-4053-8ceb-81e15e6aa182\",\n      \"status\": \"FAILED\",\n      \"subStatus\": \"FAILED\",\n      \"type\": \"TRANSFER\",\n      \"hash\": null,\n      \"confirmation\": null,\n      \"depositId\": null,\n      \"transferId\": null,\n      \"address\": \"tb1ql0rvausepq4v9vg9h33aac435c3lf0k8y3syuz\",\n      \"fromAddress\": null,\n      \"transactionRef\": \"BTP-b9cPqmtP$gbzH#OOgAbbjjfVmYBLmk\",\n      \"description\": null,\n      \"amount\": 0.00023331,\n      \"dollarRate\": 21431.12,\n      \"dollarAmount\": 5,\n      \"assetId\": \"564ae50d-7285-417d-96aa-c8b99b06467a\",\n      \"assetType\": \"BTC\",\n      \"chain\": \"BITCOIN\",\n      \"organizationId\": \"0ed32cca-14b2-4fd0-8221-bd1c4e752198\",\n      \"errorReason\": null,\n      \"errorMessage\": null,\n      \"createdAt\": \"2022-06-21T16:26:54.873Z\",\n      \"updatedAt\": \"2022-06-21T16:27:11.272Z\",\n      \"completedAt\": null,\n      \"cancelledAt\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developers.bitpowr.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da43addc-91bf-4c1e-950c-da5407f74af7",
+    "name": "Bitpowr Reference Account Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bitpowr Reference Account Address API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Address",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add Trustline Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/add_trustline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint enables trustline assets on Stellar blockchains"
+        },
+        {
+          "info": {
+            "name": "Get addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/addresses",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "query",
+                "description": "The assetId of the addresses you want to get."
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "query",
+                "description": "The accountId of the addresses you want to get."
+              },
+              {
+                "name": "subAccountId",
+                "value": "",
+                "type": "query",
+                "description": "The subAccountId of the addresses you want to get."
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "The customerId of the addresses you want to get."
+              },
+              {
+                "name": "minBalance",
+                "value": "",
+                "type": "query",
+                "description": "Minimum balance of the addresses."
+              },
+              {
+                "name": "maxBalance",
+                "value": "",
+                "type": "query",
+                "description": "Maximum balance of the addresses."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Specific address you want to get details for."
+              },
+              {
+                "name": "derivationIndex",
+                "value": "",
+                "type": "query",
+                "description": "The derivation index of the address you want query"
+              },
+              {
+                "name": "asset",
+                "value": "",
+                "type": "query",
+                "description": "Asset type of the addresses."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of addresses per request."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort addresses by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint gets details of an address"
+        },
+        {
+          "info": {
+            "name": "Create addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/addresses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint generates new addresses"
+        },
+        {
+          "info": {
+            "name": "Create whitelist address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/whitelist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a whitelist address"
+        },
+        {
+          "info": {
+            "name": "Generate XLM Authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/generate_xlm_auth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint generates XLM authentication information."
+        },
+        {
+          "info": {
+            "name": "Get addresses balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/:addressId/balance",
+            "params": [
+              {
+                "name": "addressId",
+                "value": "",
+                "type": "path",
+                "description": "The addressId of the balance you want to get."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the balance of an address"
+        },
+        {
+          "info": {
+            "name": "Get addresses by addressId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/:addressId",
+            "params": [
+              {
+                "name": "addressId",
+                "value": "",
+                "type": "path",
+                "description": "The uid of the address you want to get."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns details of an address by using the `addressId`"
+        },
+        {
+          "info": {
+            "name": "Get addresses transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/:addressId/transactions",
+            "params": [
+              {
+                "name": "addressId",
+                "value": "",
+                "type": "path",
+                "description": "The addressId of the transaction you want to get."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page offset"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of transactions per request."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort transactions by asc or desc."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns all transactions of an address"
+        },
+        {
+          "info": {
+            "name": "Check if an address is powered by Bitpowr",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/isbitpowr_addresss",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to check."
+              },
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "query",
+                "description": "The type of asset associated with the address."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint checks if an address is powered by Bitpowr for a specific asset type."
+        },
+        {
+          "info": {
+            "name": "Stacking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developers.bitpowr.com/api/v1/addresses/stacking",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint performs stacking operations on a specific address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
