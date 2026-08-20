@@ -107,6 +107,8 @@ apis:
   humanURL: https://docs.bitpowr.com/reference/api-reference
   baseURL: https://developers.bitpowr.com/api/v1
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
@@ -138,7 +140,8 @@ apis:
   description: The Others API from BitPowr Technologies, Inc. — 2 operation(s) for others.
   humanURL: https://docs.bitpowr.com/reference/api-reference
   baseURL: https://developers.bitpowr.com/api/v1
-  tags:
+  tags: []
+  tags_raw:
   - Others
   properties:
   - type: OpenAPI
