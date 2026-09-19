@@ -139,6 +139,8 @@ apis:
   humanURL: https://docs.bitpowr.com/reference/api-reference
   baseURL: https://developers.bitpowr.com/api/v1
   tags:
+  - Markets
+  tags_raw:
   - Market
   properties:
   - type: OpenAPI
