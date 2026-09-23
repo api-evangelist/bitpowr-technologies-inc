@@ -30,7 +30,7 @@ actions:
       description: >-
         Dashboard API key sent as `Authorization: Basic <API_KEY>` — the scoped
         alternative to the full public/secret Bearer token.
-notes: >-
+x-notes: >-
   Overlay captures API Evangelist enrichment (source provenance, artifact
   cross-links, documented API-key scheme). The original harvested spec is not
   mutated.

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Bitpowr Reference Account Assets API
+  title: Bitpowr Reference Assets API
   contact: {}
   version: '1.0'
   x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
@@ -98,8 +98,9 @@ paths:
                       enableAutoForwarding:
                         type: boolean
                       autoForwardAddress:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       createdAt:
                         type: string
                       balance:
@@ -943,8 +944,9 @@ paths:
                         enableAutoForwarding:
                           type: boolean
                         autoForwardAddress:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         createdAt:
                           type: string
                         balance:
@@ -1292,8 +1294,9 @@ paths:
                       enableAutoForwarding:
                         type: boolean
                       autoForwardAddress:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       createdAt:
                         type: string
                       balance:
@@ -1518,8 +1521,9 @@ paths:
                       addressRef:
                         type: string
                       autoForwardAddress:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       network:
                         type: string
                       assetType:
@@ -1535,13 +1539,15 @@ paths:
                       organizationId:
                         type: string
                       subAccountId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       used:
                         type: boolean
                       lastUsedAt:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       createdAt:
                         type: string
                     example:
@@ -1702,20 +1708,23 @@ paths:
                         depositId:
                           type: string
                         transferId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         address:
                           type: string
                         transactionRef:
                           type: string
                         fromAddress:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         mode:
                           type: string
                         description:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         amount:
                           type: string
                         dollarRate:
@@ -1733,8 +1742,9 @@ paths:
                         completedAt:
                           type: string
                         cancelledAt:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                       example:
                         uid: ed27509f-6d0b-4390-a7ce-94323e8e81fb
                         guid: 4b63ca22-2b21-4891-bfba-2683384084f4

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Bitpowr Reference Account Market API
+  title: Bitpowr Reference Market API
   contact: {}
   version: '1.0'
   x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
@@ -1061,7 +1061,7 @@ paths:
       tags:
       - Market
       summary: Get market price
-      description: 'This endpoint returns the current market price of crypto currencies '
+      description: This endpoint returns the current market price of crypto currencies
       operationId: Getmarketprice
       parameters:
       - name: currency

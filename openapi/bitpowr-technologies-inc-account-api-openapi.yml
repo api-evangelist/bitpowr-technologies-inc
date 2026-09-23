@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Bitpowr Reference Account API
   contact: {}
@@ -133,8 +133,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -1754,8 +1755,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -1858,8 +1860,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -1972,8 +1975,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -2123,8 +2127,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -2255,8 +2260,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -2382,8 +2388,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -2651,8 +2658,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -2735,8 +2743,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -2819,8 +2828,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -3303,8 +3313,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -3424,8 +3435,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:
@@ -3705,7 +3717,7 @@ paths:
       tags:
       - Account
       summary: Get transaction
-      description: This endpoint returns an account's transaction by it's  `txid`
+      description: This endpoint returns an account's transaction by it's `txid`
       operationId: GettransactionbytxId
       parameters:
       - name: uid
@@ -3763,8 +3775,9 @@ paths:
                   organizationId:
                     type: string
                   updatedAt:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   createdAt:
                     type: string
                   Address:

@@ -1,16 +1,7 @@
 {
   "provider": "bitpowr-technologies-inc",
   "sources": [
-    "bitpowr-technologies-inc-account-api-openapi.yml",
-    "bitpowr-technologies-inc-address-api-openapi.yml",
-    "bitpowr-technologies-inc-assets-api-openapi.yml",
-    "bitpowr-technologies-inc-customer-api-openapi.yml",
-    "bitpowr-technologies-inc-market-api-openapi.yml",
-    "bitpowr-technologies-inc-others-api-openapi.yml",
-    "bitpowr-technologies-inc-staking-api-openapi.yml",
-    "bitpowr-technologies-inc-swap-api-openapi.yml",
-    "bitpowr-technologies-inc-transaction-api-openapi.yml",
-    "bitpowr-technologies-inc-utils-api-openapi.yml"
+    "_original/bitpowr-technologies-inc-openapi.yml"
   ],
   "outputs": [
     "bitpowr-technologies-inc-account-api-openapi.yml",
@@ -27,6 +18,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bitpowr-technologies-inc-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "bitpowr-technologies-inc-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-address-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-customer-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-market-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-others-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-staking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-swap-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-transaction-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bitpowr-technologies-inc-utils-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

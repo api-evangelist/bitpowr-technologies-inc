@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Bitpowr Reference Account Transaction API
+  title: Bitpowr Reference Transaction API
   contact: {}
   version: '1.0'
   x-apievangelist-source: reconstructed from docs.bitpowr.com ReadMe per-operation OpenAPI fragments (2026-07-18)
@@ -587,8 +587,9 @@ paths:
                         depositId:
                           type: string
                         transferId:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         address:
                           type: string
                         hash:
@@ -599,8 +600,9 @@ paths:
                         transactionRef:
                           type: string
                         description:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         amount:
                           type: string
                         dollarRate:
@@ -614,11 +616,13 @@ paths:
                         createdAt:
                           type: string
                         completedAt:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                         cancelledAt:
-                          type: string
-                          nullable: true
+                          type:
+                          - string
+                          - 'null'
                       example:
                         uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
                         status: PENDING
@@ -1097,8 +1101,9 @@ paths:
                       depositId:
                         type: string
                       transferId:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       address:
                         type: string
                       hash:
@@ -1109,8 +1114,9 @@ paths:
                       transactionRef:
                         type: string
                       description:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       amount:
                         type: string
                       dollarRate:
@@ -1124,11 +1130,13 @@ paths:
                       createdAt:
                         type: string
                       completedAt:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                       cancelledAt:
-                        type: string
-                        nullable: true
+                        type:
+                        - string
+                        - 'null'
                     example:
                       uid: ae866891-9629-4bbf-85c0-9753ebbf57c9
                       status: PENDING
